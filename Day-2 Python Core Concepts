@@ -1,0 +1,281 @@
+🐍 DAY-2: Python Core Concepts
+
+⚙️ Python Operators
+
+Operators are symbols used to **perform operations on variables and values**.
+
+➕ Arithmetic Operators
+
+Used for mathematical calculations.
+
+| Operator | Meaning        | Example   | Output  |
+| -------- | -------------- | --------- | ------- |
+| `+`      | Addition       | `15 + 4`  | `19`    |
+| `-`      | Subtraction    | `15 - 4`  | `11`    |
+| `*`      | Multiplication | `15 * 4`  | `60`    |
+| `/`      | Division       | `15 / 4`  | `3.75`  |
+| `//`     | Floor Division | `15 // 4` | `3`     |
+| `%`      | Modulus        | `15 % 4`  | `3`     |
+| `**`     | Power          | `15 ** 4` | `50625` |
+
+🔹 Python 3 always returns **float** for `/`
+
+🔍 Comparison Operators
+
+Used to compare values → returns **True / False**
+
+| Operator | Meaning          |
+| -------- | ---------------- |
+| `>`      | Greater than     |
+| `<`      | Less than        |
+| `==`     | Equal            |
+| `!=`     | Not equal        |
+| `>=`     | Greater or equal |
+| `<=`     | Less or equal    |
+
+```python
+a = 13
+b = 33
+a < b   # True
+```
+
+🔗 Logical Operators
+
+Used to combine conditions.
+
+| Operator | Meaning                 |
+| -------- | ----------------------- |
+| `and`    | True if both are true   |
+| `or`     | True if any one is true |
+| `not`    | Reverses result         |
+
+```python
+a = True
+b = False
+a and b   # False
+a or b    # True
+```
+
+🧠 Bitwise Operators
+
+Work at **binary (bit) level**.
+
+| Operator | Meaning     |    |
+| -------- | ----------- | -- |
+| `&`      | AND         |    |
+| `        | `           | OR |
+| `^`      | XOR         |    |
+| `~`      | NOT         |    |
+| `<<`     | Left shift  |    |
+| `>>`     | Right shift |    |
+
+```python
+a = 10
+b = 4
+a & b    # 0
+a << 2   # 40
+```
+
+📝 Assignment Operators
+
+Assign and update values.
+
+```python
+a = 10
+a += 5   # 15
+a *= 2   # 20
+```
+
+🆔 Identity Operators
+
+Check **memory location**, not value.
+
+| Operator | Meaning          |
+| -------- | ---------------- |
+| `is`     | Same object      |
+| `is not` | Different object |
+
+```python
+a = [1,2]
+b = a
+c = [1,2]
+
+a is b     # True
+a is c     # False
+```
+
+---
+
+📦 Membership Operators
+
+Check value in a collection.
+
+| Operator | Meaning    |
+| -------- | ---------- |
+| `in`     | Exists     |
+| `not in` | Not exists |
+
+```python
+nums = [10,20,30]
+20 in nums     # True
+```
+
+❓ Ternary Operator
+
+One-line condition.
+
+```python
+min_val = a if a < b else b
+```
+
+🔢 Operator Precedence
+
+Order of execution.
+
+```python
+10 + 20 * 30   # 610
+2 ** 3 ** 2    # 512
+```
+
+📦 Python Data Types
+
+Python classifies data to decide **what operations are allowed**.
+
+> Everything in Python is an **object**
+
+🔢 Numeric Types
+
+| Type      | Example  |
+| --------- | -------- |
+| `int`     | `10`     |
+| `float`   | `10.5`   |
+| `complex` | `2 + 3j` |
+
+```python
+type(10)     # int
+```
+
+📜 Sequence Types
+
+🧵 String (`str`)
+
+* Immutable
+* Indexed
+
+```python
+s = "Python"
+s[0]   # P
+```
+
+📋 List (`list`)
+
+* Ordered
+* Mutable
+* Allows mixed data
+
+```python
+lst = [1, "a", 3.5]
+lst[1] = "b"
+```
+
+📦 Tuple (`tuple`)
+
+* Ordered
+* Immutable
+
+```python
+t = (1, 2, 3)
+```
+
+✅ Boolean (`bool`)
+
+* Values: `True`, `False`
+
+```python
+bool(1)   # True
+bool(0)   # False
+```
+
+🧺 Set (`set`)
+
+* Unordered
+* No duplicates
+* No indexing
+
+```python
+s = {1,2,2,3}
+# {1,2,3}
+```
+
+🗂 Dictionary (`dict`)
+
+* Key-value pairs
+* Keys must be unique & immutable
+
+```python
+d = {"name": "Python", "year": 1991}
+d["name"]
+```
+
+🔀 Conditional Statements
+
+Used to **control program flow**.
+
+---
+
+🔹 if Statement
+
+```python
+if x > 0:
+    print("Positive")
+```
+
+🔹 if-else
+
+```python
+if x > 0:
+    print("Positive")
+else:
+    print("Negative")
+```
+
+🔹 elif (Multiple Conditions)
+
+```python
+if age < 18:
+    print("Minor")
+elif age < 60:
+    print("Adult")
+else:
+    print("Senior")
+```
+
+🔹 Nested if
+
+```python
+if age > 18:
+    if member:
+        print("Discount")
+```
+
+🔹 Shorthand if
+
+```python
+if x > 0: print("Positive")
+```
+
+🔹 Ternary Condition
+
+```python
+result = "Pass" if marks >= 40 else "Fail"
+```
+
+🔹 match-case (Python 3.10+)
+
+```python
+match day:
+    case 1:
+        print("Monday")
+    case _:
+        print("Invalid")
+```
