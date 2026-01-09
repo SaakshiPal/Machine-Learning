@@ -1,0 +1,284 @@
+🐍 DAY-3: Loops & Functions in Python
+
+🔁 Loops in Python
+
+Loops are used to execute a block of code repeatedly.
+
+Python supports:
+- `for` loop
+- `while` loop
+- Nested loops
+
+---
+
+🔹 for Loop
+
+Used to iterate over a sequence (list, tuple, string, range).
+
+```python
+for i in range(4):
+    print(i)
+````
+
+---
+
+Iterating Over Data Structures
+
+```python
+# List
+nums = [10, 20, 30]
+for n in nums:
+    print(n)
+
+# String
+for ch in "Python":
+    print(ch)
+
+# Dictionary
+data = {"a": 1, "b": 2}
+for key, value in data.items():
+    print(key, value)
+```
+
+---
+
+Index-Based Iteration
+
+```python
+nums = [10, 20, 30]
+for i in range(len(nums)):
+    print(nums[i])
+```
+
+---
+
+🔹 while Loop
+
+Executes as long as the condition is `True`.
+
+```python
+i = 1
+while i <= 3:
+    print("Hello")
+    i += 1
+```
+
+---
+
+Infinite Loop (Use Carefully)
+
+```python
+while True:
+    print("Running...")
+    break
+```
+
+---
+
+🔁 Nested Loops
+
+A loop inside another loop.
+
+```python
+for i in range(1, 4):
+    for j in range(i):
+        print(i, end=" ")
+    print()
+```
+
+---
+
+🛑 Loop Control Statements
+
+---
+
+break
+
+Stops the loop completely.
+
+```python
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+```
+
+---
+
+continue
+
+Skips current iteration.
+
+```python
+for i in range(5):
+    if i == 3:
+        continue
+    print(i)
+```
+
+---
+
+pass
+
+Placeholder (does nothing).
+
+```python
+for i in range(3):
+    pass
+```
+
+---
+
+🧩 Python Functions
+
+Functions are reusable blocks of code.
+
+---
+
+Function Definition
+
+```python
+def greet():
+    print("Hello World")
+
+greet()
+```
+
+---
+
+Function with Arguments
+
+```python
+def add(a, b):
+    return a + b
+
+print(add(5, 3))
+```
+
+---
+
+🧾 Types of Arguments
+
+---
+
+Positional Arguments
+
+```python
+def sub(a, b):
+    return a - b
+
+sub(10, 5)
+```
+
+---
+
+Keyword Arguments
+
+```python
+sub(b=5, a=10)
+```
+
+---
+
+Default Arguments
+
+```python
+def greet(name="User"):
+    print("Hello", name)
+
+greet()
+greet("Python")
+```
+
+---
+
+Arbitrary Arguments (`*args`)
+
+```python
+def total(*nums):
+    return sum(nums)
+
+print(total(1, 2, 3))
+```
+
+---
+
+Arbitrary Keyword Arguments (`**kwargs`)
+
+```python
+def details(**info):
+    print(info)
+
+details(name="Python", year=1991)
+```
+
+---
+
+🔁 Inner Functions
+
+```python
+def outer():
+    def inner():
+        print("Inner Function")
+    inner()
+
+outer()
+```
+
+---
+
+⚡ Lambda (Anonymous Function)
+
+```python
+square = lambda x: x * x
+print(square(5))
+```
+
+---
+
+🔙 Return Statement
+
+```python
+def calc(a, b):
+    return a + b, a - b
+
+res = calc(10, 5)
+print(res)
+```
+
+---
+
+🔄 Mutable vs Immutable in Functions
+
+```python
+# Mutable (List)
+def modify(lst):
+    lst.append(4)
+
+nums = [1, 2, 3]
+modify(nums)
+print(nums)  # Changed
+
+# Immutable (Integer)
+def change(x):
+    x = 10
+
+a = 5
+change(a)
+print(a)  # Not changed
+```
+
+---
+
+🔁 Recursion
+
+Function calling itself.
+
+```python
+def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))
+```
