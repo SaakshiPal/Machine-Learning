@@ -1,0 +1,335 @@
+🐍 DAY-5: Python Strings & Lists (Theory Notes)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧵 Python Strings
+
+What is a String?
+
+A **string** in Python is a sequence of characters used to represent text.
+Strings are enclosed in:
+
+* Single quotes `'text'`
+* Double quotes `"text"`
+
+Both behave **the same**.
+
+---
+
+Key Characteristics of Strings
+
+* Ordered sequence
+* **Immutable** (cannot be changed after creation)
+* Supports indexing & slicing
+* Iterable (can loop over characters)
+* No separate `char` type (single character = string of length 1)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Creating Strings
+
+Strings can be created using:
+
+* Single quotes
+* Double quotes
+* Triple quotes (for multi-line strings)
+
+```python
+s1 = "Python"
+s2 = 'Python'
+s3 = """ Multi
+Line
+String"""
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+String Indexing
+
+Strings support **positive and negative indexing**.
+
+* Positive index → starts from `0`
+* Negative index → starts from `-1` (last character)
+
+```python
+s = "Python"
+s[0]   # P
+s[-1]  # n
+```
+
+❗ Index must be an integer
+❗ Out-of-range index → `IndexError`
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+String Slicing
+
+Slicing extracts a **substring**.
+
+**Syntax**
+
+```python
+string[start : end : step]
+```
+
+Rules:
+
+* `start` → inclusive
+* `end` → exclusive
+* Default step = `1`
+* Negative step reverses string
+
+```python
+s = "Python"
+s[1:4]    # yth
+s[::-1]   # nohtyP
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+String Immutability
+
+Strings **cannot be modified** once created.
+
+❌ Invalid:
+
+```python
+s[0] = "J"
+```
+
+✔ Correct approach:
+
+* Create a **new string**
+* Use slicing, concatenation, or methods
+
+```python
+new_s = "J" + s[1:]
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Deleting Strings
+
+* Individual characters **cannot** be deleted
+* Entire string variable can be deleted using `del`
+
+```python
+del s
+```
+
+---
+
+Common String Operations
+
+Length
+
+Returns number of characters (including spaces)
+
+```python
+len("Hello World")  # 11
+```
+
+---
+
+Case Conversion
+
+* `upper()` → uppercase
+* `lower()` → lowercase
+
+---
+
+Whitespace Handling
+
+* `strip()` → removes leading & trailing spaces
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Replace
+
+* `replace(old, new)` → returns new string
+
+```python
+"hello".replace("h", "H")
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+String Concatenation & Repetition
+
+* `+` → concatenate strings
+* `*` → repeat strings
+
+```python
+"a" + "b"   # ab
+"a" * 3     # aaa
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+String Formatting
+
+f-Strings (Recommended)
+
+* Clean and readable
+* Introduced in Python 3.6+
+
+```python
+name = "Python"
+f"Hello {name}"
+```
+
+---
+
+format() Method
+
+Alternative to f-strings
+
+```python
+"Hello {}".format(name)
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Membership Testing
+
+Checks presence of substring.
+
+```python
+"Py" in "Python"     # True
+"Java" not in "Python"
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📋 Python Lists
+
+What is a List?
+
+A **list** is a built-in Python data structure used to store **ordered, mutable collections** of items.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Key Characteristics of Lists
+
+* Ordered
+* Mutable (can change elements)
+* Allows duplicate values
+* Can store **mixed data types**
+* Dynamic size
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Creating Lists
+
+Lists can be created using:
+
+* Square brackets
+* `list()` constructor
+* Repetition
+
+```python
+a = [1, 2, 3]
+b = list("Python")
+c = [0] * 5
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Accessing List Elements
+
+* Uses zero-based indexing
+* Supports negative indexing
+* Supports slicing
+
+```python
+lst = [10, 20, 30]
+lst[0]
+lst[-1]
+lst[1:3]
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Modifying Lists
+
+Lists are **mutable**, so elements can be changed directly.
+
+```python
+lst[1] = 99
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Adding Elements
+
+* `append()` → add single element at end
+* `insert()` → add at specific index
+* `extend()` → add multiple elements
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Removing Elements
+
+* `remove(value)` → removes first occurrence
+* `pop(index)` → removes & returns element
+* `del` → deletes by index
+* `clear()` → removes all elements
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Iterating Over Lists
+
+Lists are iterable and commonly used with loops.
+
+```python
+for item in lst:
+    print(item)
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Nested Lists
+
+A list can contain other lists.
+
+Used for:
+
+* Matrices
+* Tables
+* Multi-dimensional data
+
+```python
+matrix = [[1,2], [3,4]]
+matrix[1][0]  # 3
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+List Comprehensions
+
+Compact way to create lists.
+
+```python
+[x**2 for x in range(5)]
+```
+
+Advantages:
+
+* Cleaner syntax
+* Faster execution
+* More readable
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Internal Memory Model of Lists
+
+* Lists store **references to objects**, not actual objects
+* Multiple list elements can reference the same object
+* Mutable objects inside lists can change unexpectedly if shared
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Mutability Impact
+
+* Modifying a list affects all references pointing to it
+* Important concept for debugging and interviews
