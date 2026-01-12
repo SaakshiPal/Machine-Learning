@@ -1,0 +1,231 @@
+🐍 DAY-6: Python Collections and Comprehensions (Theory Notes)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 Python Collections
+
+What are Collections?
+
+**Collections** in Python are built-in data structures used to store and manage multiple values efficiently.
+They allow grouping of related data and provide different behaviors based on **order, mutability, and uniqueness**.
+
+Python’s core collections are:
+
+* List
+* Tuple
+* Set
+* Dictionary
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📋 List (Collection)
+
+Definition
+
+A **list** is an ordered, mutable collection that can store elements of different data types.
+
+Characteristics
+
+* Ordered
+* Mutable
+* Allows duplicate values
+* Supports indexing & slicing
+* Dynamic in size
+
+Use Cases
+
+* Storing changeable data
+* Iterative processing
+* Data manipulation tasks
+
+Limitations
+
+* Slower lookups compared to sets/dictionaries
+* Uses more memory than tuples
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 Tuple (Collection)
+
+Definition
+
+A **tuple** is an ordered but immutable collection of elements.
+
+Characteristics
+
+* Ordered
+* Immutable
+* Allows duplicates
+* Faster than lists
+* Hashable (can be dictionary keys)
+
+Use Cases
+
+* Fixed data records
+* Data protection
+* Function return values
+
+Limitations
+
+* Cannot modify elements
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧺 Set (Collection)
+
+Definition
+
+A **set** is an unordered collection of unique elements.
+
+Characteristics
+
+* Unordered
+* No duplicates
+* Mutable
+* No indexing
+* Fast membership checking
+
+Use Cases
+
+* Removing duplicates
+* Membership tests
+* Mathematical operations
+
+Limitations
+
+* No indexing or slicing
+* Order not preserved
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🗂 Dictionary (Collection)
+
+Definition
+
+A **dictionary** stores data in **key-value pairs**, where keys map to values.
+
+Characteristics
+
+* Keys must be unique & immutable
+* Values can be any data type
+* Mutable
+* Very fast lookups (O(1))
+* Maintains insertion order (Python 3.7+)
+
+Use Cases
+
+* Mapping relationships
+* JSON/API data
+* Configuration data
+
+
+🔍 Collection Comparison (Concept)
+
+| Feature      | List | Tuple | Set | Dictionary |
+| ------------ | ---- | ----- | --- | ---------- |
+| Ordered      | ✔️   | ✔️    | ❌   | ✔️         |
+| Mutable      | ✔️   | ❌     | ✔️  | ✔️         |
+| Duplicates   | ✔️   | ✔️    | ❌   | Keys ❌     |
+| Indexing     | ✔️   | ✔️    | ❌   | Keys       |
+| Lookup Speed | ❌    | ❌     | ✔️  | ✔️         |
+
+
+⚡ Python Comprehensions
+
+What are Comprehensions?
+
+**Comprehensions** provide a concise and readable way to create collections using expressions instead of loops.
+
+They follow a **functional programming style**.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📋 List Comprehension
+
+Concept
+
+Creates a list by applying an expression to each item in an iterable.
+
+Syntax
+
+```python
+[expression for item in iterable if condition]
+```
+
+Advantages
+
+* Cleaner code
+* Faster execution
+* More Pythonic
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧺 Set Comprehension
+
+Concept
+
+Creates a set using comprehension syntax.
+
+Characteristics
+
+* Removes duplicates automatically
+* Unordered output
+* Uses `{}` brackets
+
+Syntax
+
+```python
+{expression for item in iterable if condition}
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🗂 Dictionary Comprehension
+
+Concept
+
+Creates dictionaries dynamically using expressions.
+
+Syntax
+
+```python
+{key_expression: value_expression for item in iterable if condition}
+```
+
+Advantages
+
+* Efficient transformations
+* Cleaner mapping logic
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 Generator Expression
+
+Concept
+
+A **generator expression** creates an iterator instead of storing all values at once.
+
+### Characteristics
+
+* Uses `()` parentheses
+* Lazy evaluation
+* Memory efficient
+
+When to Use
+
+* Large datasets
+* Streaming data
+* Performance-critical applications
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Comprehension vs Traditional Loop
+
+| Aspect         | Loop   | Comprehension |
+| -------------- | ------ | ------------- |
+| Code Length    | More   | Less          |
+| Readability    | Medium | High          |
+| Performance    | Slower | Faster        |
+| Memory Usage   | Higher | Optimized     |
+| Pythonic Style | ❌     |✔️            |
+
