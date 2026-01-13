@@ -1,0 +1,332 @@
+🐍 Day-7 Error Handling, File Handling & Advanced Python (Theory Notes)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Error Handling in Python
+
+What is an Error?
+
+An **error** is an issue that interrupts the normal execution of a program.
+Errors can occur due to invalid input, logical mistakes, or system-level problems.
+
+---
+
+Types of Errors
+
+1. **Syntax Errors**
+
+   * Occur due to incorrect syntax
+   * Detected before program execution
+
+2. **Runtime Errors (Exceptions)**
+
+   * Occur during program execution
+   * Examples: division by zero, invalid type conversion
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Exception Handling?
+
+**Exception handling** is the process of managing runtime errors so that the program does not crash unexpectedly.
+
+Python provides structured handling using:
+
+* `try`
+* `except`
+* `else`
+* `finally`
+
+---
+
+Why Exception Handling is Important?
+
+* Prevents abrupt program termination
+* Improves reliability and stability
+* Allows graceful recovery
+* Helps in debugging and error reporting
+
+---
+
+try–except Block
+
+Used to detect and handle exceptions.
+
+```python
+try:
+    # code that may raise an error
+except Exception:
+    # error handling code
+```
+
+---
+
+Multiple Exceptions
+
+Different exceptions can be handled separately to improve clarity.
+
+---
+
+else Block
+
+* Executes **only if no exception occurs**
+* Used for successful execution logic
+
+---
+
+finally Block
+
+* Always executes
+* Used for cleanup tasks like closing files or releasing resources
+
+---
+
+Raising Exceptions
+
+Custom errors can be triggered manually using `raise`.
+
+```python
+raise ValueError("Invalid input provided")
+```
+
+---
+
+Common Built-in Exceptions
+
+* `ZeroDivisionError`
+* `ValueError`
+* `TypeError`
+* `IndexError`
+* `KeyError`
+* `FileNotFoundError`
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📁 File Handling in Python
+
+What is File Handling?
+
+**File handling** allows programs to store data permanently by reading from and writing to files.
+
+---
+
+Why File Handling is Needed?
+
+* Persistent data storage
+* Handling large datasets
+* Logging application output
+* Configuration management
+
+---
+
+ File Opening
+
+Files are opened using the `open()` function.
+
+```python
+open("file.txt", "r")
+```
+
+---
+
+File Modes
+
+| Mode | Description       |
+| ---- | ----------------- |
+| `r`  | Read file         |
+| `w`  | Write (overwrite) |
+| `a`  | Append            |
+| `x`  | Create new file   |
+| `rb` | Read binary       |
+| `wb` | Write binary      |
+
+---
+
+Reading Files
+
+* `read()` → reads entire file
+* `readline()` → reads one line
+* `readlines()` → reads all lines as a list
+
+---
+
+Writing Files
+
+* `write()` → writes string
+* `writelines()` → writes multiple lines
+
+---
+
+Closing Files
+
+Files must be closed after use to free system resources.
+
+---
+
+with Statement
+
+Recommended approach for file handling.
+
+```python
+with open("file.txt", "r") as file:
+    pass
+```
+
+✔ Automatically closes the file
+✔ Prevents resource leaks
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+File Handling Errors
+
+Common file-related issues:
+
+* File not found
+* Permission denied
+* Incorrect file mode
+
+Handled using exception handling.
+
+---
+
+🚀 Advanced Python Concepts
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Generators
+
+What is a Generator?
+
+A **generator** is a function that produces values **one at a time** using the `yield` keyword instead of returning all values at once.
+
+---
+
+Key Characteristics
+
+* Uses `yield`
+* Lazy evaluation
+* Saves memory
+* Execution pauses and resumes
+
+---
+
+Why Use Generators?
+
+* Efficient for large data processing
+* Lower memory consumption
+* Suitable for streaming data
+* Improves performance
+
+---
+
+Generator Lifecycle
+
+* Starts execution when called
+* Pauses at `yield`
+* Resumes from last state
+* Stops when exhausted
+
+---
+
+Generator Expression
+
+A compact syntax similar to list comprehension but memory efficient.
+
+```python
+(x for x in range(10))
+```
+
+---
+
+Generator vs List
+
+| Feature      | Generator  | List           |
+| ------------ | ---------- | -------------- |
+| Memory Usage | Low        | High           |
+| Evaluation   | Lazy       | Immediate      |
+| Reusability  | One-time   | Multiple times |
+| Best for     | Large data | Small data     |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Decorators
+
+What is a Decorator?
+
+A **decorator** is a function that modifies the behavior of another function **without changing its code**.
+
+---
+
+Why Decorators are Used?
+
+* Code reusability
+* Separation of concerns
+* Cleaner and modular code
+* Widely used in frameworks
+
+---
+
+How Decorators Work
+
+* Functions are first-class objects
+* Decorators wrap functions
+* Often implemented using nested functions
+
+---
+
+Decorator Syntax
+
+```python
+@decorator_name
+def function():
+    pass
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Characteristics of Decorators
+
+* Enhance or extend function behavior
+* Can execute code before/after a function
+* Can accept arguments
+* Do not modify original function logic
+
+---
+
+Common Use Cases
+
+* Logging
+* Authentication
+* Authorization
+* Performance measurement
+* Caching
+* Input validation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Decorators vs Normal Functions
+
+| Aspect          | Decorators      | Normal Functions |
+| --------------- | --------------- | ---------------- |
+| Purpose         | Modify behavior | Perform task     |
+| Code Reuse      | High            | Limited          |
+| Maintainability | Better          | Moderate         |
+
+---
+
+⚠️ Best Practices
+
+* Use exception handling only where required
+* Always use `with` for file operations
+* Prefer generators for large datasets
+* Keep decorators simple and readable
+* Avoid deeply nested decorators
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ DAY-8 Summary
+
+* Error handling ensures program stability
+* File handling enables persistent storage
+* Generators optimize memory usage
+* Decorators allow behavior modification
+* These concepts are essential for **advanced Python, backend development, and interviews**
