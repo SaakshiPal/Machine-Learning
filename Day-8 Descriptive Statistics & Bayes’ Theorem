@@ -1,0 +1,288 @@
+📊 DAY-8: Descriptive Statistics & Bayes’ Theorem (Theory Notes)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Descriptive Statistics
+
+What is Descriptive Statistics?
+
+**Descriptive statistics** is a branch of statistics used to **summarize, organize, and describe** the main features of a dataset.
+
+It helps us **understand data** without making predictions or conclusions beyond the given data.
+
+---
+
+Why Descriptive Statistics Important?
+
+* Simplifies large datasets
+* Identifies patterns and trends
+* Helps in data cleaning & preprocessing
+* Foundation for data analysis & machine learning
+* Improves decision-making
+
+---
+
+🧩 Types of Descriptive Statistics
+
+Descriptive statistics is mainly divided into:
+
+1. **Measures of Central Tendency**
+2. **Measures of Dispersion (Variability)**
+3. **Measures of Shape**
+4. **Measures of Position**
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Measures of Central Tendency
+
+These measures describe the **center** of a dataset.
+
+---
+
+1️⃣ Mean (Average)
+
+The **mean** is the sum of all values divided by the total number of values.
+
+**Formula**
+
+```
+Mean = (Sum of observations) / (Number of observations)
+```
+
+**Characteristics**
+
+* Most commonly used
+* Affected by outliers
+* Suitable for symmetric data
+
+---
+
+2️⃣ Median
+
+The **median** is the middle value when data is arranged in ascending or descending order.
+
+**Characteristics**
+
+* Not affected by outliers
+* Best for skewed data
+* Represents typical value
+
+---
+
+3️⃣ Mode
+
+The **mode** is the value that appears most frequently.
+
+**Characteristics**
+
+* Can have more than one mode
+* Useful for categorical data
+* May not exist in all datasets
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📏 Measures of Dispersion (Spread)
+
+These describe how **spread out** the data values are.
+
+---
+
+1️⃣ Range
+
+Difference between the maximum and minimum values.
+
+**Formula**
+
+```
+Range = Max − Min
+```
+
+**Limitation**
+
+* Highly affected by outliers
+
+---
+
+2️⃣ Variance
+
+Measures how far each value is from the mean.
+
+**Concept**
+
+* Average of squared deviations from the mean
+* Larger variance → more spread
+
+---
+
+3️⃣ Standard Deviation
+
+Square root of variance.
+
+**Characteristics**
+
+* Most widely used dispersion measure
+* Same unit as data
+* Low SD → data close to mean
+* High SD → data spread out
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📐 Measures of Shape
+
+These describe the **distribution shape** of data.
+
+---
+
+### 1️⃣ Skewness
+
+Measures the **asymmetry** of the data distribution.
+
+* **Positive skew** → tail on right
+* **Negative skew** → tail on left
+* **Zero skew** → symmetric distribution
+
+---
+
+2️⃣ Kurtosis
+
+Measures the **tailedness** of the distribution.
+
+* High kurtosis → heavy tails
+* Low kurtosis → light tails
+
+---
+
+📍 Measures of Position
+
+These describe the **relative position** of values.
+
+---
+
+Quartiles
+
+Divide data into four equal parts.
+
+* Q1 → 25%
+* Q2 → 50% (Median)
+* Q3 → 75%
+
+---
+
+Percentiles
+
+Indicate the value below which a given percentage of observations fall.
+
+Used widely in:
+
+* Exams
+* Performance analysis
+* Data ranking
+
+---
+
+🧠 Summary of Descriptive Statistics
+
+* Mean → average
+* Median → middle value
+* Mode → most frequent
+* Variance & SD → spread
+* Skewness → asymmetry
+* Kurtosis → tail behavior
+* Quartiles & percentiles → data position
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📘 Bayes’ Theorem
+
+What is Bayes’ Theorem?
+
+**Bayes’ Theorem** is a fundamental concept in probability that describes how to **update the probability of an event** based on new evidence.
+
+It is the backbone of:
+
+* Bayesian statistics
+* Machine learning
+* Spam filtering
+* Medical diagnosis
+* Risk analysis
+
+---
+
+Bayes’ Theorem Formula
+
+```
+P(A | B) = [P(B | A) × P(A)] / P(B)
+```
+
+---
+
+Explanation of Terms
+
+* **P(A)** → Prior probability (initial belief)
+* **P(B)** → Probability of evidence
+* **P(B | A)** → Likelihood (evidence given A)
+* **P(A | B)** → Posterior probability (updated belief)
+
+---
+
+Why Bayes’ Theorem is Important?
+
+* Incorporates new information
+* Handles uncertainty
+* Improves predictions
+* Used in real-world decision systems
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧪 Key Concepts in Bayes’ Theorem
+
+Prior Probability
+
+Initial probability before observing evidence.
+
+---
+
+Likelihood
+
+Probability of observing evidence given a hypothesis.
+
+---
+
+Posterior Probability
+
+Updated probability after considering evidence.
+
+---
+
+Evidence
+
+Total probability of observed data.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Bayes’ Theorem in Real Life
+
+* Spam vs non-spam email detection
+* Disease diagnosis
+* Recommendation systems
+* Fraud detection
+* Machine learning classifiers (Naive Bayes)
+
+---
+
+⚠️ Important Notes
+
+* Bayes’ theorem assumes probabilities are known
+* Requires accurate prior probabilities
+* Sensitive to incorrect assumptions
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ DAY-8 Summary
+
+* Descriptive statistics summarize and explain data
+* Central tendency shows the data center
+* Dispersion shows variability
+* Shape describes distribution behavior
+* Bayes’ theorem updates probabilities using evidence
+* Foundation for statistics, ML, and AI
