@@ -1,0 +1,284 @@
+📊 DAY-9: Covariance, Correlation & Probability Distributions (Theory Notes)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔗 Covariance
+
+What is Covariance?
+
+**Covariance** measures how **two variables change together**.
+It indicates the **direction** of the relationship between variables.
+
+---
+
+Interpretation
+
+* **Positive covariance** → variables increase/decrease together
+* **Negative covariance** → one increases while the other decreases
+* **Zero covariance** → no linear relationship
+
+---
+
+Formula
+
+```
+Cov(X, Y) = Σ (Xi − X̄)(Yi − Ȳ) / n
+```
+
+Where:
+
+* X̄, Ȳ → means of X and Y
+* n → number of observations
+
+---
+
+Key Characteristics
+
+* Shows **direction**, not strength
+* Units depend on variables’ scales
+* Sensitive to outliers
+* Difficult to compare across datasets
+
+---
+
+Limitations
+
+* No fixed range
+* Scale-dependent
+* Hard to interpret magnitude
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Correlation
+
+What is Correlation?
+
+**Correlation** measures the **strength and direction** of a linear relationship between two variables.
+
+---
+
+Pearson Correlation Coefficient
+
+Most commonly used correlation measure.
+
+---
+
+Formula
+
+```
+r = Cov(X, Y) / (σX × σY)
+```
+
+Where:
+
+* σX, σY → standard deviations of X and Y
+
+---
+
+Range & Interpretation
+
+| Value of r | Meaning                      |
+| ---------- | ---------------------------- |
+| +1         | Perfect positive correlation |
+| 0          | No linear correlation        |
+| −1         | Perfect negative correlation |
+
+---
+
+Key Characteristics
+
+* Standardized measure
+* Unit-free
+* Easy to interpret
+* Detects **linear** relationships only
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Correlation vs Causation
+
+⚠️ **Correlation does NOT imply causation**
+A strong correlation does not mean one variable causes the other.
+
+---
+
+Covariance vs Correlation
+
+| Aspect     | Covariance | Correlation |
+| ---------- | ---------- | ----------- |
+| Direction  | ✔️         | ✔️          |
+| Strength   | ❌          | ✔️          |
+| Scale-free | ❌          | ✔️          |
+| Range      | Unbounded  | −1 to +1    |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Probability Distributions
+
+What is a Probability Distribution?
+
+A **probability distribution** describes how probabilities are assigned to different possible outcomes of a random variable.
+
+---
+
+Types of Distributions
+
+1. Discrete Distributions
+2. Continuous Distributions
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔔 Normal Distribution
+
+What is Normal Distribution?
+
+A **normal distribution** is a continuous distribution that is:
+
+* Symmetric
+* Bell-shaped
+* Defined by mean and standard deviation
+
+---
+
+Key Properties
+
+* Mean = Median = Mode
+* Symmetrical around the mean
+* Tails extend infinitely
+* Total area under curve = 1
+
+---
+
+Empirical Rule (68–95–99.7 Rule)
+
+* 68% data within 1σ
+* 95% data within 2σ
+* 99.7% data within 3σ
+
+---
+
+Parameters
+
+* μ (mean) → center
+* σ (standard deviation) → spread
+
+---
+
+Use Cases
+
+* Heights, weights
+* Exam scores
+* Measurement errors
+* Natural phenomena
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Binomial Distribution
+
+What is Binomial Distribution?
+
+A **binomial distribution** models the number of successes in a fixed number of independent trials.
+
+---
+
+Conditions
+
+* Fixed number of trials (n)
+* Two outcomes per trial (success/failure)
+* Constant probability of success (p)
+* Independent trials
+
+---
+
+Parameters
+
+* n → number of trials
+* p → probability of success
+
+---
+
+Key Characteristics
+
+* Discrete distribution
+* Mean = n × p
+* Variance = n × p × (1 − p)
+
+---
+
+Use Cases
+
+* Coin tosses
+* Pass/fail experiments
+* Quality control
+* Survey results
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📉 Poisson Distribution
+
+What is Poisson Distribution?
+
+A **Poisson distribution** models the number of events occurring in a **fixed interval** of time or space.
+
+---
+
+Key Assumptions
+
+* Events occur independently
+* Average rate (λ) is constant
+* Two events cannot occur at same instant
+
+---
+
+Parameter
+
+* λ (lambda) → average rate of occurrence
+
+---
+
+Key Characteristics
+
+* Discrete distribution
+* Mean = Variance = λ
+* Right-skewed for small λ
+* Approaches normal distribution for large λ
+
+---
+
+Use Cases
+
+* Call arrivals at a call center
+* Website traffic
+* Number of accidents
+* Defect counts
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Distribution Comparison
+
+| Feature    | Normal       | Binomial     | Poisson      |
+| ---------- | ------------ | ------------ | ------------ |
+| Type       | Continuous   | Discrete     | Discrete     |
+| Parameters | μ, σ         | n, p         | λ            |
+| Shape      | Bell-shaped  | Depends on p | Right-skewed |
+| Mean       | μ            | n×p          | λ            |
+| Use Case   | Natural data | Fixed trials | Event counts |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Important Notes
+
+* Normal distribution assumes symmetry
+* Binomial requires fixed trials
+* Poisson assumes rare, independent events
+* Correlation only measures linear relationships
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## ✅ DAY-9 Summary
+
+* Covariance shows **direction** of relationship
+* Correlation shows **strength + direction**
+* Normal distribution models natural continuous data
+* Binomial distribution models fixed-trial success counts
+* Poisson distribution models event frequency
+* These concepts are foundational for **statistics, ML, and data analysis**
