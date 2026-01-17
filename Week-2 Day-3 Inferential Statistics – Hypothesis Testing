@@ -1,0 +1,276 @@
+📊 DAY-10: Inferential Statistics – Hypothesis Testing (Theory Notes)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Inferential Statistics
+
+What is Inferential Statistics?
+
+**Inferential statistics** is a branch of statistics that uses **sample data** to make conclusions or decisions about a **population**.
+
+Unlike descriptive statistics (which only summarizes data), inferential statistics helps in:
+
+* Drawing conclusions
+* Making predictions
+* Testing assumptions
+* Decision-making under uncertainty
+
+---
+
+Why Inferential Statistics is Important?
+
+* Population data is often unavailable or too large
+* Helps generalize results from samples
+* Widely used in research, data science, ML, and business analytics
+* Forms the basis of hypothesis testing and confidence intervals
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Hypothesis Testing
+
+What is Hypothesis Testing?
+
+**Hypothesis testing** is a statistical method used to decide whether there is enough evidence in sample data to support or reject a claim about a population.
+
+It answers questions like:
+
+* Is this result statistically significant?
+* Is the observed difference real or due to chance?
+
+---
+
+🧾 Statistical Hypotheses
+
+What is a Hypothesis?
+
+A **hypothesis** is a statement or assumption about a population parameter (mean, proportion, variance, etc.).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Types of Hypotheses
+
+1️⃣ Null Hypothesis (H₀)
+
+* Represents **no effect, no difference, or status quo**
+* Assumed to be true initially
+* Example:
+
+  > H₀: The average score is 70
+
+---
+
+2️⃣ Alternative Hypothesis (H₁ or Hₐ)
+
+* Represents **effect, difference, or change**
+* What we want to prove
+* Example:
+
+  > H₁: The average score is not 70
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Types of Alternative Hypotheses
+
+1️⃣ Two-Tailed Test
+
+* Tests for **any difference**
+* Looks in both directions
+
+```
+H₁: μ ≠ μ₀
+```
+
+---
+
+2️⃣ One-Tailed Test (Right-Tailed)
+
+* Tests for **increase**
+
+```
+H₁: μ > μ₀
+```
+
+---
+
+3️⃣ One-Tailed Test (Left-Tailed)
+
+* Tests for **decrease**
+
+```
+H₁: μ < μ₀
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📐 Test Statistic
+
+What is a Test Statistic?
+
+A **test statistic** is a value calculated from sample data used to decide whether to reject the null hypothesis.
+
+Examples:
+
+* z-statistic
+* t-statistic
+* chi-square statistic
+* F-statistic
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Sampling Distribution
+
+The **sampling distribution** shows how a statistic (like mean) behaves across repeated samples.
+
+Key idea:
+
+* Helps determine how unusual the observed result is
+* Basis for hypothesis testing
+
+---
+
+🔢 Significance Level (α)
+
+What is Significance Level?
+
+The **significance level (α)** is the probability of rejecting the null hypothesis when it is actually true.
+
+Common values:
+
+* α = 0.05 (most common)
+* α = 0.01
+* α = 0.10
+
+Interpretation:
+
+* α = 0.05 → 5% risk of making a wrong decision
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📉 P-Value
+
+What is a P-Value?
+
+The **p-value** is the probability of obtaining results **at least as extreme as the observed result**, assuming the null hypothesis is true.
+
+---
+
+Decision Rule Using P-Value
+
+* If **p-value ≤ α** → Reject H₀
+* If **p-value > α** → Fail to reject H₀
+
+---
+
+Interpretation
+
+* Small p-value → strong evidence against H₀
+* Large p-value → weak evidence against H₀
+
+⚠️ P-value does **not** measure probability that H₀ is true
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❌ Errors in Hypothesis Testing
+
+Type I Error
+
+* Rejecting a true null hypothesis
+* Probability = α
+* False positive
+
+---
+
+Type II Error
+
+* Failing to reject a false null hypothesis
+* Probability = β
+* False negative
+
+---
+
+Error Summary
+
+| Error Type | Meaning          |
+| ---------- | ---------------- |
+| Type I     | False rejection  |
+| Type II    | Missed detection |
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚖️ Power of a Test
+
+What is Power?
+
+**Power = 1 − β**
+
+* Probability of correctly rejecting a false null hypothesis
+* Higher power → better test
+
+Factors affecting power:
+
+* Sample size
+* Effect size
+* Significance level
+* Variability in data
+
+---
+
+🧪 Common Hypothesis Tests (Conceptual)
+
+z-test
+
+* Used when population variance is known
+* Large sample size
+
+---
+
+t-test
+
+* Used when population variance is unknown
+* Small sample sizes
+
+---
+
+Chi-Square Test
+
+* Used for categorical data
+* Tests independence or goodness of fit
+
+---
+
+ANOVA
+
+* Compares means of more than two groups
+* Tests overall difference
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Hypothesis Testing Workflow
+
+1. Define the problem
+2. State H₀ and H₁
+3. Choose significance level (α)
+4. Select appropriate test
+5. Compute test statistic / p-value
+6. Make decision
+7. Interpret result in context
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Important Notes
+
+* Failing to reject H₀ ≠ accepting H₀
+* Statistical significance ≠ : practical importance
+* Results depend on sample quality
+* Assumptions of tests must be checked
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ DAY-10 Summary
+
+* Inferential statistics concludes populations
+* Hypothesis testing evaluates claims using data
+* Null hypothesis assumes no effect
+* P-value guides decision making
+* Errors and power are critical considerations
+* Core foundation for **research, ML, and data analysis*
