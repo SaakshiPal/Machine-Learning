@@ -1,0 +1,292 @@
+📊 WEEK-2 | DAY-4: Z-Test, T-Test, Chi-Square Test, ANOVA & Confidence Intervals
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧪 Hypothesis Testing (Quick Context)
+
+Hypothesis testing helps determine whether an observed result is **statistically significant** or occurred **by chance**.
+
+Key components:
+
+* Null Hypothesis (H₀)
+* Alternative Hypothesis (H₁)
+* Significance level (α)
+* Test statistic
+* P-value / Critical value
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Z-Test
+
+What is a Z-Test?
+
+A **Z-test** is used to test hypotheses about a population mean or proportion **when population variance is known** and the sample size is large.
+
+---
+
+When to Use Z-Test?
+
+* Population standard deviation (σ) is known
+* Sample size **n ≥ 30**
+* Data is approximately normally distributed
+
+---
+
+Types of Z-Tests
+
+* One-sample Z-test (mean)
+* Two-sample Z-test (means)
+* Z-test for proportions
+
+---
+
+Z-Test Statistic
+
+```
+Z = (x̄ − μ) / (σ / √n)
+```
+
+---
+
+Key Points
+
+* Based on standard normal distribution
+* Uses Z-table
+* Rare in real-world problems (σ usually unknown)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 T-Test
+
+What is a T-Test?
+
+A **T-test** compares means when the **population variance is unknown** and the sample size is small.
+
+---
+
+When to Use T-Test?
+
+* Population standard deviation unknown
+* Sample size **n < 30**
+* Data approximately normally distributed
+
+---
+
+Types of T-Tests
+
+1️⃣ One-Sample T-Test
+
+* Compares sample mean with population mean
+
+2️⃣ Independent (Two-Sample) T-Test
+
+* Compares means of two independent groups
+
+3️⃣ Paired T-Test
+
+* Compares means of the same group before & after treatment
+
+---
+
+T-Test Statistic
+
+```
+t = (x̄ − μ) / (s / √n)
+```
+
+Where:
+
+* s = sample standard deviation
+
+---
+
+Key Points
+
+* Uses **t-distribution**
+* Degrees of freedom (df) matter
+* Very common in real-world analysis
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Chi-Square Test
+
+What is a Chi-Square Test?
+
+A **Chi-Square (χ²) test** is used to test relationships between **categorical variables**.
+
+---
+
+Types of Chi-Square Tests
+
+1️⃣ Chi-Square Test of Independence
+
+* Checks if two categorical variables are related
+
+2️⃣ Chi-Square Goodness-of-Fit Test
+
+* Checks if observed data matches expected distribution
+
+---
+
+When to Use Chi-Square Test?
+
+* Data is categorical
+* Observed vs expected frequencies
+* Large sample size preferred
+
+---
+
+Chi-Square Statistic
+
+```
+χ² = Σ (Observed − Expected)² / Expected
+```
+
+---
+
+Key Points
+
+* Uses χ² distribution
+* Cannot be used for continuous data
+* Sensitive to sample size
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 ANOVA (Analysis of Variance)
+
+What is ANOVA?
+
+**ANOVA** tests whether there is a **significant difference between the means of three or more groups**.
+
+---
+
+Why Not Multiple T-Tests?
+
+* Increases Type-I error
+* ANOVA controls error rate efficiently
+
+---
+
+Types of ANOVA
+
+1️⃣ One-Way ANOVA
+
+* One independent variable
+* Compares multiple group means
+
+2️⃣ Two-Way ANOVA
+
+* Two independent variables
+* Examines interaction effects
+
+---
+
+ANOVA Hypotheses
+
+* **H₀**: All group means are equal
+* **H₁**: At least one mean is different
+
+---
+
+ANOVA Statistic (F-Test)
+
+```
+F = Variance between groups / Variance within groups
+```
+
+---
+
+Key Assumptions
+
+* Normal distribution
+* Homogeneity of variance
+* Independent samples
+
+---
+
+Important Note
+
+ANOVA tells **if a difference exists**, not **where**.
+(Post-hoc tests are needed for that.)
+
+---
+
+📏 Confidence Intervals
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is a Confidence Interval?
+
+A **confidence interval (CI)** provides a **range of values** within which a population parameter is likely to lie.
+
+---
+
+Common Confidence Levels
+
+* 90%
+* 95% (most common)
+* 99%
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Interpretation (Very Important)
+
+> A 95% confidence interval means that **95% of such intervals** will contain the true population parameter.
+
+⚠️ It does NOT mean there is a 95% probability the parameter lies in one specific interval.
+
+---
+
+Confidence Interval for Mean (σ known)
+
+```
+CI = x̄ ± Z(σ / √n)
+```
+
+---
+
+Confidence Interval for Mean (σ unknown)
+
+```
+CI = x̄ ± t(s / √n)
+```
+
+---
+
+Factors Affecting CI Width
+
+* Sample size (↑ n → narrower CI)
+* Confidence level (↑ confidence → wider CI)
+* Variability in data
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Comparison Summary
+
+| Test       | Data Type   | Sample Size     | Purpose           |
+| ---------- | ----------- | --------------- | ----------------- |
+| Z-Test     | Numerical   | Large (σ known) | Mean / proportion |
+| T-Test     | Numerical   | Small           | Compare means     |
+| Chi-Square | Categorical | Large           | Association       |
+| ANOVA      | Numerical   | Any             | ≥3 group means    |
+| CI         | Numerical   | Any             | Estimate range    |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Mistakes
+
+* Using Z-test when σ is unknown
+* Using T-test for more than two groups
+* Confusing correlation with causation
+* Misinterpreting confidence intervals
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-2 DAY-4 Summary
+
+* Z-test → large samples, known variance
+* T-test → small samples, unknown variance
+* Chi-Square → categorical data
+* ANOVA → compare 3+ means
+* Confidence intervals → estimate population parameters
+* Core tools for **statistics, ML, and data science**
