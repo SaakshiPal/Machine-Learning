@@ -1,0 +1,237 @@
+
+📊 WEEK-2 | DAY-5: Confidence Intervals, A/B Testing & MANOVA (Theory Notes)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📏 Confidence Intervals (CI)
+
+What is a Confidence Interval?
+
+A **confidence interval** is a **range of values** estimated from sample data that is likely to contain the true population parameter (mean or proportion).
+
+It provides **estimation**, not a single point value.
+
+---
+
+Why Confidence Intervals are Important?
+
+* Quantifies uncertainty in estimates
+* More informative than point estimates
+* Widely used in research, analytics, and ML
+* Helps in decision-making
+
+---
+
+Confidence Level
+
+The **confidence level** represents how confident we are that the interval contains the true parameter.
+
+Common levels:
+
+* 90%
+* 95% (most common)
+* 99%
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Correct Interpretation (Very Important)
+
+> A 95% confidence interval means that **95% of such intervals** computed from repeated samples would contain the true population parameter.
+
+⚠️ It does NOT mean there is a 95% probability that the parameter lies in a specific interval.
+
+---
+
+Confidence Interval for Mean
+
+When Population Standard Deviation is Known
+
+Uses **Z-distribution**.
+
+```
+CI = x̄ ± Z(σ / √n)
+```
+
+---
+
+When Population Standard Deviation is Unknown
+
+Uses **T-distribution**.
+
+```
+CI = x̄ ± t(s / √n)
+```
+
+---
+
+Factors Affecting CI Width
+
+* Larger sample size → narrower CI
+* Higher confidence level → wider CI
+* Higher variability → wider CI
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧪 A/B Testing
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is A/B Testing?
+
+**A/B testing** is a statistical experiment used to compare **two versions (A and B)** of a product, feature, or strategy to determine which performs better.
+
+---
+
+Why A/B Testing is Used?
+
+* Data-driven decision making
+* Optimize user experience
+* Reduce guesswork
+* Common in product, marketing, and UX
+
+---
+
+Key Components
+
+* **Control group (A)** → existing version
+* **Treatment group (B)** → new version
+* **Metric** → conversion rate, CTR, revenue, etc.
+* **Hypothesis** → performance comparison
+
+---
+
+Hypotheses in A/B Testing
+
+* **Null Hypothesis (H₀)**: No difference between A and B
+* **Alternative Hypothesis (H₁)**: Significant difference exists
+
+---
+
+Statistical Tests Used
+
+* Z-test (large samples, proportions)
+* T-test (means, small samples)
+* Non-parametric tests (when assumptions fail)
+
+---
+
+A/B Testing Workflow
+
+1. Define objective
+2. Choose metric
+3. Formulate hypotheses
+4. Split users randomly
+5. Run experiment
+6. Perform statistical test
+7. Draw conclusion
+
+---
+
+Common Mistakes in A/B Testing
+
+* Running tests for too short a time
+* Peeking at results early
+* Small sample size
+* Ignoring practical significance
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 MANOVA (Multivariate Analysis of Variance)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is MANOVA?
+
+**MANOVA** is an extension of ANOVA used when there are **multiple dependent variables**.
+
+It tests whether group means differ across **a combination of dependent variables**.
+
+---
+
+Why MANOVA is Needed?
+
+* Handles multiple outcomes simultaneously
+* Controls Type-I error
+* Captures relationships between dependent variables
+
+---
+
+ANOVA vs MANOVA
+
+| Feature             | ANOVA                  | MANOVA     |
+| ------------------- | ---------------------- | ---------- |
+| Dependent variables | One                    | Multiple   |
+| Error rate          | Higher with many tests | Controlled |
+| Relationships       | Ignored                | Considered |
+
+---
+
+Hypotheses in MANOVA
+
+* **H₀**: Group means are equal across all dependent variables
+* **H₁**: At least one group differs
+
+---
+
+Assumptions of MANOVA
+
+* Multivariate normality
+* Homogeneity of covariance matrices
+* Independence of observations
+* No multicollinearity
+
+---
+
+Test Statistics in MANOVA
+
+* Wilks’ Lambda
+* Pillai’s Trace
+* Hotelling’s Trace
+* Roy’s Largest Root
+
+(Used to decide statistical significance)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+When to Use MANOVA?
+
+* Multiple related outcome variables
+* Experimental studies
+* Behavioral, medical, and social science research
+* Multivariate business metrics
+
+---
+
+⚠️ Limitations of MANOVA
+
+* Sensitive to assumption violations
+* Complex interpretation
+* Requires larger sample sizes
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Concept Comparison Summary
+
+| Concept             | Purpose                   | Output               |
+| ------------------- | ------------------------- | -------------------- |
+| Confidence Interval | Estimate population range | Interval             |
+| A/B Testing         | Compare two variants      | Decision             |
+| MANOVA              | Compare multiple outcomes | Overall significance |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Important Notes
+
+* CI provides estimation, not decisions
+* A/B testing focuses on practical impact
+* MANOVA reduces multiple testing errors
+* Always validate assumptions before tests
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-2 DAY-5 Summary
+
+* Confidence intervals estimate population parameters
+* A/B testing enables data-driven comparisons
+* MANOVA compares multiple dependent variables
+* These tools are essential for **analytics, ML, and experimentation**
