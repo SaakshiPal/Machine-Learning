@@ -1,0 +1,216 @@
+📊 WEEK-2 | DAY-6: Feature Selection with ANOVA & Chi-Square (Theory Notes)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Feature Selection
+
+What is Feature Selection?
+
+**Feature selection** is the process of selecting the most **relevant features (variables)** from a dataset that contribute the most to predicting the target variable.
+
+---
+
+Why Feature Selection is Important?
+
+* Reduces overfitting
+* Improves model accuracy
+* Reduces training time
+* Enhances model interpretability
+* Removes irrelevant and redundant features
+
+---
+
+Types of Feature Selection Methods
+
+1. **Filter Methods**
+2. Wrapper Methods
+3. Embedded Methods
+
+👉 **ANOVA and Chi-Square are Filter Methods**
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧪 Feature Selection using ANOVA
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is ANOVA (in Feature Selection)?
+
+**ANOVA (Analysis of Variance)** is used to measure the **relationship between numerical features and a categorical target**.
+
+It checks whether the **means of a feature differ significantly across target classes**.
+
+---
+
+When to Use ANOVA?
+
+* Feature is **continuous (numerical)**
+* Target variable is **categorical**
+* Classes are independent
+
+---
+
+Intuition Behind ANOVA
+
+* If feature values vary **significantly across classes**, the feature is important
+* If feature values are similar across classes, the feature is less useful
+
+---
+
+ANOVA in Feature Selection
+
+* Uses **F-score**
+* Higher F-score → stronger relationship with target
+* Features ranked based on F-score
+
+---
+
+Key Assumptions
+
+* Normal distribution within groups
+* Equal variances (homoscedasticity)
+* Independent samples
+
+---
+
+Advantages
+
+* Simple and fast
+* Works well for numerical data
+* Scales to large datasets
+
+---
+
+Limitations
+
+* Captures only linear relationships
+* Sensitive to outliers
+* Assumptions may not always hold
+
+---
+
+Typical Use Cases
+
+* Classification problems
+* Text classification (after numeric encoding)
+* Feature ranking before model training
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧮 Feature Selection using Chi-Square Test
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Chi-Square Feature Selection?
+
+The **Chi-Square test** measures the **dependence between a categorical feature and a categorical target**.
+
+It checks whether the observed frequency differs significantly from expected frequency.
+
+---
+
+When to Use Chi-Square?
+
+* Feature is **categorical**
+* Target variable is **categorical**
+* Feature values are **non-negative**
+* Works best with count/frequency data
+
+---
+
+Intuition Behind Chi-Square
+
+* If feature and target are independent → feature is not useful
+* Strong dependency → feature is important
+
+---
+
+Chi-Square in Feature Selection
+
+* Uses **χ² score**
+* Higher χ² value → stronger association
+* Features ranked by χ² score
+
+---
+
+Key Assumptions
+
+* Expected frequency ≥ 5
+* Independent observations
+* Categorical data only
+
+---
+
+Advantages
+
+* Very fast
+* Works well for text data (bag-of-words, TF)
+* Easy to interpret
+
+---
+
+Limitations
+
+* Cannot handle continuous data directly
+* Sensitive to low frequencies
+* Ignores feature interactions
+
+---
+
+Typical Use Cases
+
+* Text classification
+* Categorical datasets
+* Feature selection for Naive Bayes
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 ANOVA vs Chi-Square (Feature Selection)
+
+| Aspect           | ANOVA             | Chi-Square          |
+| ---------------- | ----------------- | ------------------- |
+| Feature Type     | Numerical         | Categorical         |
+| Target Type      | Categorical       | Categorical         |
+| Measures         | Mean difference   | Dependency          |
+| Score Used       | F-score           | χ² score            |
+| Data Requirement | Continuous        | Non-negative counts |
+| Common Use       | ML classification | Text analytics      |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Feature Selection Workflow
+
+1. Identify feature types
+2. Choose appropriate method (ANOVA / Chi-Square)
+3. Compute scores
+4. Rank features
+5. Select top-k features
+6. Train model with selected features
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Important Notes
+
+* Feature selection should be done **after train-test split**
+* Avoid data leakage
+* Feature importance ≠ causation
+* Combine with domain knowledge
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Use ANOVA for numerical features
+* Use Chi-Square for categorical/text features
+* Normalize data if required
+* Validate selected features with models
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-2 DAY-6 Summary
+
+* Feature selection improves model performance
+* ANOVA selects numerical features based on class separation
+* Chi-Square selects categorical features based on dependency
+* Both are fast filter-based methods
+* Widely used in **machine learning & data science pipelines**
