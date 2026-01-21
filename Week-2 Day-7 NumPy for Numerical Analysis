@@ -1,0 +1,236 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 WEEK-2 | DAY-7: NumPy for Numerical Analysis
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔢 What is NumPy?
+
+**NumPy (Numerical Python)** is a core Python library used for **numerical computing and scientific computing**.
+It provides fast, efficient operations on large datasets using **arrays and matrices**.
+
+🎯 Why NumPy is Important?
+
+* Faster than Python lists
+* Supports vectorized operations
+* Efficient memory usage
+* Foundation for Pandas, SciPy, Scikit-learn, TensorFlow
+* Widely used in **Data Science, ML, AI, and Engineering**
+
+---
+
+📦 Core Data Structure: NumPy Array
+
+What is a NumPy Array?
+
+A **NumPy array (`ndarray`)** is a collection of elements of the **same data type**, stored in contiguous memory.
+
+---
+
+Key Characteristics
+
+* Homogeneous (same data type)
+* Fixed size
+* Supports multi-dimensional data
+* Faster computation than Python lists
+* Optimized for numerical operations
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NumPy Array vs Python List
+
+| Feature        | Python List | NumPy Array       |
+| -------------- | ----------- | ----------------- |
+| Data type      | Mixed       | Same              |
+| Speed          | Slower      | Faster            |
+| Memory         | More        | Less              |
+| Vectorized ops | ❌           | ✔️                |
+| Dimensions     | 1D only     | Multi-dimensional |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📐 Array Dimensions
+
+Dimensions (Axes)
+
+* 1D → Vector
+* 2D → Matrix
+* 3D+ → Tensors
+
+---
+
+Shape
+
+The **shape** of an array tells how many elements exist along each dimension.
+
+---
+
+Size
+
+Total number of elements in an array.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Array Creation Methods
+
+Common ways to create arrays:
+
+* From Python lists
+* Using built-in NumPy functions
+* Using ranges and random generators
+
+---
+
+Common Creation Functions
+
+* `array()` → from list or tuple
+* `zeros()` → array of zeros
+* `ones()` → array of ones
+* `arange()` → range of values
+* `linspace()` → evenly spaced values
+* `random()` → random values
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+➕ Vectorized Operations
+
+What is Vectorization?
+
+**Vectorization** means performing operations on **entire arrays at once** instead of looping element by element.
+
+---
+
+Why Vectorization Matters?
+
+* Faster execution
+* Cleaner code
+* Reduced complexity
+* Optimized using C-level performance
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔢 Mathematical Operations
+
+NumPy supports element-wise operations:
+
+* Addition
+* Subtraction
+* Multiplication
+* Division
+* Power
+
+Also supports:
+
+* Trigonometric functions
+* Logarithmic functions
+* Exponential functions
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Aggregation & Statistical Functions
+
+NumPy provides built-in functions for descriptive statistics.
+
+Common operations:
+
+* Mean
+* Median
+* Sum
+* Min / Max
+* Variance
+* Standard Deviation
+
+These operations can be applied:
+
+* On entire array
+* Along rows or columns (axis-wise)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Indexing & Slicing
+
+Indexing
+
+Access specific elements using indices.
+
+Slicing
+
+Extract subarrays using range-based indexing.
+
+Boolean Indexing
+
+Select elements based on conditions.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Broadcasting
+
+### What is Broadcasting?
+
+**Broadcasting** allows NumPy to perform operations on arrays of **different shapes** without copying data.
+
+---
+
+Why Broadcasting is Useful?
+
+* Avoids unnecessary loops
+* Improves performance
+* Simplifies mathematical expressions
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧮 Linear Algebra in NumPy
+
+NumPy supports linear algebra operations such as:
+
+* Dot product
+* Matrix multiplication
+* Transpose
+* Determinant
+* Inverse
+* Eigenvalues
+
+Used heavily in:
+
+* Machine Learning
+* Deep Learning
+* Optimization problems
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Numerical Analysis Capabilities
+
+NumPy is used for:
+
+* Numerical simulations
+* Optimization problems
+* Scientific calculations
+* Signal processing
+* Image processing
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Limitations of NumPy
+
+* Not ideal for labeled data
+* Limited data manipulation compared to Pandas
+* Not suitable for very large out-of-memory datasets
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Use NumPy arrays instead of lists for numerical data
+* Avoid loops; use vectorization
+* Use appropriate data types to save memory
+* Combine NumPy with Pandas for data analysis
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-2 DAY-7 Summary
+
+* NumPy is the foundation of numerical computing in Python
+* Arrays are faster and memory-efficient
+* Vectorization improves performance
+* Broadcasting simplifies operations
+* Essential for Data Science, ML, and AI
