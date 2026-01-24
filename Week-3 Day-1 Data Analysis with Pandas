@@ -1,0 +1,287 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+📊 WEEK-3 | DAY-1: Data Analysis with Pandas (Theory Notes)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🐼 What is Pandas?
+
+**Pandas** is a powerful Python library used for **data manipulation, analysis, and cleaning**.
+It is built on top of **NumPy** and provides easy-to-use data structures for working with **structured data**.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Pandas is Important?
+
+* Simplifies data analysis
+* Handles missing data efficiently
+* Supports fast data filtering & aggregation
+* Works seamlessly with CSV, Excel, SQL, JSON
+* Essential for **Data Science, ML, Analytics**
+
+---
+
+📦 Core Data Structures in Pandas
+
+Pandas mainly provides **two data structures**:
+
+1. **Series**
+2. **DataFrame**
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📘 Pandas Series
+
+What is a Series?
+
+A **Series** is a **one-dimensional labeled array** capable of holding data of any type.
+
+---
+
+Key Characteristics
+
+* One-dimensional
+* Has **index + values**
+* Can store numerical, categorical, or text data
+* Similar to a column in a table
+
+---
+
+Use Cases
+
+* Single column analysis
+* Time series data
+* Output of DataFrame operations
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📗 Pandas DataFrame
+
+What is a DataFrame?
+
+A **DataFrame** is a **two-dimensional, tabular data structure** with rows and columns.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Key Characteristics
+
+* Rows → indexed
+* Columns → labeled
+* Can store mixed data types
+* Size-mutable
+* Similar to Excel sheet / SQL table
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Why DataFrames are Powerful?
+
+* Easy data selection
+* Flexible indexing
+* Efficient group operations
+* Built-in data cleaning tools
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📥 Data Loading in Pandas
+
+Pandas supports reading data from multiple sources:
+
+* CSV files
+* Excel files
+* JSON files
+* SQL databases
+* APIs
+
+This makes Pandas ideal for **real-world data analysis**.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Inspecting Data
+
+Before analysis, understanding data structure is crucial.
+
+Common inspection concepts:
+
+* Shape → number of rows & columns
+* Column names
+* Data types
+* First & last few rows
+* Summary statistics
+
+Helps in:
+
+* Detecting issues
+* Understanding dataset structure
+* Planning analysis
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧹 Data Cleaning in Pandas
+
+Why Data Cleaning is Needed?
+
+Real-world data is often:
+
+* Incomplete
+* Inconsistent
+* Noisy
+
+Pandas provides tools to handle these problems.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Common Data Cleaning Tasks
+
+* Handling missing values
+* Removing duplicates
+* Fixing data types
+* Renaming columns
+* Filtering invalid data
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❓ Missing Data Handling
+
+Why Missing Data Matters?
+
+* Can bias analysis
+* Affects ML model performance
+
+---
+
+Common Strategies
+
+* Remove missing rows
+* Fill with mean/median/mode
+* Forward fill / backward fill
+* Replace with constants
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔎 Data Selection & Filtering
+
+Pandas allows:
+
+* Column selection
+* Row filtering
+* Conditional filtering
+* Boolean indexing
+
+Used to:
+
+* Extract relevant data
+* Apply conditions
+* Focus analysis
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Data Manipulation
+
+Key manipulation operations:
+
+* Sorting data
+* Adding/removing columns
+* Updating values
+* Applying functions to columns
+* Creating derived features
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Grouping & Aggregation
+
+What is GroupBy?
+
+**GroupBy** splits data into groups based on some criteria, applies operations, and combines results.
+
+---
+
+Why GroupBy is Important?
+
+* Summarizes large datasets
+* Used for statistics and insights
+* Foundation for reporting & dashboards
+
+Common aggregations:
+
+* Mean
+* Sum
+* Count
+* Min / Max
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔗 Merging & Joining Data
+
+Why Combine Data?
+
+Real-world data is often spread across multiple sources.
+
+Pandas supports:
+
+* Merge (SQL-style joins)
+* Concatenation
+* Join operations
+
+Used in:
+
+* Data integration
+* Feature engineering
+* Multi-table analysis
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Descriptive Statistics with Pandas
+
+Pandas provides built-in statistical methods:
+
+* Mean
+* Median
+* Mode
+* Standard deviation
+* Quantiles
+
+Useful for:
+
+* Exploratory Data Analysis (EDA)
+* Understanding distributions
+* Identifying anomalies
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📉 Exploratory Data Analysis (EDA)
+
+What is EDA?
+
+EDA is the process of **exploring data visually and statistically** to discover patterns and insights.
+
+Pandas plays a key role in:
+
+* Data summarization
+* Data profiling
+* Preparing data for visualization
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Limitations of Pandas
+
+* Not suitable for very large (out-of-memory) datasets
+* Slower for heavy numerical computations (NumPy preferred)
+* Limited built-in visualization
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Always inspect data before analysis
+* Handle missing values carefully
+* Use vectorized operations
+* Combine Pandas with NumPy & Matplotlib
+* Keep data pipelines clean & readable
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-3 DAY-1 Summary
+
+* Pandas is the backbone of data analysis in Python
+* Series → 1D labeled data
+* DataFrame → 2D tabular data
+* Supports data loading, cleaning, filtering, aggregation
+* Essential for **EDA, ML preprocessing, and analytics**
