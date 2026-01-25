@@ -1,0 +1,231 @@
+🧹 Handling Missing & Duplicate Data (Theory Notes)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Why Data Cleaning Matters
+
+Real-world data is often:
+
+* Incomplete
+* Inconsistent
+* Repetitive
+
+**Handling missing and duplicate data** is a critical step in **data preprocessing** because poor-quality data leads to:
+
+* Incorrect analysis
+* Biased results
+* Poor machine learning performance
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❓ Missing Data
+
+What is Missing Data?
+
+**Missing data** occurs when no value is stored for a variable in an observation.
+
+In datasets, missing values may appear as:
+
+* `NaN`
+* `None`
+* Empty cells
+* Special placeholders (e.g., `-999`, `"NA"`)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Causes of Missing Data
+
+* Data collection errors
+* User did not provide information
+* Sensor or system failure
+* Data merging issues
+* Intentional omission
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Types of Missing Data
+
+1️⃣ Missing Completely at Random (MCAR)
+
+* Missingness is unrelated to any variable
+* Least harmful type
+
+---
+
+2️⃣ Missing at Random (MAR)
+
+* Missingness depends on other observed variables
+* Common in real datasets
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Missing Not at Random (MNAR)
+
+* Missingness depends on the missing value itself
+* Most difficult to handle
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Strategies to Handle Missing Data
+
+1️⃣ Removing Missing Data
+
+When to Remove?
+
+* Missing values are very few
+* Dataset is large
+* Missingness is random
+
+Methods:
+
+* Remove rows
+* Remove columns (if mostly missing)
+
+⚠️ Risk: Data loss
+
+---
+
+2️⃣ Filling / Imputing Missing Data
+
+Replacing missing values with estimated ones.
+
+Common approaches:
+
+* Mean (numerical data)
+* Median (robust to outliers)
+* Mode (categorical data)
+* Constant value (e.g., 0, "Unknown")
+
+---
+
+3️⃣ Forward & Backward Filling
+
+* Forward fill → uses previous value
+* Backward fill → uses next value
+
+Used in:
+
+* Time-series data
+
+---
+
+4️⃣ Predictive Imputation
+
+* Use ML/statistical models
+* More accurate but complex
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Important Considerations for Missing Data
+
+* Never blindly remove data
+* Understand the reason for missingness
+* Different columns may need different strategies
+* Handle missing data **after train-test split** to avoid data leakage
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Duplicate Data
+
+What is Duplicate Data?
+
+**Duplicate data** occurs when the same record appears more than once in a dataset.
+
+Duplicates can be:
+
+* Fully identical rows
+* Partially duplicated based on key columns
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Causes of Duplicate Data
+
+* Data entry errors
+* Merging datasets
+* Repeated data collection
+* System or logging issues
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Why Duplicates are a Problem
+
+* Skew summary statistics
+* Bias machine learning models
+* Increase storage & processing cost
+* Produce misleading insights
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Handling Duplicate Data
+
+1️⃣ Identifying Duplicates
+
+Duplicates can be identified:
+
+* Across entire rows
+* Based on specific columns (IDs, emails, timestamps)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Removing Duplicates
+
+* Keep first occurrence
+* Keep last occurrence
+* Remove all duplicates
+
+Choice depends on:
+
+* Business logic
+* Data relevance
+* Timestamp importance
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Validating Before Removal
+
+Before removing duplicates:
+
+* Check why duplicates exist
+* Ensure duplicates are truly redundant
+* Avoid removing meaningful repeated records
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Always inspect missing & duplicate data first
+* Use visual summaries where possible
+* Document cleaning decisions
+* Apply cleaning consistently across datasets
+* Re-check data after cleaning
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Mistakes
+
+* Removing too much data
+* Filling missing values incorrectly
+* Ignoring MNAR data
+* Removing valid repeated observations
+* Data leakage during imputation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Missing vs Duplicate Data (Quick Comparison)
+
+| Aspect   | Missing Data       | Duplicate Data       |
+| -------- | ------------------ | -------------------- |
+| Problem  | No value present   | Repeated values      |
+| Impact   | Bias, data loss    | Skewed statistics    |
+| Handling | Remove or fill     | Identify & drop      |
+| Risk     | Losing information | Losing valid records |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ Summary
+
+* Missing data is unavoidable in real datasets
+* Understand the type before handling
+* Choose removal or imputation wisely
+* Duplicate data must be identified carefully
+* Proper cleaning improves analysis & model accuracy
