@@ -1,0 +1,272 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 WEEK-3 | DAY-3: GroupBy Operations & Outlier Handling
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 GroupBy Operations
+
+What is GroupBy?
+
+**GroupBy** is used to **group data based on one or more columns** and then perform calculations on each group.
+
+It works in three steps:
+
+1. **Split** the data into groups
+2. **Apply** a function (sum, mean, count, etc.)
+3. **Combine** the results
+
+---
+
+Why GroupBy is Important?
+
+* Summarizes large datasets
+* Helps compare categories
+* Used in reporting & dashboards
+* Core part of Exploratory Data Analysis (EDA)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Common GroupBy Operations
+
+1️⃣ Aggregation
+
+Used to get summary values for each group.
+
+Common aggregation functions:
+
+* mean
+* sum
+* count
+* min
+* max
+* median
+* standard deviation
+
+**Use case examples:**
+
+* Average salary per department
+* Total sales per region
+* Number of customers per city
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Transformation
+
+Returns output **same size as original data**.
+
+Used for:
+
+* Normalizing values within groups
+* Ranking items inside groups
+* Filling missing values group-wise
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 3️⃣ Filtering
+
+Used to **remove entire groups** based on conditions.
+
+Examples:
+
+* Remove groups with very few records
+* Keep only high-volume categories
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GroupBy with Multiple Columns
+
+* Grouping can be done on **more than one column**
+* Produces hierarchical (multi-level) grouping
+* Useful for complex analysis
+
+Example use cases:
+
+* Sales by region and product
+* Performance by year and department
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GroupBy Output
+
+* Can return **Series or DataFrame**
+* Sometimes creates **MultiIndex**
+* Understanding output structure is important for further analysis
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Best Practices for GroupBy
+
+* Clean missing data before grouping
+* Be careful with large group sizes
+* Use meaningful aggregation functions
+* Validate results after grouping
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚨 Outlier Handling
+
+---
+
+What is an Outlier?
+
+An **outlier** is a data point that is **very different** from other values in the dataset.
+
+Examples:
+
+* Extremely high income
+* Unusually low age
+* Abnormal transaction value
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Why Outliers Matter?
+
+* Distort mean and standard deviation
+* Mislead analysis
+* Reduce ML model accuracy
+* Affect visualizations
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Causes of Outliers
+
+* Data entry errors
+* Measurement errors
+* System or sensor faults
+* Rare but valid events
+* Natural variability
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Types of Outliers
+
+1️⃣ Global Outliers
+
+* Stand out from entire dataset
+
+2️⃣ Contextual Outliers
+
+* Abnormal only in a specific context (e.g., time)
+
+3️⃣ Collective Outliers
+
+* Group of values together form an outlier pattern
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧪 Outlier Detection Methods
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ IQR (Interquartile Range) Method
+
+* Based on Q1 and Q3
+* Robust to extreme values
+* Best for skewed data
+
+Outliers lie outside:
+
+* Q1 − 1.5 × IQR
+* Q3 + 1.5 × IQR
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Z-Score Method
+
+* Measures distance from mean in standard deviations
+* |Z| > 3 → outlier
+* Works best for normally distributed data
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Mean & Standard Deviation Rule
+
+* Values far from mean
+* Sensitive to existing outliers
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4️⃣ Visualization Methods
+
+* Box plots
+* Histograms
+* Scatter plots
+
+Helps understand data visually.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Handling Outliers
+
+---
+
+1️⃣ Remove Outliers
+
+Use when:
+
+* Outliers are errors
+* Dataset is large
+
+⚠️ Risk: Loss of important information
+
+---
+
+2️⃣ Capping / Winsorization
+
+* Replace extreme values with boundary values
+* Keeps data size intact
+
+---
+
+3️⃣ Data Transformation
+
+* Log transformation
+* Square-root transformation
+
+Used to:
+
+* Reduce skewness
+* Stabilize variance
+
+---
+
+4️⃣ Use Robust Statistics
+
+* Median instead of mean
+* IQR instead of standard deviation
+
+---
+
+5️⃣ Model-Based Handling
+
+* Tree-based models (less sensitive)
+* Outlier detection algorithms
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Important Notes
+
+* Not all outliers are bad
+* Domain knowledge is crucial
+* Handle outliers **after train-test split**
+* Always document your decisions
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 GroupBy & Outliers Together
+
+* Outliers can heavily affect group averages
+* Check outliers **before aggregation**
+* Prefer median for skewed data
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-3 DAY-3 Summary
+
+* GroupBy is used for data summarization
+* Follows Split–Apply–Combine strategy
+* Outliers are extreme values that can distort results
+* Detect outliers using IQR, Z-score, or visuals
+* Handle outliers carefully using domain knowledge
+* Both are essential for clean and reliable data analysis
