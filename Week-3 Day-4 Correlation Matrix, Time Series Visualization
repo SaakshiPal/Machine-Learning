@@ -1,0 +1,283 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 WEEK-3 | DAY-4: Correlation Matrix & Time Series Visualization
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔗 Correlation Matrix
+
+What is Correlation?
+
+**Correlation** measures the **strength and direction of the relationship** between two numerical variables.
+
+* Positive correlation → both increase together
+* Negative correlation → one increases, the other decreases
+* Zero correlation → no linear relationship
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is a Correlation Matrix?
+
+A **correlation matrix** is a **table** that shows correlation coefficients between **multiple numerical variables** at the same time.
+
+Each cell represents the correlation between two variables.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Why Use a Correlation Matrix?
+
+* Understand relationships between variables
+* Identify highly correlated features
+* Detect multicollinearity
+* Support feature selection
+* Improve model performance
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Key Properties
+
+* Square matrix (rows = columns)
+* Diagonal values are always **1**
+* Symmetric matrix
+* Values range from **-1 to +1**
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Types of Correlation Used
+
+1️⃣ Pearson Correlation
+
+* Measures **linear relationship**
+* Most commonly used
+* Sensitive to outliers
+
+---
+
+2️⃣ Spearman Correlation
+
+* Rank-based correlation
+* Captures **monotonic relationships**
+* Robust to outliers
+
+---
+
+3️⃣ Kendall Correlation
+
+* Based on pairwise comparisons
+* Used for ordinal data
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Interpreting Correlation Values
+
+| Correlation Value | Interpretation    |
+| ----------------- | ----------------- |
+| +0.8 to +1.0      | Strong positive   |
+| +0.5 to +0.8      | Moderate positive |
+| 0.0 to +0.5       | Weak positive     |
+| 0.0               | No correlation    |
+| −0.5 to 0.0       | Weak negative     |
+| −0.8 to −0.5      | Moderate negative |
+| −1.0 to −0.8      | Strong negative   |
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Correlation vs Causation
+
+⚠️ **Correlation does NOT imply causation**
+
+* Two variables may be correlated due to a third factor
+* Correlation only shows association, not cause-effect
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Limitations of Correlation Matrix
+
+* Only captures linear relationships
+* Affected by outliers
+* Does not show direction of causality
+* Misleading if data is not cleaned
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Best Practices
+
+* Handle missing values before computing correlation
+* Remove or treat outliers
+* Use heatmaps for better visualization
+* Drop highly correlated features if needed
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⏳ Time Series Visualization
+
+---
+
+What is Time Series Data?
+
+**Time series data** is data collected **over time** at regular intervals.
+
+Examples:
+
+* Daily sales
+* Monthly revenue
+* Hourly temperature
+* Stock prices
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Why Time Series Visualization is Important?
+
+* Understand trends over time
+* Detect seasonality
+* Identify patterns & anomalies
+* Support forecasting
+* Monitor performance
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Key Components of Time Series
+
+1️⃣ Trend
+
+* Long-term upward or downward movement
+
+---
+
+2️⃣ Seasonality
+
+* Repeating patterns at fixed intervals
+  (daily, weekly, monthly, yearly)
+
+---
+
+3️⃣ Cyclic Patterns
+
+* Irregular long-term fluctuations
+
+---
+
+4️⃣ Noise
+
+* Random variations with no pattern
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Common Time Series Plots
+
+Line Plot
+
+* Most common visualization
+* Shows value changes over time
+
+---
+
+Rolling Mean / Moving Average
+
+* Smoothens short-term fluctuations
+* Highlights long-term trend
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Seasonal Plots
+
+* Compare patterns across seasons
+
+---
+
+Multiple Line Plot
+
+* Compare multiple time series together
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Time Indexing
+
+* Time series must have a **datetime index**
+* Enables:
+
+  * Resampling
+  * Rolling operations
+  * Time-based slicing
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Resampling
+
+Changing frequency of time series data.
+
+Examples:
+
+* Daily → Monthly
+* Hourly → Daily
+
+Used to:
+
+* Aggregate data
+* Reduce noise
+* Match time scales
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Rolling Window Operations
+
+Used to calculate statistics over a moving window.
+
+Common rolling metrics:
+
+* Moving average
+* Rolling standard deviation
+
+Helps in:
+
+* Trend detection
+* Volatility analysis
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Handling Missing Values in Time Series
+
+* Forward fill
+* Backward fill
+* Interpolation
+
+Important because time gaps distort patterns.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Outliers in Time Series
+
+* Sudden spikes or drops
+* May indicate anomalies or real events
+* Must be analyzed carefully before removal
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Correlation Matrix vs Time Series Visualization
+
+| Aspect    | Correlation Matrix             | Time Series Visualization |
+| --------- | ------------------------------ | ------------------------- |
+| Purpose   | Relationship between variables | Pattern over time         |
+| Data Type | Numerical                      | Time-indexed              |
+| Output    | Matrix / Heatmap               | Line plots                |
+| Used For  | Feature selection              | Trend & seasonality       |
+| Dimension | Multi-variable                 | Temporal                  |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Mistakes
+
+* Ignoring time order in analysis
+* Using correlation on unclean data
+* Misinterpreting correlation as causation
+* Over-smoothing time series
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-3 DAY-4 Summary
+
+* Correlation matrix shows relationships between numerical variables
+* Helps detect multicollinearity and feature importance
+* Time series visualization reveals trends, seasonality, and anomalies
+* Both are core tools in **EDA and data analysis**
+* Proper preprocessing is essential for accurate insights
