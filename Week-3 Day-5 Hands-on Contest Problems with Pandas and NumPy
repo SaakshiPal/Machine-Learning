@@ -1,0 +1,261 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏁 WEEK-3 | DAY-5: Hands-on Contest Problems with Pandas & NumPy
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Goal: Strengthen **data analysis skills** using **Pandas + NumPy** through real-world style problems.
+
+---
+
+📌 Problem Set Instructions
+
+* Use **Pandas** for data manipulation
+* Use **NumPy** for numerical operations
+* Do not use loops where vectorization is possible
+* Focus on **clean, readable code**
+* Assume datasets are given as CSV files
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 1: Dataset Overview & Inspection
+
+Task
+
+Given a dataset `data.csv`:
+
+1. Load the dataset
+2. Display:
+
+   * Number of rows & columns
+   * Column names
+   * Data types
+3. Show first 5 and last 5 rows
+4. Generate summary statistics
+
+Skills Tested
+
+* `read_csv`
+* `.shape`, `.info()`, `.describe()`
+* Basic EDA
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 2: Missing Value Analysis
+
+Task
+
+1. Identify columns with missing values
+2. Count missing values per column
+3. Calculate percentage of missing values
+4. Fill:
+
+   * Numerical columns with median
+   * Categorical columns with mode
+5. Verify no missing values remain
+
+Skills Tested
+
+* `isnull()`, `sum()`
+* `fillna()`
+* Data cleaning
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 3: Duplicate Data Handling
+
+Task
+
+1. Detect duplicate rows
+2. Count total duplicates
+3. Remove duplicates
+4. Compare dataset shape before & after removal
+
+Skills Tested
+
+* `duplicated()`
+* `drop_duplicates()`
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 4: Column Creation with NumPy
+
+Task
+
+Given a numerical column `sales`:
+
+1. Create a new column `log_sales`
+2. Create a column `sales_squared`
+3. Normalize `sales` using min–max scaling
+
+Skills Tested
+
+* NumPy mathematical functions
+* Vectorized operations
+* Feature engineering
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 5: Filtering & Conditional Selection
+
+Task
+
+1. Filter rows where `sales > average sales`
+2. Extract rows matching **multiple conditions**
+3. Count number of records per condition
+
+### Skills Tested
+
+* Boolean indexing
+* Conditional filtering
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 6: GroupBy Aggregation Challenge
+
+Task
+
+Group data by `category` and calculate:
+
+1. Total sales
+2. Average sales
+3. Maximum & minimum sales
+4. Count of records
+
+Bonus
+
+* Sort results by total sales (descending)
+
+Skills Tested
+
+* `groupby()`
+* `agg()`
+* Sorting
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 7: Multi-Column GroupBy
+
+Task
+
+Group data by `region` and `product`:
+
+1. Calculate mean revenue
+2. Calculate total profit
+3. Identify top-performing group
+
+Skills Tested
+
+* Multi-index GroupBy
+* Aggregation logic
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 8: Outlier Detection (IQR Method)
+
+Task
+
+For column `price`:
+
+1. Calculate Q1, Q3, and IQR
+2. Identify outliers
+3. Count number of outliers
+4. Create a cleaned dataset without outliers
+
+Skills Tested
+
+* Quantiles
+* Boolean masking
+* Data cleaning
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 9: Correlation Analysis
+
+Task
+
+1. Select numerical columns
+2. Compute correlation matrix
+3. Identify highly correlated pairs (> 0.8)
+4. Drop one redundant feature
+
+Skills Tested
+
+* `.corr()`
+* Feature selection logic
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 10: Time-Based Analysis
+
+Task
+
+Given a `date` column:
+
+1. Convert to datetime
+2. Set as index
+3. Calculate monthly average sales
+4. Compute 7-day moving average
+
+Skills Tested
+
+* Datetime handling
+* Resampling
+* Rolling operations
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 11: NumPy-Only Challenge
+
+Task
+
+Using NumPy arrays:
+
+1. Create a random 5×5 matrix
+2. Find row-wise & column-wise mean
+3. Replace all values < mean with 0
+4. Find index of maximum value
+
+Skills Tested
+
+* NumPy arrays
+* Broadcasting
+* Aggregations
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Problem 12: End-to-End Mini EDA
+
+Task
+
+Perform a complete mini-EDA:
+
+1. Load dataset
+2. Clean missing & duplicate data
+3. Create 2 new features
+4. Group & aggregate key metrics
+5. Detect & handle outliers
+6. Generate final cleaned dataset
+
+Skills Tested
+
+* End-to-end data analysis
+* Pandas + NumPy integration
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏆 Contest Evaluation Criteria
+
+* Correctness
+* Use of vectorized operations
+* Code readability
+* Proper Pandas/NumPy usage
+* Logical feature engineering
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-3 DAY-5 Summary
+
+* Hands-on problems strengthen Pandas & NumPy skills
+* Focus on real-world data tasks
+* Covers cleaning, grouping, statistics, and time analysis
+* Essential for **interviews, contests, and projects**
