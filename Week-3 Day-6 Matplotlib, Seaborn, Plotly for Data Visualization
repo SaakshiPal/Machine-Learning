@@ -1,0 +1,263 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 WEEK-3 | DAY-6: Data Visualization with Matplotlib, Seaborn & Plotly
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Data Visualization?
+
+**Data Visualization** is the graphical representation of data to:
+
+* Understand patterns & trends
+* Identify relationships
+* Detect outliers & anomalies
+* Communicate insights clearly
+
+It is a critical step in **EDA (Exploratory Data Analysis)**.
+
+---
+
+🎯 Why Visualization is Important?
+
+* Makes complex data easy to understand
+* Reveals hidden patterns
+* Helps in decision-making
+* Improves storytelling with data
+* Essential for Data Science & Analytics
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🖌️ Matplotlib
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Matplotlib?
+
+**Matplotlib** is a low-level Python library used to create **static, customizable plots**.
+
+It gives full control over plot elements.
+
+---
+
+Key Characteristics
+
+* Highly customizable
+* Static plots
+* Base library for many other visualization tools
+* Works well with NumPy & Pandas
+
+---
+
+Common Plot Types
+
+* Line plot
+* Bar chart
+* Histogram
+* Scatter plot
+* Pie chart
+
+---
+
+When to Use Matplotlib?
+
+* When you need full control over plots
+* For publication-quality visuals
+* For basic & custom visualizations
+
+---
+
+Limitations
+
+* Verbose syntax
+* Not interactive
+* Styling requires more code
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎨 Seaborn
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Seaborn?
+
+**Seaborn** is a high-level visualization library built on top of Matplotlib.
+
+It is designed specifically for **statistical data visualization**.
+
+---
+
+Key Characteristics
+
+* Cleaner and more attractive visuals
+* Built-in themes & color palettes
+* Integrates easily with Pandas DataFrames
+* Focuses on statistical plots
+
+---
+
+Common Plot Types
+
+* Box plot
+* Violin plot
+* Heatmap
+* Pair plot
+* Count plot
+* Regression plot
+
+---
+
+When to Use Seaborn?
+
+* For quick statistical analysis
+* When working with DataFrames
+* To visualize distributions & relationships
+* For correlation & categorical analysis
+
+---
+
+Limitations
+
+* Less control than Matplotlib
+* Mostly static plots
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌐 Plotly
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Plotly?
+
+**Plotly** is a modern visualization library used to create **interactive and dynamic plots**.
+
+It is widely used in dashboards and web applications.
+
+---
+
+Key Characteristics
+
+* Interactive plots (zoom, hover, pan)
+* Supports animations
+* Works well with dashboards
+* Web-friendly visuals
+
+---
+
+ Common Plot Types
+
+* Interactive line & bar charts
+* Scatter plots
+* 3D plots
+* Time-series plots
+* Choropleth maps
+
+---
+
+When to Use Plotly?
+
+* Interactive dashboards
+* Web-based analytics
+* Presentations requiring interactivity
+* Large & complex datasets
+
+---
+
+Limitations
+
+* Heavier than Matplotlib/Seaborn
+* More complex syntax
+* Requires browser rendering
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Comparison: Matplotlib vs Seaborn vs Plotly
+
+| Feature       | Matplotlib   | Seaborn           | Plotly            |
+| ------------- | ------------ | ----------------- | ----------------- |
+| Level         | Low-level    | High-level        | High-level        |
+| Interactivity | ❌            | ❌                 | ✔️                |
+| Ease of Use   | Medium       | Easy              | Medium            |
+| Customization | High         | Medium            | High              |
+| Best For      | Custom plots | Statistical plots | Interactive plots |
+| Output Type   | Static       | Static            | Interactive       |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Common Visualization Use-Cases
+
+Distribution Analysis
+
+* Histogram (Matplotlib/Seaborn)
+* KDE plot (Seaborn)
+
+---
+
+Relationship Analysis
+
+* Scatter plot
+* Regression plot
+* Pair plot
+
+---
+
+Categorical Analysis
+
+* Bar plot
+* Count plot
+* Box plot
+
+---
+
+Time Series Visualization
+
+* Line plot
+* Rolling average plot
+* Interactive time-series (Plotly)
+
+---
+
+Correlation Analysis
+
+* Heatmap (Seaborn)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Best Practices in Data Visualization
+
+* Choose the right plot type
+* Avoid clutter
+* Use proper labels & titles
+* Maintain consistent color schemes
+* Do not distort scales
+* Highlight important insights
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚫 Common Visualization Mistakes
+
+* Using wrong chart type
+* Overusing colors
+* Ignoring axis labels
+* Misleading scales
+* Overloading a single plot
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Visualization Workflow
+
+1. Understand the data
+2. Define the goal of visualization
+3. Choose appropriate library
+4. Select correct plot type
+5. Customize for clarity
+6. Interpret & communicate insights
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-3 DAY-6 Summary
+
+* Data visualization is essential for EDA
+* Matplotlib → full control, static plots
+* Seaborn → statistical & attractive visuals
+* Plotly → interactive & dynamic plots
+* Choosing the right tool improves insight quality
