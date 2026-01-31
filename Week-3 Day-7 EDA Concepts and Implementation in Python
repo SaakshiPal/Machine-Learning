@@ -1,0 +1,354 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 WEEK-3 | DAY-7: Exploratory Data Analysis (EDA) – Concepts & Python Implementation
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 What is Exploratory Data Analysis (EDA)?
+
+**Exploratory Data Analysis (EDA)** is the process of **understanding, summarizing, and visualizing data** before applying statistical models or machine learning algorithms.
+
+EDA helps answer:
+
+* What does the data look like?
+* Are there missing or duplicate values?
+* Are there patterns, trends, or outliers?
+* Which features are important?
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why EDA is Important?
+
+* Improves data quality
+* Detects errors and inconsistencies
+* Identifies relationships between variables
+* Helps choose correct models
+* Prevents wrong assumptions
+* Essential step before ML modeling
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Types of EDA
+
+1️⃣ Univariate Analysis
+
+* Analysis of **one variable**
+* Focus: distribution, central tendency, spread
+
+---
+
+2️⃣ Bivariate Analysis
+
+* Analysis of **two variables**
+* Focus: relationship, correlation, comparison
+
+---
+
+3️⃣ Multivariate Analysis
+
+* Analysis of **multiple variables**
+* Focus: interactions, patterns, dependencies
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 EDA Workflow (Step-by-Step)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Data Understanding
+
+Goals
+
+* Understand dataset structure
+* Identify data types
+* Check dataset size
+
+Common Tasks
+
+* View rows & columns
+* Inspect column names
+* Check data types
+
+📌 Helps in planning cleaning & analysis.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Data Quality Checks
+
+Missing Values
+
+* Identify missing data
+* Count & percentage of missing values
+* Decide strategy (drop / fill)
+
+---
+
+Duplicate Values
+
+* Detect duplicate rows
+* Remove unnecessary duplicates
+
+---
+
+Data Type Issues
+
+* Convert incorrect data types
+* Fix date/time columns
+* Ensure numerical columns are numeric
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Univariate Analysis
+
+Numerical Variables
+
+Focus on:
+
+* Mean
+* Median
+* Standard deviation
+* Distribution shape
+* Outliers
+
+Common visualizations:
+
+* Histogram
+* Box plot
+
+---
+
+Categorical Variables
+
+Focus on:
+
+* Unique values
+* Frequency counts
+* Dominant categories
+
+Common visualizations:
+
+* Bar plot
+* Count plot
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4️⃣ Bivariate Analysis
+
+Numerical vs Numerical
+
+* Correlation analysis
+* Scatter plots
+* Line plots (time-based)
+
+---
+
+Categorical vs Numerical
+
+* Group-wise comparison
+* Box plots
+* Bar plots with aggregation
+
+---
+
+Categorical vs Categorical
+
+* Frequency tables
+* Stacked bar charts
+* Chi-square insights
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5️⃣ Multivariate Analysis
+
+Goals
+
+* Understand interaction between multiple variables
+* Detect multicollinearity
+* Identify feature importance
+
+Common techniques:
+
+* Correlation matrix
+* Pair plots
+* Heatmaps
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6️⃣ Outlier Detection & Handling
+
+Why Handle Outliers?
+
+* Prevent skewed statistics
+* Improve ML model performance
+
+Common methods:
+
+* IQR method
+* Z-score
+* Visualization (box plots)
+
+Handling strategies:
+
+* Remove
+* Cap (winsorization)
+* Transform
+* Use robust metrics (median)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7️⃣ Feature Relationships
+
+Correlation Analysis
+
+* Identify highly correlated features
+* Reduce redundancy
+* Support feature selection
+
+⚠️ Correlation ≠ causation
+
+---
+
+🧪 Python Implementation for EDA
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Libraries Used
+
+* **Pandas** → data manipulation
+* **NumPy** → numerical operations
+* **Matplotlib** → basic visualization
+* **Seaborn** → statistical visualization
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Basic EDA Code Structure
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+---
+
+Load Dataset
+
+```python
+df = pd.read_csv("data.csv")
+```
+
+---
+
+Dataset Overview
+
+```python
+df.head()
+df.tail()
+df.shape
+df.info()
+df.describe()
+```
+
+---
+
+Missing Values
+
+```python
+df.isnull().sum()
+```
+
+---
+
+Duplicate Values
+
+```python
+df.duplicated().sum()
+```
+
+---
+
+Univariate Analysis (Numerical)
+
+```python
+sns.histplot(df["column"])
+sns.boxplot(x=df["column"])
+```
+
+---
+
+Univariate Analysis (Categorical)
+
+```python
+df["category"].value_counts()
+sns.countplot(x="category", data=df)
+```
+
+---
+
+Bivariate Analysis
+
+```python
+sns.scatterplot(x="col1", y="col2", data=df)
+sns.boxplot(x="category", y="value", data=df)
+```
+
+---
+
+Correlation Matrix
+
+```python
+corr = df.corr()
+sns.heatmap(corr, annot=True, cmap="coolwarm")
+```
+
+---
+
+Outlier Detection (IQR)
+
+```python
+Q1 = df["column"].quantile(0.25)
+Q3 = df["column"].quantile(0.75)
+IQR = Q3 - Q1
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common EDA Mistakes
+
+* Skipping EDA
+* Ignoring missing values
+* Misinterpreting correlation
+* Removing valid outliers
+* Over-visualizing
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices for EDA
+
+* Always start with data inspection
+* Visualize before modeling
+* Handle missing & outliers carefully
+* Use domain knowledge
+* Document findings clearly
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 EDA Checklist
+
+✔ Dataset overview
+✔ Missing values handled
+✔ Duplicates removed
+✔ Outliers identified
+✔ Relationships explored
+✔ Insights summarized
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-3 DAY-7 Summary
+
+* EDA is the foundation of data analysis
+* Helps understand structure, quality, and patterns
+* Combines statistics + visualization
+* Pandas & Seaborn are key tools
+* Proper EDA improves model accuracy & decisions
