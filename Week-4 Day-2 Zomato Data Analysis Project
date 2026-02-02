@@ -1,0 +1,259 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🍽️ WEEK-4 | DAY-2: Zomato Data Analysis Project
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Project Title
+
+**Zomato Restaurant Data Analysis using Python**
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Project Objective
+
+The goal of this project is to **analyze Zomato restaurant data** to extract meaningful insights related to:
+
+* Restaurant ratings
+* Online delivery & table booking
+* Cost distribution
+* Popular restaurant types
+* City-wise and category-wise trends
+
+This project focuses on **EDA (Exploratory Data Analysis)** using **Pandas, NumPy, Matplotlib, and Seaborn**.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Dataset Description
+
+The Zomato dataset typically contains information such as:
+
+* Restaurant name
+* Location / city
+* Online order availability
+* Table booking
+* Rating
+* Votes
+* Average cost for two
+* Restaurant type
+* Cuisines
+
+📌 Dataset Source: Kaggle / public Zomato dataset
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Tools & Libraries Used
+
+* **Python**
+* **Pandas** – data manipulation
+* **NumPy** – numerical analysis
+* **Matplotlib** – basic visualization
+* **Seaborn** – statistical visualization
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📂 Project Structure
+
+```
+zomato-data-analysis/
+│
+├── data/
+│   └── zomato.csv
+│
+├── zomato_analysis.py
+├── requirements.txt
+└── README.md
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📥 Step 1: Import Libraries & Load Dataset
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("data/zomato.csv")
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Step 2: Dataset Overview
+
+Tasks Performed
+
+* View first & last rows
+* Check shape of dataset
+* Inspect column names & data types
+* Generate summary statistics
+
+```python
+df.head()
+df.shape
+df.info()
+df.describe()
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧹 Step 3: Data Cleaning
+
+Handling Missing Values
+
+* Drop columns with excessive missing values
+* Fill missing ratings & costs where required
+
+```python
+df.isnull().sum()
+```
+
+---
+
+Removing Duplicates
+
+```python
+df.duplicated().sum()
+df.drop_duplicates(inplace=True)
+```
+
+---
+
+Data Type Fixing
+
+* Convert ratings to numerical
+* Convert cost columns to integer/float
+* Clean text columns (strip spaces)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Step 4: Univariate Analysis
+
+Key Questions Answered
+
+* Which restaurant types are most common?
+* Distribution of ratings
+* Distribution of average cost for two
+
+Visualizations Used
+
+* Count plots
+* Histograms
+* Box plots
+
+Example:
+
+```python
+sns.countplot(x="online_order", data=df)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Step 5: Bivariate Analysis
+
+Questions Explored
+
+* Do online orders affect ratings?
+* Does table booking improve ratings?
+* Relationship between votes and rating
+* Cost vs rating analysis
+
+Visualizations Used
+
+* Box plots
+* Scatter plots
+* Bar plots
+
+```python
+sns.boxplot(x="online_order", y="rate", data=df)
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔗 Step 6: GroupBy Analysis
+
+Insights Generated
+
+* Average rating by restaurant type
+* Average cost by location
+* Vote count by category
+
+```python
+df.groupby("rest_type")["rate"].mean()
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚨 Step 7: Outlier Detection
+
+Methods Used
+
+* Box plots
+* IQR method
+
+Handled extreme values in:
+
+* Ratings
+* Cost for two
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Step 8: Correlation Analysis
+
+Goal
+
+* Understand relationships between numerical features
+* Identify highly correlated variables
+
+```python
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Key Insights from the Project
+
+* Restaurants with **online ordering** generally have better ratings
+* **Table booking** is linked to higher average ratings
+* Certain restaurant types dominate the platform
+* Higher votes often indicate better-rated restaurants
+* Cost does not always correlate with higher ratings
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Challenges Faced
+
+* Missing & inconsistent ratings
+* Mixed data types
+* Outliers in cost data
+* Text cleaning required for categorical columns
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Learning Outcomes
+
+✔ Real-world EDA experience
+✔ Pandas data cleaning & grouping
+✔ Visualization for business insights
+✔ Handling messy datasets
+✔ Analytical thinking
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Possible Enhancements
+
+* City-wise dashboard
+* Cuisine-based recommendation system
+* Sentiment analysis on reviews
+* Machine learning rating prediction model
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-4 DAY-2 Summary
+
+* Zomato dataset provides rich restaurant insights
+* EDA helps understand business trends
+* Pandas & Seaborn are core tools
+* Project builds strong **data analyst foundation**
+
