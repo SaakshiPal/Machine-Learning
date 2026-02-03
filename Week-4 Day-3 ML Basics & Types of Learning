@@ -1,0 +1,260 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🤖 WEEK-4 | DAY-3: Machine Learning Basics & Types of Learning
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Machine Learning (ML)?
+
+**Machine Learning** is a subset of Artificial Intelligence that enables systems to **learn from data and improve automatically** without being explicitly programmed.
+
+Instead of writing rules, ML systems:
+
+* Learn patterns from data
+* Make predictions or decisions
+* Improve performance with experience
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Machine Learning is Important?
+
+* Handles large and complex data
+* Automates decision-making
+* Improves accuracy over time
+* Powers modern applications like recommendations, fraud detection, and speech recognition
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 How Machine Learning Works (Basic Idea)
+
+1. Collect data
+2. Prepare & clean data
+3. Choose a model
+4. Train the model using data
+5. Evaluate performance
+6. Make predictions on new data
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 Components of a Machine Learning System
+
+* **Data** → Input used for learning
+* **Features** → Important variables
+* **Model** → Mathematical representation
+* **Algorithm** → Learning method
+* **Loss Function** → Measures error
+* **Evaluation Metric** → Measures performance
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Types of Machine Learning
+
+Machine learning is mainly divided into **four types**:
+
+1. Supervised Learning
+2. Unsupervised Learning
+3. Semi-Supervised Learning
+4. Reinforcement Learning
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧪 1️⃣ Supervised Learning
+
+What is Supervised Learning?
+
+In **supervised learning**, the model is trained using **labeled data**, meaning both **input features and output labels** are known.
+
+---
+
+Goal
+
+Learn a mapping from inputs → outputs.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Types of Supervised Learning
+
+🔹 Classification
+
+* Output is **categorical**
+* Example: spam vs not spam, pass vs fail
+
+🔹 Regression
+
+* Output is **continuous**
+* Example: house price, salary prediction
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Common Algorithms
+
+* Linear Regression
+* Logistic Regression
+* Decision Tree
+* Random Forest
+* Support Vector Machine (SVM)
+* K-Nearest Neighbors (KNN)
+
+---
+
+Use Cases
+
+* Email spam detection
+* Credit risk prediction
+* Disease diagnosis
+* Price prediction
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔎 2️⃣ Unsupervised Learning
+
+What is Unsupervised Learning?
+
+In **unsupervised learning**, the data has **no labels**.
+The model tries to discover **hidden patterns or structures** in data.
+
+---
+
+Goal
+
+Understand data distribution and structure.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Types of Unsupervised Learning
+
+🔹 Clustering
+
+* Group similar data points
+* Example: customer segmentation
+
+🔹 Dimensionality Reduction
+
+* Reduce number of features
+* Example: PCA
+
+---
+
+Common Algorithms
+
+* K-Means
+* Hierarchical Clustering
+* DBSCAN
+* Principal Component Analysis (PCA)
+
+---
+
+Use Cases
+
+* Market segmentation
+* Anomaly detection
+* Recommendation systems
+* Data compression
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 3️⃣ Semi-Supervised Learning
+
+What is Semi-Supervised Learning?
+
+Uses a **small amount of labeled data** and a **large amount of unlabeled data**.
+
+---
+
+Why Use It?
+
+* Labeling data is expensive
+* Improves model performance with limited labels
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Use Cases
+
+* Image classification
+* Speech recognition
+* Web content classification
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎮 4️⃣ Reinforcement Learning
+
+What is Reinforcement Learning?
+
+In **reinforcement learning**, an agent learns by **interacting with an environment** and receiving **rewards or penalties**.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Key Elements
+
+* Agent
+* Environment
+* Action
+* Reward
+* Policy
+
+---
+
+Goal
+
+Maximize cumulative reward over time.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Use Cases
+
+* Game playing (Chess, Go)
+* Robotics
+* Self-driving cars
+* Recommendation systems
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Comparison of ML Types
+
+| Type            | Data           | Output  | Example         |
+| --------------- | -------------- | ------- | --------------- |
+| Supervised      | Labeled        | Known   | Spam detection  |
+| Unsupervised    | Unlabeled      | Unknown | Customer groups |
+| Semi-Supervised | Partial labels | Known   | Image tagging   |
+| Reinforcement   | Feedback-based | Reward  | Game AI         |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 ML vs Traditional Programming
+
+| Traditional Programming | Machine Learning      |
+| ----------------------- | --------------------- |
+| Rules + Data → Output   | Data + Output → Rules |
+| Manual logic            | Automatic learning    |
+| Fixed behavior          | Improves over time    |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common ML Challenges
+
+* Poor data quality
+* Overfitting
+* Underfitting
+* Bias in data
+* Model interpretability
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Start with simple models
+* Perform proper EDA
+* Clean and preprocess data
+* Split data into train/test
+* Evaluate using correct metrics
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-4 DAY-3 Summary
+
+* ML enables systems to learn from data
+* Supervised learning uses labeled data
+* Unsupervised learning finds hidden patterns
+* Semi-supervised uses limited labels
+* Reinforcement learning learns via rewards
+* ML is core to AI, data science, and automation
