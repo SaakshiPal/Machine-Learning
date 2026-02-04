@@ -1,0 +1,254 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 WEEK-4 | DAY-4: Linear & Multiple Linear Regression
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Regression?
+
+**Regression** is a supervised machine learning technique used to **predict a continuous numerical value** based on one or more input features.
+
+Example predictions:
+
+* House price
+* Salary
+* Sales revenue
+* Temperature
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Regression is Important?
+
+* Predicts future values
+* Identifies relationships between variables
+* Widely used in business & data science
+* Foundation of many ML algorithms
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📉 Linear Regression
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Linear Regression?
+
+**Linear Regression** models the relationship between **one independent variable (X)** and **one dependent variable (Y)** using a straight line.
+
+---
+
+Mathematical Equation
+
+```
+Y = mX + c
+```
+
+Where:
+
+* Y → Dependent variable (output)
+* X → Independent variable (input)
+* m → Slope (rate of change)
+* c → Intercept (value of Y when X = 0)
+
+---
+
+Interpretation
+
+* **Slope (m)** → how much Y changes when X increases by 1
+* **Intercept (c)** → starting value of Y
+
+---
+
+Assumptions of Linear Regression
+
+1. Linear relationship between X and Y
+2. Independence of observations
+3. Homoscedasticity (constant variance)
+4. Normal distribution of errors
+5. No extreme outliers
+
+---
+
+Use Cases
+
+* Predicting salary from experience
+* Predicting sales from advertising spend
+* Trend analysis
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Cost Function (Error Measurement)
+
+Linear regression minimizes **Mean Squared Error (MSE)**.
+
+```
+MSE = (1/n) Σ (Actual − Predicted)²
+```
+
+Lower MSE → better model fit.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📐 Model Training (Concept)
+
+The model learns:
+
+* Best slope (m)
+* Best intercept (c)
+
+So that prediction error is minimized.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📉 Multiple Linear Regression
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Multiple Linear Regression?
+
+**Multiple Linear Regression** models the relationship between **multiple independent variables** and **one dependent variable**.
+
+---
+
+Mathematical Equation
+
+```
+Y = b₀ + b₁X₁ + b₂X₂ + ... + bₙXₙ
+```
+
+Where:
+
+* Y → Dependent variable
+* X₁, X₂, ..., Xₙ → Independent variables
+* b₀ → Intercept
+* b₁, b₂, ..., bₙ → Coefficients
+
+---
+
+Interpretation of Coefficients
+
+* Each coefficient shows the **impact of that feature**, keeping others constant
+* Positive coefficient → positive impact
+* Negative coefficient → negative impact
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Example Use Case
+
+Predicting house price using:
+
+* Area
+* Number of bedrooms
+* Location score
+* Age of house
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Assumptions of Multiple Linear Regression
+
+All linear regression assumptions apply, plus:
+
+* No multicollinearity (features should not be highly correlated)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Multicollinearity
+
+Occurs when independent variables are highly correlated.
+
+Problems caused:
+
+* Unstable coefficients
+* Poor interpretability
+
+Solution:
+
+* Correlation matrix
+* Feature selection
+* Variance Inflation Factor (VIF)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Simple vs Multiple Linear Regression
+
+| Aspect           | Linear Regression | Multiple Linear Regression |
+| ---------------- | ----------------- | -------------------------- |
+| Inputs           | One               | Multiple                   |
+| Equation         | Y = mX + c        | Y = b₀ + b₁X₁ + ...        |
+| Complexity       | Simple            | More complex               |
+| Accuracy         | Lower             | Higher (usually)           |
+| Interpretability | Very easy         | Slightly complex           |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📏 Evaluation Metrics for Regression
+
+1️⃣ R² Score
+
+* Measures how much variance is explained by the model
+* Range: 0 to 1
+* Higher is better
+
+---
+
+2️⃣ Mean Absolute Error (MAE)
+
+* Average absolute difference between actual and predicted values
+
+---
+
+3️⃣ Mean Squared Error (MSE)
+
+* Penalizes large errors more
+
+---
+
+4️⃣ Root Mean Squared Error (RMSE)
+
+* Square root of MSE
+* Same unit as target variable
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Problems in Regression
+
+Overfitting
+
+* Model learns noise
+* Performs poorly on new data
+
+Underfitting
+
+* Model too simple
+* Misses important patterns
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Perform EDA before modeling
+* Handle outliers properly
+* Scale features if required
+* Check assumptions
+* Use train-test split
+* Evaluate using multiple metrics
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Real-World Applications
+
+* Sales forecasting
+* Real estate pricing
+* Risk analysis
+* Demand prediction
+* Financial modeling
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-4 DAY-4 Summary
+
+* Linear regression predicts continuous values
+* Uses straight-line relationship
+* Multiple linear regression uses many features
+* Model performance measured using MSE, RMSE, R²
+* Core foundation for machine learning
+
