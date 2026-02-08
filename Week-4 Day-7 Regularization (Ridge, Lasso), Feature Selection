@@ -1,0 +1,280 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📉 WEEK-4 | DAY-7: Regularization (Ridge, Lasso) & Feature Selection
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Why Regularization is Needed?
+
+In regression models, sometimes:
+
+* Model fits training data **too well**
+* Performs poorly on new/unseen data
+
+This problem is called **overfitting**.
+
+👉 **Regularization** helps reduce overfitting by **penalizing large coefficients**.
+
+---
+
+⚠️ Overfitting vs Underfitting
+
+| Problem      | Description                       |
+| ------------ | --------------------------------- |
+| Overfitting  | Learns noise, poor generalization |
+| Underfitting | Model too simple, misses patterns |
+
+Regularization mainly addresses **overfitting**.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 What is Regularization?
+
+**Regularization** is a technique that:
+
+* Adds a **penalty term** to the loss function
+* Controls model complexity
+* Shrinks coefficient values
+
+General idea:
+
+```
+Loss = Error + Penalty
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔢 Types of Regularization
+
+The two most common types:
+
+1. **Ridge Regression (L2)**
+2. **Lasso Regression (L1)**
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📘 Ridge Regression (L2 Regularization)
+
+What is Ridge Regression?
+
+**Ridge Regression** adds a penalty equal to the **square of the coefficients** to the loss function.
+
+---
+
+Cost Function (Concept)
+
+```
+Loss = MSE + λ × Σ (coefficients²)
+```
+
+Where:
+
+* λ (lambda) → regularization strength
+* Higher λ → stronger penalty
+
+---
+
+Key Characteristics
+
+* Shrinks coefficients toward zero
+* **Does NOT make coefficients exactly zero**
+* Keeps all features in the model
+
+---
+
+When to Use Ridge?
+
+* When **all features are important**
+* When multicollinearity exists
+* When you want stable coefficients
+
+---
+
+Advantages
+
+* Reduces overfitting
+* Handles multicollinearity well
+* Improves model generalization
+
+---
+
+Limitation
+
+* Does not perform feature selection
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📕 Lasso Regression (L1 Regularization)
+
+What is Lasso Regression?
+
+**Lasso Regression** adds a penalty equal to the **absolute value of coefficients**.
+
+---
+
+Cost Function (Concept)
+
+```
+Loss = MSE + λ × Σ |coefficients|
+```
+
+---
+
+Key Characteristics
+
+* Shrinks coefficients
+* **Can make coefficients exactly zero**
+* Performs **automatic feature selection**
+
+---
+
+When to Use Lasso?
+
+* When many features are irrelevant
+* When you want a simpler model
+* When feature selection is required
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Advantages
+
+* Feature selection built-in
+* Produces sparse models
+* Improves interpretability
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Limitation
+
+* Can be unstable with highly correlated features
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Ridge vs Lasso Comparison
+
+| Aspect                     | Ridge  | Lasso |
+| -------------------------- | ------ | ----- |
+| Regularization Type        | L2     | L1    |
+| Shrinks coefficients       | ✔️     | ✔️   |
+| Sets coefficients to zero  | ❌     | ✔️   |
+| Feature selection          | ❌     | ✔️   |
+| Multicollinearity handling | Good   | Weak  |
+| Model simplicity           | Medium | High  |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Feature Selection
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Feature Selection?
+
+**Feature selection** is the process of choosing the **most relevant input features** for a model.
+
+Why Feature Selection is Important?
+
+* Reduces overfitting
+* Improves model performance
+* Reduces training time
+* Enhances interpretability
+* Removes irrelevant/noisy features
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Types of Feature Selection Methods
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Filter Methods
+
+* Use statistical techniques
+* Independent of ML models
+
+Examples:
+
+* Correlation
+* ANOVA
+* Chi-square
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Wrapper Methods
+
+* Use ML models to evaluate feature subsets
+* More accurate but expensive
+
+Examples:
+
+* Forward selection
+* Backward elimination
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Embedded Methods
+
+* Feature selection happens during model training
+
+Examples:
+
+* **Lasso Regression**
+* Decision Trees
+* Random Forest
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔗 Regularization as Feature Selection
+
+* **Ridge** → coefficient shrinking
+* **Lasso** → coefficient shrinking + feature elimination
+
+👉 Lasso is an **embedded feature selection method**.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Choosing the Right Regularization
+
+| Situation                     | Recommended |
+| ----------------------------- | ----------- |
+| Many correlated features      | Ridge       |
+| Need feature selection        | Lasso       |
+| Balance between Ridge & Lasso | Elastic Net |
+| High-dimensional data         | Lasso       |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Always scale features before regularization
+* Tune λ (alpha) using cross-validation
+* Check coefficients after training
+* Combine regularization with EDA
+* Avoid blindly dropping features
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚫 Common Mistakes
+
+* Not scaling data
+* Using very high λ
+* Ignoring domain knowledge
+* Confusing correlation with importance
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Real-World Applications
+
+* Finance risk models
+* Medical data analysis
+* Text data (high-dimensional)
+* Feature reduction before ML
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-4 DAY-7 Summary
+
+* Regularization reduces overfitting
+* Ridge (L2) shrinks coefficients
+* Lasso (L1) shrinks & removes features
+* Lasso performs automatic feature selection
+* Feature selection improves model quality
+* Essential for robust ML models
