@@ -1,0 +1,274 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌧️ WEEK-4 | DAY-6: Rainfall Prediction using Scikit-learn (Regression Project) 
+
+📌 Project Title
+
+**Rainfall Prediction using Machine Learning (Regression)**
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Project Objective
+
+The goal of this project is to **predict rainfall amount** based on historical weather data using **regression models** from **Scikit-learn**.
+
+This project demonstrates:
+
+* Data preprocessing
+* Exploratory Data Analysis (EDA)
+* Regression modeling
+* Model evaluation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Problem Statement
+
+Rainfall prediction is important for:
+
+* Agriculture planning
+* Water resource management
+* Disaster prevention
+* Climate analysis
+
+Using past weather parameters, we aim to build a **regression model** that predicts rainfall accurately.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📂 Dataset Description
+
+The dataset typically contains features such as:
+
+* Temperature
+* Humidity
+* Wind speed
+* Pressure
+* Cloud cover
+* Rainfall (target variable)
+
+📌 Target Variable: **Rainfall (continuous value)**
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Tools & Libraries Used
+
+* **Python**
+* **Pandas** – data handling
+* **NumPy** – numerical computation
+* **Matplotlib / Seaborn** – visualization
+* **Scikit-learn** – regression models & evaluation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📁 Project Structure
+
+```
+rainfall-prediction/
+│
+├── data/
+│   └── rainfall.csv
+│
+├── rainfall_prediction.py
+├── requirements.txt
+└── README.md
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Project Workflow
+
+1. Load Dataset
+2. Data Cleaning & Preprocessing
+3. Exploratory Data Analysis
+4. Feature Selection
+5. Train-Test Split
+6. Regression Model Training
+7. Model Evaluation
+8. Prediction & Conclusion
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📥 Step 1: Import Libraries & Load Dataset
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv("data/rainfall.csv")
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Step 2: Dataset Overview
+
+```python
+df.head()
+df.shape
+df.info()
+df.describe()
+```
+
+Purpose:
+
+* Understand structure
+* Identify missing values
+* Check data types
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧹 Step 3: Data Cleaning
+
+Tasks Performed
+
+* Handle missing values
+* Remove duplicates
+* Convert columns to numeric
+* Handle outliers if required
+
+```python
+df.isnull().sum()
+df.drop_duplicates(inplace=True)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Step 4: Exploratory Data Analysis (EDA)
+
+Analysis Performed
+
+* Rainfall distribution
+* Feature relationships
+* Correlation analysis
+
+```python
+sns.histplot(df["Rainfall"], kde=True)
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Step 5: Feature Selection
+
+* Select independent variables (X)
+* Select target variable (y)
+
+```python
+X = df.drop("Rainfall", axis=1)
+y = df["Rainfall"]
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✂️ Step 6: Train-Test Split
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+```
+
+Purpose:
+
+* Train model on unseen data
+* Prevent overfitting
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Step 7: Train Regression Model
+
+Linear Regression Model
+
+```python
+model = LinearRegression()
+model.fit(X_train, y_train)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔮 Step 8: Model Prediction
+
+```python
+y_pred = model.predict(X_test)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📏 Step 9: Model Evaluation
+
+Evaluation Metrics Used
+
+* **MAE (Mean Absolute Error)**
+* **MSE (Mean Squared Error)**
+* **RMSE (Root Mean Squared Error)**
+* **R² Score**
+
+```python
+print("MAE:", mean_absolute_error(y_test, y_pred))
+print("MSE:", mean_squared_error(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+print("R2 Score:", r2_score(y_test, y_pred))
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Model Interpretation
+
+* Lower MAE & RMSE → better accuracy
+* R² closer to 1 → strong model fit
+* Coefficients show feature impact on rainfall
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Visualization: Actual vs Predicted
+
+```python
+plt.scatter(y_test, y_pred)
+plt.xlabel("Actual Rainfall")
+plt.ylabel("Predicted Rainfall")
+plt.title("Actual vs Predicted Rainfall")
+plt.show()
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Challenges Faced
+
+* Missing weather data
+* Feature correlation
+* Outliers in rainfall values
+* Model underfitting/overfitting
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Learning Outcomes
+
+✔ Hands-on regression using Scikit-learn
+✔ Real-world data preprocessing
+✔ Model evaluation understanding
+✔ EDA + ML integration
+✔ End-to-end ML workflow
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Possible Enhancements
+
+* Use Multiple Regression models
+* Try Polynomial Regression
+* Use Random Forest Regressor
+* Feature scaling & normalization
+* Deploy model using Flask / Streamlit
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-4 DAY-6 Summary
+
+* Built rainfall prediction model using regression
+* Used Scikit-learn for training & evaluation
+* Applied EDA for insights
+* Learned full ML project workflow
+* Strong foundation for ML projects
