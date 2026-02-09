@@ -1,0 +1,259 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 WEEK-5 | DAY-1: Logistic Regression for Classification
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Classification?
+
+**Classification** is a supervised machine learning task where the output variable is **categorical**.
+
+Examples:
+
+* Spam / Not Spam
+* Yes / No
+* Disease / No Disease
+* Pass / Fail
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🤖 What is Logistic Regression?
+
+**Logistic Regression** is a **supervised classification algorithm** used to predict the **probability of a binary outcome**.
+
+Despite its name, **logistic regression is used for classification, not regression**.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Logistic Regression is Important?
+
+* Simple and interpretable
+* Fast to train
+* Works well for binary classification
+* Widely used in real-world problems
+* Foundation for advanced classifiers
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Core Idea (Intuition)
+
+Logistic regression:
+
+1. Computes a **linear combination** of inputs
+2. Passes it through a **sigmoid function**
+3. Outputs a **probability between 0 and 1**
+
+If probability ≥ threshold (usually 0.5) → Class 1
+Else → Class 0
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📐 Logistic Regression Equation
+
+Linear Part
+
+```
+z = b₀ + b₁x₁ + b₂x₂ + ... + bₙxₙ
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Sigmoid Function
+
+```
+σ(z) = 1 / (1 + e⁻ᶻ)
+```
+
+* Converts any real value into range (0, 1)
+* Represents probability
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Decision Boundary
+
+* A **decision boundary** separates different classes
+* Logistic regression creates a **linear decision boundary**
+* Threshold commonly used = **0.5**
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧪 Output Interpretation
+
+| Probability | Prediction |
+| ----------- | ---------- |
+| ≥ 0.5       | Class 1    |
+| < 0.5       | Class 0    |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Assumptions of Logistic Regression
+
+1. Binary dependent variable
+2. Linear relationship between features & log-odds
+3. Independent observations
+4. No strong multicollinearity
+5. Large sample size preferred
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Cost Function (Log Loss)
+
+Logistic regression uses **Log Loss / Binary Cross-Entropy**.
+
+Concept:
+
+* Penalizes wrong predictions heavily
+* Encourages correct probability estimates
+
+Lower loss → better model
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Training the Model
+
+Logistic regression uses:
+
+* **Gradient Descent**
+* To minimize log loss
+* Adjusts coefficients iteratively
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Evaluation Metrics for Classification
+
+1️⃣ Confusion Matrix
+
+Shows:
+
+* True Positives (TP)
+* True Negatives (TN)
+* False Positives (FP)
+* False Negatives (FN)
+
+---
+
+2️⃣ Accuracy
+
+```
+Accuracy = (TP + TN) / Total
+```
+
+---
+
+3️⃣ Precision
+
+```
+Precision = TP / (TP + FP)
+```
+
+---
+
+4️⃣ Recall (Sensitivity)
+
+```
+Recall = TP / (TP + FN)
+```
+
+---
+
+5️⃣ F1-Score
+
+* Harmonic mean of precision & recall
+* Useful for imbalanced data
+
+---
+
+6️⃣ ROC Curve & AUC
+
+* Measures model’s ability to distinguish classes
+* Higher AUC → better classifier
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Logistic Regression vs Linear Regression
+
+| Aspect        | Linear Regression | Logistic Regression |
+| ------------- | ----------------- | ------------------- |
+| Output        | Continuous        | Probability         |
+| Task          | Regression        | Classification      |
+| Function      | Linear            | Sigmoid             |
+| Loss Function | MSE               | Log Loss            |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Problems
+
+Class Imbalance
+
+* One class dominates
+* Accuracy becomes misleading
+
+Solution:
+
+* Precision, Recall, F1-score
+* Class weighting
+* Resampling
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Multicollinearity
+
+* Highly correlated features
+* Leads to unstable coefficients
+
+Solution:
+
+* Feature selection
+* Regularization
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔒 Regularization in Logistic Regression
+
+* **L1 (Lasso)** → feature selection
+* **L2 (Ridge)** → coefficient shrinking
+
+Used to:
+
+* Reduce overfitting
+* Improve generalization
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Real-World Applications
+
+* Email spam detection
+* Credit risk scoring
+* Medical diagnosis
+* Customer churn prediction
+* Fraud detection
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Perform EDA before modeling
+* Scale features
+* Handle class imbalance
+* Tune regularization strength
+* Evaluate with multiple metrics
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚫 Common Mistakes
+
+* Using accuracy only
+* Ignoring class imbalance
+* Not scaling features
+* Treating probabilities as labels
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-5 DAY-1 Summary
+
+* Logistic regression is a classification algorithm
+* Uses sigmoid function to predict probabilities
+* Suitable for binary classification
+* Interpretable & efficient
+* Core foundation for ML classification tasks
+
