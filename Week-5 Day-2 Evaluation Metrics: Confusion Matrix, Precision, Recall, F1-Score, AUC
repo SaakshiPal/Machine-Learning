@@ -1,0 +1,278 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 WEEK-5 | DAY-2: Evaluation Metrics for Classification
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Why Evaluation Metrics are Important?
+
+After training a classification model, we must **evaluate how well it performs**.
+
+Accuracy alone is often **misleading**, especially when:
+
+* Data is imbalanced
+* Cost of false predictions is high
+
+👉 Hence, we use **multiple evaluation metrics**.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧩 Confusion Matrix
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is a Confusion Matrix?
+
+A **confusion matrix** is a table that shows the **actual vs predicted** class values.
+
+It helps understand **what kind of mistakes** the model is making.
+
+---
+
+Confusion Matrix Structure
+
+|                     | Predicted Positive  | Predicted Negative  |
+| ------------------- | ------------------- | ------------------- |
+| **Actual Positive** | True Positive (TP)  | False Negative (FN) |
+| **Actual Negative** | False Positive (FP) | True Negative (TN)  |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Meaning of Each Term
+
+* **True Positive (TP)**
+  Correctly predicted positive cases
+
+* **True Negative (TN)**
+  Correctly predicted negative cases
+
+* **False Positive (FP)**
+  Incorrectly predicted as positive (Type I Error)
+
+* **False Negative (FN)**
+  Incorrectly predicted as negative (Type II Error)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Accuracy
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Accuracy?
+
+Accuracy measures the **overall correctness** of the model.
+
+```
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+```
+
+---
+
+Limitation of Accuracy
+
+* Misleading for **imbalanced datasets**
+* Does not tell type of error
+
+👉 Accuracy should **not be used alone**.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Precision
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Precision?
+
+Precision measures **how many predicted positives are actually positive**.
+
+```
+Precision = TP / (TP + FP)
+```
+
+---
+
+When Precision is Important?
+
+* When **false positives are costly**
+
+Examples:
+
+* Spam detection
+* Fraud detection
+
+High precision → fewer false alarms
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Recall (Sensitivity)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Recall?
+
+Recall measures **how many actual positives were correctly identified**.
+
+```
+Recall = TP / (TP + FN)
+```
+
+---
+
+When Recall is Important?
+
+* When **false negatives are costly**
+
+Examples:
+
+* Disease detection
+* Security threats
+
+High recall → fewer missed cases
+
+---
+
+⚖️ Precision vs Recall
+
+| Metric    | Focus                               |
+| --------- | ----------------------------------- |
+| Precision | Correctness of positive predictions |
+| Recall    | Coverage of actual positives        |
+
+Trade-off often exists between them.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 F1-Score
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is F1-Score?
+
+**F1-score** is the **harmonic mean** of Precision and Recall.
+
+```
+F1 = 2 × (Precision × Recall) / (Precision + Recall)
+```
+
+---
+
+Why F1-Score?
+
+* Balances precision & recall
+* Useful for **imbalanced datasets**
+* Single metric for performance comparison
+
+---
+
+When to Use F1-Score?
+
+* When both FP and FN are important
+* When data is imbalanced
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 ROC Curve (Receiver Operating Characteristic)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is ROC Curve?
+
+ROC curve plots:
+
+* **True Positive Rate (Recall)** on Y-axis
+* **False Positive Rate** on X-axis
+
+It shows model performance at **different thresholds**.
+
+---
+
+Key Terms
+
+* **TPR (Recall)** = TP / (TP + FN)
+* **FPR** = FP / (FP + TN)
+
+---
+
+Interpretation
+
+* Curve closer to top-left → better model
+* Diagonal line → random classifier
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 AUC (Area Under Curve)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is AUC?
+
+**AUC** measures the **area under the ROC curve**.
+
+Range:
+
+* 0 → Worst
+* 0.5 → Random
+* 1.0 → Perfect classifier
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Why AUC is Useful?
+
+* Threshold independent
+* Robust for imbalanced data
+* Measures class separation ability
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Metric Comparison Summary
+
+| Metric    | Best Used When                 |
+| --------- | ------------------------------ |
+| Accuracy  | Balanced datasets              |
+| Precision | FP cost is high                |
+| Recall    | FN cost is high                |
+| F1-Score  | Imbalanced datasets            |
+| AUC       | Overall classification ability |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Mistakes
+
+* Using only accuracy
+* Ignoring class imbalance
+* Misinterpreting precision & recall
+* Choosing wrong metric for problem
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Real-World Metric Selection
+
+| Problem             | Important Metric   |
+| ------------------- | ------------------ |
+| Spam detection      | Precision          |
+| Disease diagnosis   | Recall             |
+| Fraud detection     | Precision + Recall |
+| ML model comparison | F1-score / AUC     |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Always start with confusion matrix
+* Choose metric based on problem context
+* Use multiple metrics
+* Visualize ROC curve
+* Validate using cross-validation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-5 DAY-2 Summary
+
+* Confusion matrix explains prediction outcomes
+* Accuracy alone is insufficient
+* Precision focuses on false positives
+* Recall focuses on false negatives
+* F1-score balances precision & recall
+* ROC–AUC measures overall classifier performance
+* Metric choice depends on business problem
+
