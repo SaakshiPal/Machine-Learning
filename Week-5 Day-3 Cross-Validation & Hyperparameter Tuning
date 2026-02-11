@@ -1,0 +1,280 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 WEEK-5 | DAY-3: Cross-Validation & Hyperparameter Tuning
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Why Do We Need Cross-Validation?
+
+When we train a machine learning model:
+
+* It may perform well on training data
+* But fail on unseen data
+
+This is called **overfitting**.
+
+👉 Cross-validation helps ensure the model **generalizes well** to new data.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Cross-Validation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 What is Cross-Validation?
+
+Cross-validation is a technique used to:
+
+* Evaluate model performance
+* Reduce overfitting
+* Use data efficiently
+
+Instead of splitting data only once, we:
+
+* Split multiple times
+* Train and test multiple times
+* Take average performance
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Train-Test Split vs Cross-Validation
+
+| Train-Test Split       | Cross-Validation       |
+| ---------------------- | ---------------------- |
+| Single split           | Multiple splits        |
+| Faster                 | More reliable          |
+| May give biased result | More stable evaluation |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Types of Cross-Validation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ K-Fold Cross-Validation
+
+How It Works:
+
+1. Divide data into **K equal folds**
+2. Train on K-1 folds
+3. Test on remaining fold
+4. Repeat K times
+5. Take average score
+
+Example:
+
+* K = 5 → 5 iterations
+* Each fold used once as validation
+
+---
+
+Advantages:
+
+* Efficient use of data
+* Reliable performance estimate
+* Reduces variance
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Stratified K-Fold
+
+Used for **classification problems**.
+
+Ensures:
+
+* Each fold has same class distribution as original dataset
+
+Important for:
+
+* Imbalanced datasets
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Leave-One-Out (LOOCV)
+
+* Special case of K-Fold
+* K = number of data points
+* Very computationally expensive
+* Used for small datasets
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Cross-Validation is Important?
+
+* Detects overfitting
+* Gives realistic performance
+* Helps model selection
+* Works well with small datasets
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Hyperparameter Tuning
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 What are Hyperparameters?
+
+Hyperparameters are:
+
+* Settings defined before training
+* Not learned from data
+
+Examples:
+
+* Learning rate
+* Number of neighbors (K in KNN)
+* Regularization strength (λ)
+* Tree depth
+* Number of estimators
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Why Hyperparameter Tuning?
+
+Wrong hyperparameters can cause:
+
+* Overfitting
+* Underfitting
+* Poor performance
+
+Tuning helps:
+
+* Improve model accuracy
+* Optimize performance
+* Balance bias-variance tradeoff
+
+---
+
+📌 Hyperparameter Tuning Methods
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Grid Search
+
+How It Works:
+
+* Try all possible combinations
+* Select best performing combination
+
+Example:
+
+* K = [3, 5, 7]
+* Metric = ["euclidean", "manhattan"]
+
+Tests all combinations.
+
+---
+
+Advantages:
+
+* Exhaustive search
+* Finds optimal combination (within grid)
+
+Disadvantages:
+
+* Computationally expensive
+* Slow for large parameter space
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Random Search
+
+How It Works:
+
+* Randomly selects parameter combinations
+* Tests limited number of combinations
+
+---
+
+Advantages:
+
+* Faster than Grid Search
+* Good for large parameter space
+* Often performs nearly as well
+
+---
+
+Disadvantages:
+
+* May miss optimal combination
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Bayesian Optimization (Advanced)
+
+* Smart search method
+* Learns from previous results
+* More efficient
+* Used in advanced ML systems
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔗 Cross-Validation + Hyperparameter Tuning
+
+In practice:
+
+* Combine both together
+* Use GridSearchCV or RandomizedSearchCV
+
+This:
+
+* Tunes hyperparameters
+* Validates using cross-validation
+* Selects best model automatically
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Bias-Variance Tradeoff
+
+Hyperparameter tuning affects:
+
+| Too Complex Model | Too Simple Model |
+| ----------------- | ---------------- |
+| Overfitting       | Underfitting     |
+| Low bias          | High bias        |
+| High variance     | Low variance     |
+
+Goal:
+👉 Find optimal balance.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Mistakes
+
+* Tuning on test data
+* Using very large parameter grid
+* Ignoring cross-validation
+* Not scaling features
+* Over-tuning model
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------0
+
+📌 Best Practices
+
+* Always keep test set separate
+* Use cross-validation for tuning
+* Start with Random Search
+* Narrow grid after first tuning
+* Monitor multiple evaluation metrics
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Real-World Applications
+
+* Model selection in ML competitions
+* Production ML systems
+* AutoML pipelines
+* Deep learning optimization
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-5 DAY-3 Summary
+
+* Cross-validation improves reliability
+* K-Fold is most commonly used
+* Hyperparameters control model behavior
+* Grid Search tries all combinations
+* Random Search is faster alternative
+* Always combine tuning with cross-validation
+* Essential for building robust ML models
+
