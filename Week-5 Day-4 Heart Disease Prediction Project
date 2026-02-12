@@ -1,0 +1,299 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❤️ WEEK-5 | DAY-4: Heart Disease Prediction Project
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Project Title
+
+**Heart Disease Prediction using Machine Learning**
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Project Objective
+
+The goal of this project is to build a **classification model** that predicts whether a person has heart disease or not based on medical attributes.
+
+This project demonstrates:
+
+* Data preprocessing
+* Exploratory Data Analysis (EDA)
+* Model training
+* Model evaluation
+* Cross-validation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏥 Problem Statement
+
+Heart disease is one of the leading causes of death worldwide.
+
+Using patient health data, we aim to:
+
+* Predict risk early
+* Assist doctors in decision-making
+* Improve healthcare outcomes
+
+Target Variable:
+
+* `1` → Heart Disease Present
+* `0` → No Heart Disease
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Dataset Description
+
+Common features in the dataset:
+
+* Age
+* Sex
+* Chest Pain Type
+* Resting Blood Pressure
+* Cholesterol
+* Fasting Blood Sugar
+* Rest ECG
+* Maximum Heart Rate
+* Exercise Induced Angina
+* Oldpeak (ST depression)
+* Target (Heart Disease)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Tools & Libraries Used
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib / Seaborn
+* Scikit-learn
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📁 Project Structure
+
+```
+heart-disease-prediction/
+│
+├── data/
+│   └── heart.csv
+│
+├── heart_disease_model.py
+├── requirements.txt
+└── README.md
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 🔄 Project Workflow
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Import Libraries & Load Dataset
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
+
+df = pd.read_csv("data/heart.csv")
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Data Understanding
+
+```python
+df.head()
+df.info()
+df.describe()
+df.shape
+```
+
+Check:
+
+* Missing values
+* Data types
+* Dataset size
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Data Cleaning
+
+* Handle missing values
+* Remove duplicates
+* Convert categorical variables if needed
+
+```python
+df.isnull().sum()
+df.drop_duplicates(inplace=True)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4️⃣ Exploratory Data Analysis (EDA)
+
+Distribution of Target
+
+```python
+sns.countplot(x="target", data=df)
+```
+
+Correlation Heatmap
+
+```python
+plt.figure(figsize=(10,8))
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+```
+
+Purpose:
+
+* Identify important features
+* Detect multicollinearity
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5️⃣ Feature Selection
+
+```python
+X = df.drop("target", axis=1)
+y = df["target"]
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6️⃣ Train-Test Split
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7️⃣ Model Training (Logistic Regression)
+
+```python
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8️⃣ Model Prediction
+
+```python
+y_pred = model.predict(X_test)
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9️⃣ Model Evaluation
+
+Accuracy
+
+```python
+accuracy_score(y_test, y_pred)
+```
+
+---
+
+Confusion Matrix
+
+```python
+confusion_matrix(y_test, y_pred)
+```
+
+---
+
+Classification Report
+
+```python
+print(classification_report(y_test, y_pred))
+```
+
+Includes:
+
+* Precision
+* Recall
+* F1-score
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Evaluation Metrics Interpretation
+
+* **Accuracy** → Overall correctness
+* **Precision** → Correct positive predictions
+* **Recall** → Detecting actual disease cases
+* **F1-score** → Balance of precision & recall
+
+In medical problems:
+👉 **Recall is very important**
+We should minimize **False Negatives**
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Cross-Validation (Optional)
+
+```python
+from sklearn.model_selection import cross_val_score
+
+cv_scores = cross_val_score(model, X, y, cv=5)
+cv_scores.mean()
+```
+
+Ensures model generalization.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Challenges Faced
+
+* Imbalanced dataset
+* Feature correlation
+* Choosing correct evaluation metric
+* Avoiding overfitting
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Learning Outcomes
+
+✔ Real-world classification problem
+✔ Logistic Regression implementation
+✔ Confusion matrix interpretation
+✔ Cross-validation usage
+✔ End-to-end ML workflow
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Possible Improvements
+
+* Try KNN
+* Try Random Forest
+* Hyperparameter tuning
+* Feature scaling
+* Deploy using Streamlit
+* Add ROC-AUC evaluation
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Real-World Importance
+
+* Early disease detection
+* Healthcare decision support
+* Risk prediction models
+* Preventive medicine
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-5 DAY-4 Summary
+
+* Built heart disease prediction model
+* Used Logistic Regression
+* Evaluated using confusion matrix & F1-score
+* Applied cross-validation
+* Learned complete classification workflow
