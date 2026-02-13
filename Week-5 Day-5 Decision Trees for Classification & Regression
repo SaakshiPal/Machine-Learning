@@ -1,0 +1,269 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌳 WEEK-5 | DAY-5: Decision Trees for Classification & Regression
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is a Decision Tree?
+
+A **Decision Tree** is a supervised machine learning algorithm used for:
+
+* ✅ Classification (predict categories)
+* ✅ Regression (predict continuous values)
+
+It works by:
+
+* Splitting the dataset into branches
+* Based on feature conditions
+* Until it reaches a final decision (leaf node)
+
+It looks like a **flowchart tree structure**.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Basic Structure of a Decision Tree
+
+* **Root Node** → First split (most important feature)
+* **Decision Nodes** → Intermediate splits
+* **Leaf Nodes** → Final output (prediction)
+* **Branches** → Conditions (Yes/No)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Decision Trees are Popular?
+
+* Easy to understand
+* Interpretable
+* No need for feature scaling
+* Handles numerical & categorical data
+* Works for classification & regression
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌲 Decision Tree for Classification
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Goal
+
+Predict categorical output such as:
+
+* Disease / No disease
+* Spam / Not spam
+* Yes / No
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧮 How Does It Decide Splits?
+
+Decision Trees use **impurity measures** to decide best splits.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Gini Impurity
+
+Measures how mixed the classes are.
+
+Range:
+
+* 0 → Pure node
+* 0.5 → Maximum impurity (binary case)
+
+Lower Gini → Better split
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Entropy
+
+Measures randomness.
+
+Range:
+
+* 0 → Pure
+* 1 → Maximum randomness
+
+Lower entropy → Better split
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3️⃣ Information Gain
+
+Used with entropy.
+
+Information Gain =
+
+```
+Entropy(parent) − Weighted Entropy(children)
+```
+
+Higher Information Gain → Better split
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Output
+
+Each leaf node gives:
+
+* Final predicted class
+* Probability of class
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌳 Decision Tree for Regression
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Goal
+
+Predict continuous values such as:
+
+* House price
+* Salary
+* Rainfall amount
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧮 How Does It Decide Splits?
+
+Regression trees minimize:
+
+Mean Squared Error (MSE)
+
+```
+MSE = Average of (Actual − Predicted)²
+```
+
+The tree chooses splits that:
+
+* Reduce variance
+* Minimize prediction error
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Output
+
+Each leaf node contains:
+
+* Average value of target in that region
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 How Decision Tree Works (Step-by-Step)
+
+1. Select best feature for split
+2. Divide data into subsets
+3. Repeat splitting recursively
+4. Stop when:
+
+   * Max depth reached
+   * Minimum samples reached
+   * Node becomes pure
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Overfitting in Decision Trees
+
+Decision Trees can:
+
+* Grow very deep
+* Memorize training data
+* Overfit easily
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Controlling Overfitting (Hyperparameters)
+
+| Parameter         | Purpose                           |
+| ----------------- | --------------------------------- |
+| max_depth         | Maximum tree depth                |
+| min_samples_split | Minimum samples required to split |
+| min_samples_leaf  | Minimum samples in leaf           |
+| max_features      | Number of features to consider    |
+
+Pruning helps:
+👉 Reduce complexity
+👉 Improve generalization
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Classification vs Regression Tree
+
+| Feature    | Classification Tree | Regression Tree  |
+| ---------- | ------------------- | ---------------- |
+| Output     | Category            | Continuous value |
+| Impurity   | Gini / Entropy      | MSE              |
+| Evaluation | Accuracy, F1        | RMSE, R²         |
+| Example    | Disease prediction  | Price prediction |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Advantages of Decision Trees
+
+✔ Easy to interpret
+✔ Handles non-linear relationships
+✔ No need for scaling
+✔ Works with mixed data types
+✔ Fast prediction
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❌ Disadvantages
+
+❌ Prone to overfitting
+❌ Unstable (small change → big tree change)
+❌ Can create biased trees if data is imbalanced
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Real-World Applications
+
+* Medical diagnosis
+* Credit risk scoring
+* Customer churn prediction
+* Fraud detection
+* Sales forecasting
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Decision Tree vs Logistic Regression
+
+| Aspect           | Decision Tree | Logistic Regression |
+| ---------------- | ------------- | ------------------- |
+| Boundary         | Non-linear    | Linear              |
+| Interpretability | High          | High                |
+| Overfitting risk | High          | Medium              |
+| Feature scaling  | Not required  | Required            |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+* Tune hyperparameters
+* Use cross-validation
+* Prune trees
+* Handle class imbalance
+* Compare with ensemble methods
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Next Step (Advanced)
+
+Decision Trees are base models for:
+
+* Random Forest
+* Gradient Boosting
+* XGBoost
+* AdaBoost
+
+These improve performance by combining multiple trees.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-5 DAY-5 Summary
+
+* Decision Trees work for classification & regression
+* Use impurity measures (Gini/Entropy) for classification
+* Use MSE for regression
+* Easy to interpret
+* Can overfit if not controlled
+* Foundation for advanced ensemble models
