@@ -1,0 +1,298 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌲 WEEK-6 | DAY-4: Random Forest Project with Hyperparameter Tuning
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Project Title
+
+**Random Forest Classification with Hyperparameter Tuning**
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Project Objective
+
+Build a machine learning model using:
+
+* ✅ Random Forest
+* ✅ Cross-Validation
+* ✅ Hyperparameter Tuning
+
+Goal:
+Improve model performance by finding the **best combination of parameters**.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Problem Statement (Example)
+
+We will solve a classification problem such as:
+
+* Heart Disease Prediction
+* Customer Churn Prediction
+* Fraud Detection
+
+Target:
+Binary classification (0/1)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Tools & Libraries
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib / Seaborn
+* Scikit-learn
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📁 Project Structure
+
+```
+random-forest-project/
+│
+├── data/
+│   └── dataset.csv
+│
+├── random_forest_model.py
+├── requirements.txt
+└── README.md
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Project Workflow
+
+1️⃣ Load Dataset
+2️⃣ Data Cleaning
+3️⃣ Exploratory Data Analysis
+4️⃣ Train-Test Split
+5️⃣ Baseline Model
+6️⃣ Hyperparameter Tuning
+7️⃣ Final Model Evaluation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📥 Step 1: Import Libraries
+
+```python
+import pandas as pd
+import numpy as np
+
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Step 2: Load Dataset
+
+```python
+df = pd.read_csv("data/dataset.csv")
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Step 3: Basic Data Understanding
+
+```python
+df.head()
+df.info()
+df.describe()
+df.isnull().sum()
+```
+
+Handle:
+
+* Missing values
+* Duplicates
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Step 4: Define Features & Target
+
+```python
+X = df.drop("target", axis=1)
+y = df["target"]
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✂️ Step 5: Train-Test Split
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌳 Step 6: Train Baseline Random Forest
+
+```python
+rf = RandomForestClassifier(random_state=42)
+rf.fit(X_train, y_train)
+
+y_pred = rf.predict(X_test)
+
+print("Baseline Accuracy:", accuracy_score(y_test, y_pred))
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Step 7: Hyperparameter Tuning (Grid Search)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Important Parameters to Tune
+
+| Parameter         | Meaning              |
+| ----------------- | -------------------- |
+| n_estimators      | Number of trees      |
+| max_depth         | Maximum tree depth   |
+| min_samples_split | Min samples to split |
+| min_samples_leaf  | Min samples in leaf  |
+| max_features      | Features per split   |
+
+---
+
+Define Parameter Grid
+
+```python
+param_grid = {
+    'n_estimators': [100, 200, 300],
+    'max_depth': [None, 5, 10, 20],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4],
+    'max_features': ['sqrt', 'log2']
+}
+```
+
+---
+
+Apply GridSearchCV
+
+```python
+grid_search = GridSearchCV(
+    estimator=RandomForestClassifier(random_state=42),
+    param_grid=param_grid,
+    cv=5,
+    scoring='accuracy',
+    n_jobs=-1
+)
+
+grid_search.fit(X_train, y_train)
+```
+
+---
+
+Best Parameters
+
+```python
+print("Best Parameters:", grid_search.best_params_)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌲 Step 8: Train Final Model with Best Parameters
+
+```python
+best_model = grid_search.best_estimator_
+
+y_pred_final = best_model.predict(X_test)
+
+print("Final Accuracy:", accuracy_score(y_test, y_pred_final))
+print(confusion_matrix(y_test, y_pred_final))
+print(classification_report(y_test, y_pred_final))
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Optional: Feature Importance
+
+```python
+importances = best_model.feature_importances_
+```
+
+Useful for:
+
+* Feature selection
+* Model interpretation
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Expected Improvements
+
+After tuning:
+
+* Higher accuracy
+* Better F1-score
+* Reduced overfitting
+* More stable model
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Why Hyperparameter Tuning Matters
+
+Default parameters:
+
+* May not be optimal
+
+Tuning helps:
+
+* Improve bias-variance balance
+* Optimize performance
+* Increase generalization
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Mistakes
+
+* Tuning on test set
+* Very large parameter grid
+* Ignoring cross-validation
+* Not fixing random_state
+* Overfitting with too deep trees
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Possible Enhancements
+
+* Use RandomizedSearchCV
+* Try XGBoost
+* Use ROC-AUC scoring
+* Add cross-validation score comparison
+* Deploy model using Flask or Streamlit
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Random Forest with vs Without Tuning
+
+| Model   | Accuracy | Stability |
+| ------- | -------- | --------- |
+| Default | Moderate | Medium    |
+| Tuned   | Higher   | Better    |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Real-World Applications
+
+* Credit risk modeling
+* Medical diagnosis
+* Fraud detection
+* Customer segmentation
+* Sales prediction
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-6 DAY-4 Summary
+
+* Built Random Forest classifier
+* Used GridSearchCV for tuning
+* Optimized hyperparameters
+* Evaluated model using multiple metrics
+* Improved performance significantly
+* Learned complete ML optimization workflow
+
