@@ -1,0 +1,416 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 WEEK-7 | DAY-5: Dimensionality Reduction Techniques (PCA, LDA, t-SNE, NMF, ICA, LLE, Isomap)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Why Dimensionality Reduction?
+
+Many datasets have **high dimensionality** (many features).
+
+Problems caused by high dimensions:
+
+❌ Curse of dimensionality
+❌ High computational cost
+❌ Overfitting
+❌ Hard to visualize data
+
+Dimensionality reduction helps by:
+
+✔ Reducing number of features
+✔ Removing noise
+✔ Improving model performance
+✔ Enabling visualization
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Two Types of Dimensionality Reduction
+
+1️⃣ Feature Selection
+
+Select subset of existing features.
+
+Example:
+
+* Correlation based selection
+* Chi-square
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Feature Extraction
+
+Create **new features from existing ones**.
+
+Examples:
+
+* PCA
+* LDA
+* t-SNE
+* NMF
+* ICA
+* LLE
+* Isomap
+
+This document focuses on **feature extraction methods**.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔵 1️⃣ PCA (Principal Component Analysis)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is PCA?
+
+PCA is a **linear dimensionality reduction technique** that transforms data into **principal components**.
+
+These components:
+
+* Capture maximum variance
+* Are orthogonal (uncorrelated)
+
+---
+
+🧠 Key Idea
+
+Find directions where data varies the most.
+
+Example:
+
+Instead of using:
+
+```
+Height, Weight, Age
+```
+
+PCA might create:
+
+```
+PC1 = combination of Height & Weight
+PC2 = Age variation
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 PCA Steps
+
+1️⃣ Standardize data
+2️⃣ Compute covariance matrix
+3️⃣ Compute eigenvalues & eigenvectors
+4️⃣ Select top components
+5️⃣ Transform data
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Properties
+
+* Components are orthogonal
+* Maximum variance preserved
+* Linear transformation
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Use Cases
+
+* Image compression
+* Noise reduction
+* Feature reduction before ML
+* Data visualization
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🟢 2️⃣ LDA (Linear Discriminant Analysis)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is LDA?
+
+LDA is a **supervised dimensionality reduction method**.
+
+Unlike PCA, it uses **class labels**.
+
+Goal:
+
+👉 Maximize separation between classes.
+
+---
+
+🧠 Key Idea
+
+Maximize:
+
+```
+Between-class variance
+```
+
+Minimize:
+
+```
+Within-class variance
+```
+
+---
+
+📊 Difference: PCA vs LDA
+
+| Feature     | PCA          | LDA                  |
+| ----------- | ------------ | -------------------- |
+| Supervised  | No           | Yes                  |
+| Goal        | Max variance | Max class separation |
+| Uses labels | No           | Yes                  |
+
+---
+
+📌 Applications
+
+* Face recognition
+* Pattern recognition
+* Classification preprocessing
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌌 3️⃣ t-SNE (t-Distributed Stochastic Neighbor Embedding)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is t-SNE?
+
+t-SNE is a **non-linear dimensionality reduction technique** used mainly for **visualization**.
+
+It reduces high-dimensional data to:
+
+* 2D
+* 3D
+
+---
+
+🧠 Key Idea
+
+Preserve **local structure of data**.
+
+Points that are close in high dimensions remain close in low dimensions.
+
+---
+
+📊 Characteristics
+
+✔ Excellent for visualization
+✔ Captures non-linear patterns
+✔ Preserves local similarities
+
+---
+
+❌ Limitations
+
+❌ Slow for large datasets
+❌ Not suitable for feature preprocessing
+❌ Results may vary
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🟡 4️⃣ NMF (Non-Negative Matrix Factorization)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is NMF?
+
+NMF decomposes a matrix into two smaller matrices with **non-negative values**.
+
+If:
+
+```
+V ≈ W × H
+```
+
+Where:
+
+* V → original matrix
+* W → basis matrix
+* H → coefficient matrix
+
+---
+
+🧠 Key Idea
+
+Represent data using **additive components**.
+
+---
+
+📌 Use Cases
+
+* Topic modeling
+* Image processing
+* Recommender systems
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔴 5️⃣ ICA (Independent Component Analysis)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is ICA?
+
+ICA separates **independent signals from mixed signals**.
+
+Goal:
+
+👉 Find statistically independent components.
+
+---
+
+🧠 Example
+
+Cocktail party problem:
+
+Multiple microphones record mixed voices.
+
+ICA separates individual speakers.
+
+---
+
+📊 Applications
+
+* Signal processing
+* EEG analysis
+* Audio separation
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔷 6️⃣ LLE (Locally Linear Embedding)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is LLE?
+
+LLE is a **non-linear manifold learning algorithm**.
+
+It preserves **local relationships between data points**.
+
+---
+
+🧠 Key Idea
+
+Each data point can be reconstructed from its neighbors.
+
+LLE tries to preserve these relationships in lower dimensions.
+
+---
+
+📌 Applications
+
+* Image processing
+* Manifold learning
+* Data visualization
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌍 7️⃣ Isomap
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Isomap?
+
+Isomap is a **non-linear dimensionality reduction technique** that preserves **geodesic distances**.
+
+Geodesic distance = shortest path on curved surface.
+
+---
+
+🧠 Key Idea
+
+Instead of Euclidean distance:
+
+Isomap uses distances along the **data manifold**.
+
+---
+
+📊 Steps
+
+1️⃣ Build nearest neighbor graph
+2️⃣ Compute geodesic distances
+3️⃣ Apply MDS (Multidimensional Scaling)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Applications
+
+* Non-linear data visualization
+* Manifold learning
+* Complex data structures
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Comparison of Techniques
+
+| Method | Type                 | Supervised | Linear |
+| ------ | -------------------- | ---------- | ------ |
+| PCA    | Feature extraction   | No         | Yes    |
+| LDA    | Feature extraction   | Yes        | Yes    |
+| t-SNE  | Visualization        | No         | No     |
+| NMF    | Matrix factorization | No         | Linear |
+| ICA    | Signal separation    | No         | Linear |
+| LLE    | Manifold learning    | No         | No     |
+| Isomap | Manifold learning    | No         | No     |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 When to Use Which?
+
+| Problem                   | Best Method |
+| ------------------------- | ----------- |
+| Reduce features before ML | PCA         |
+| Improve classification    | LDA         |
+| Data visualization        | t-SNE       |
+| Topic modeling            | NMF         |
+| Signal separation         | ICA         |
+| Non-linear manifold       | LLE         |
+| Non-linear structure      | Isomap      |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Best Practices
+
+✔ Always standardize data before PCA
+✔ Use PCA before clustering or regression
+✔ Use t-SNE only for visualization
+✔ Use LDA when labels exist
+✔ Experiment with multiple techniques
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Real-World Applications
+
+* Face recognition
+* Image compression
+* Bioinformatics
+* Topic modeling
+* Speech recognition
+* Data visualization
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Typical ML Workflow
+
+```
+Raw Data
+   ↓
+Preprocessing
+   ↓
+Dimensionality Reduction (PCA/LDA)
+   ↓
+Machine Learning Model
+   ↓
+Evaluation
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ WEEK-7 DAY-5 Summary
+
+* Dimensionality reduction helps reduce feature space
+* PCA finds directions of maximum variance
+* LDA improves class separability
+* t-SNE visualizes high-dimensional data
+* NMF factorizes non-negative matrices
+* ICA separates independent signals
+* LLE & Isomap learn non-linear manifolds
+
