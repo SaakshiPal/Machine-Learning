@@ -1,0 +1,335 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 WEEK-7 | DAY-7: Model Deployment with Streamlit & Flask
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Model Deployment?
+
+Model deployment means **making a trained machine learning model available for real-world use**.
+
+Instead of running models only in notebooks, deployment allows:
+
+* Users to interact with the model
+* Applications to use predictions
+* Models to run in production environments
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Deployment is Important
+
+Machine learning workflow:
+
+```
+Data Collection
+      ↓
+Data Cleaning
+      ↓
+Model Training
+      ↓
+Model Evaluation
+      ↓
+Model Deployment
+```
+
+Without deployment, a model **cannot be used by real users or systems**.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Popular Deployment Tools
+
+| Tool              | Purpose                   |
+| ----------------- | ------------------------- |
+| Streamlit         | Build ML web apps easily  |
+| Flask             | Create APIs for ML models |
+| FastAPI           | High-performance APIs     |
+| Docker            | Containerize applications |
+| AWS / GCP / Azure | Cloud deployment          |
+
+This lesson focuses on:
+
+* **Streamlit**
+* **Flask**
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌐 1️⃣ Streamlit
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Streamlit?
+
+Streamlit is a **Python framework for building interactive web apps for machine learning and data science**.
+
+Key features:
+
+✔ Easy to use
+✔ No frontend knowledge required
+✔ Interactive dashboards
+✔ Real-time predictions
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚡ Installing Streamlit
+
+```bash
+pip install streamlit
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Example Project Structure
+
+```
+ml-streamlit-app/
+│
+├── app.py
+├── model.pkl
+├── requirements.txt
+└── README.md
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Example Streamlit App
+
+```python
+import streamlit as st
+import pickle
+import numpy as np
+
+model = pickle.load(open("model.pkl","rb"))
+
+st.title("House Price Prediction")
+
+area = st.number_input("Enter area")
+bedrooms = st.number_input("Number of bedrooms")
+
+if st.button("Predict"):
+    prediction = model.predict([[area, bedrooms]])
+    st.write("Predicted Price:", prediction[0])
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+▶ Running Streamlit App
+
+```bash
+streamlit run app.py
+```
+
+Then open browser:
+
+```
+http://localhost:8501
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Advantages of Streamlit
+
+✔ Very easy to build UI
+✔ Ideal for ML demos
+✔ Quick deployment
+✔ Interactive visualization
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❌ Limitations
+
+❌ Limited customization
+❌ Not designed for large-scale APIs
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ 2️⃣ Flask
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Flask?
+
+Flask is a **lightweight Python web framework used to build web applications and APIs**.
+
+Unlike Streamlit:
+
+👉 Flask focuses on backend APIs.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚡ Installing Flask
+
+```bash
+pip install flask
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Flask Project Structure
+
+```
+ml-flask-app/
+│
+├── app.py
+├── model.pkl
+├── templates/
+│   └── index.html
+└── requirements.txt
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Example Flask API
+
+```python
+from flask import Flask, request, jsonify
+import pickle
+
+app = Flask(__name__)
+
+model = pickle.load(open("model.pkl","rb"))
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    data = request.json
+    prediction = model.predict([data["features"]])
+    return jsonify({"prediction": prediction.tolist()})
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+---
+
+▶ Running Flask App
+
+```bash
+python app.py
+```
+
+Open in browser:
+
+```
+http://127.0.0.1:5000
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Streamlit vs Flask
+
+| Feature         | Streamlit        | Flask            |
+| --------------- | ---------------- | ---------------- |
+| Ease of use     | Very easy        | Moderate         |
+| UI support      | Built-in         | Requires HTML    |
+| Best for        | ML dashboards    | APIs             |
+| Scalability     | Medium           | High             |
+| Deployment type | Interactive apps | Backend services |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 Saving ML Models
+
+Before deployment, models must be saved.
+
+Common formats:
+
+| Library    | Method        |
+| ---------- | ------------- |
+| Pickle     | pickle.dump() |
+| Joblib     | joblib.dump() |
+| TensorFlow | SavedModel    |
+| PyTorch    | torch.save()  |
+
+Example:
+
+```python
+import pickle
+
+pickle.dump(model, open("model.pkl","wb"))
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Deployment Platforms
+
+Once built, apps can be deployed to:
+
+* **Streamlit Cloud**
+* **Heroku**
+* **AWS**
+* **Google Cloud**
+* **Render**
+* **Railway**
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Example Deployment Workflow
+
+```
+Train Model
+      ↓
+Save Model (.pkl)
+      ↓
+Create API / App
+      ↓
+Deploy to Cloud
+      ↓
+Users Access via Web
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Best Practices
+
+✔ Save model properly
+✔ Validate input data
+✔ Use logging
+✔ Monitor model performance
+✔ Secure API endpoints
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Real-World Applications
+
+* Loan approval prediction apps
+* House price prediction tools
+* Fraud detection systems
+* Recommendation engines
+* Healthcare prediction tools
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Challenges in Deployment
+
+❌ Model drift
+❌ Data drift
+❌ Latency issues
+❌ Scalability
+❌ Security concerns
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Example End-to-End ML Deployment
+
+```
+Dataset
+   ↓
+Data Preprocessing
+   ↓
+Model Training
+   ↓
+Model Saving (.pkl)
+   ↓
+Streamlit / Flask App
+   ↓
+Deploy to Cloud
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-7 DAY-7 Summary
+
+* Model deployment makes ML models usable in real applications
+* Streamlit helps build **interactive ML apps quickly**
+* Flask helps create **backend APIs for ML models**
+* Models are usually saved using **pickle or joblib**
+* Deployment can be done on **cloud platforms**
