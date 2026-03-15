@@ -1,0 +1,351 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 WEEK-8 | DAY-4: PyTorch Basics – Artificial Neural Networks (ANN)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is PyTorch?
+
+**PyTorch** is an open-source deep learning framework developed by **Facebook (Meta)**.
+
+It is widely used for:
+
+* Deep learning research
+* Computer vision
+* Natural language processing
+* Reinforcement learning
+
+PyTorch is popular because it uses **dynamic computation graphs**, which make debugging easier.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why PyTorch?
+
+PyTorch provides:
+
+✔ Easy debugging
+✔ Python-friendly syntax
+✔ GPU acceleration
+✔ Strong research support
+
+Companies using PyTorch include:
+
+* Tesla
+* OpenAI
+* Meta
+* Microsoft
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 PyTorch vs TensorFlow
+
+| Feature        | PyTorch           | TensorFlow                |
+| -------------- | ----------------- | ------------------------- |
+| Graph Type     | Dynamic           | Static (earlier versions) |
+| Ease of Use    | Very easy         | Moderate                  |
+| Research Usage | Very popular      | Popular                   |
+| Production     | Improving rapidly | Strong                    |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is a Tensor in PyTorch?
+
+A **tensor** is a multi-dimensional array similar to NumPy arrays but with GPU support.
+
+Examples:
+
+| Type   | Example                 |
+| ------ | ----------------------- |
+| Scalar | 5                       |
+| Vector | [1,2,3]                 |
+| Matrix | [[1,2],[3,4]]           |
+| Tensor | Multi-dimensional array |
+
+Example code:
+
+```python
+import torch
+
+x = torch.tensor([1,2,3])
+print(x)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚡ Creating Tensors
+
+Examples:
+
+```python
+import torch
+
+# random tensor
+x = torch.rand(3,3)
+
+# zeros tensor
+y = torch.zeros(2,2)
+
+# ones tensor
+z = torch.ones(2,2)
+
+print(x)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 GPU Acceleration
+
+PyTorch can run on GPU.
+
+Example:
+
+```python
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+tensor = torch.tensor([1,2,3]).to(device)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is an Artificial Neural Network (ANN)?
+
+ANN is a network of layers that learns patterns from data.
+
+Structure:
+
+```text
+Input Layer → Hidden Layers → Output Layer
+```
+
+Each layer contains **neurons** that perform calculations.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔢 Example ANN Architecture
+
+```text
+Input Features
+      ↓
+Hidden Layer (ReLU)
+      ↓
+Hidden Layer (ReLU)
+      ↓
+Output Layer
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏗️ Building ANN in PyTorch
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Step 1: Import Libraries
+
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Step 2: Define Neural Network
+
+In PyTorch we define models by creating a class.
+
+```python
+class NeuralNet(nn.Module):
+
+    def __init__(self, input_size, hidden_size, output_size):
+        super(NeuralNet, self).__init__()
+
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_size, output_size)
+
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        return out
+```
+
+Explanation:
+
+* `nn.Linear` → Fully connected layer
+* `ReLU` → Activation function
+
+---
+
+⚙️ Create Model Instance
+
+```python
+model = NeuralNet(input_size=10, hidden_size=20, output_size=1)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Define Loss Function
+
+Loss functions measure prediction error.
+
+Example:
+
+```python
+criterion = nn.MSELoss()
+```
+
+Other common loss functions:
+
+| Loss Function    | Use                        |
+| ---------------- | -------------------------- |
+| MSELoss          | Regression                 |
+| BCELoss          | Binary classification      |
+| CrossEntropyLoss | Multi-class classification |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Optimizers
+
+Optimizers update model weights.
+
+Example:
+
+```python
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+```
+
+Common optimizers:
+
+| Optimizer | Description            |
+| --------- | ---------------------- |
+| SGD       | Basic gradient descent |
+| Adam      | Most popular           |
+| RMSprop   | Adaptive optimizer     |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏋️ Training Loop
+
+Typical PyTorch training process:
+
+```python
+for epoch in range(10):
+
+    outputs = model(X_train)
+
+    loss = criterion(outputs, y_train)
+
+    optimizer.zero_grad()
+
+    loss.backward()
+
+    optimizer.step()
+```
+
+Steps:
+
+1️⃣ Forward pass
+2️⃣ Calculate loss
+3️⃣ Backpropagation
+4️⃣ Update weights
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Backpropagation
+
+Backpropagation calculates gradients and updates weights.
+
+PyTorch automatically computes gradients using **autograd**.
+
+Example:
+
+```python
+loss.backward()
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Making Predictions
+
+After training:
+
+```python
+with torch.no_grad():
+    predictions = model(X_test)
+```
+
+---
+
+💾 Saving the Model
+
+```python
+torch.save(model.state_dict(), "model.pth")
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📂 Loading the Model
+
+```python
+model.load_state_dict(torch.load("model.pth"))
+model.eval()
+```
+
+---
+
+# 📈 Example ANN Workflow
+
+Typical workflow:
+
+```text
+Load Dataset
+      ↓
+Convert to Tensors
+      ↓
+Define Neural Network
+      ↓
+Define Loss & Optimizer
+      ↓
+Train Model
+      ↓
+Evaluate Model
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Applications of ANN
+
+Artificial Neural Networks are used in:
+
+* Fraud detection
+* Medical diagnosis
+* Image classification
+* Stock prediction
+* Recommendation systems
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Advantages of PyTorch
+
+✔ Easy to learn
+✔ Flexible dynamic graphs
+✔ Strong research support
+✔ GPU acceleration
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❌ Limitations
+
+❌ Slightly slower in some production scenarios
+❌ Requires GPU for large models
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-8 DAY-4 Summary
+
+* PyTorch is a powerful deep learning framework
+* Tensors are the core data structure
+* Neural networks are built using `torch.nn`
+* Training involves forward pass, loss calculation, backpropagation, and optimizer update
+* PyTorch is widely used in AI research and production systems
