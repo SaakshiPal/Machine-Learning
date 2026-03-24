@@ -1,0 +1,312 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 WEEK-8 | DAY-7: Multi-Layer Perceptron (MLP)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is MLP?
+
+**Multi-Layer Perceptron (MLP)** is a type of **Artificial Neural Network (ANN)** that has:
+
+👉 Multiple layers of neurons
+👉 Fully connected layers
+👉 Non-linear activation functions
+
+It is one of the **basic building blocks of deep learning**.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Key Idea
+
+MLP learns complex patterns by:
+
+* Passing data through multiple layers
+* Applying weights and activation functions
+* Updating weights using backpropagation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 MLP Architecture
+
+Basic structure:
+
+```text id="mlp1"
+Input Layer → Hidden Layer(s) → Output Layer
+```
+
+Example:
+
+```text id="mlp2"
+Input (Features)
+     ↓
+Hidden Layer (ReLU)
+     ↓
+Hidden Layer (ReLU)
+     ↓
+Output Layer (Sigmoid/Softmax)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔢 Components of MLP
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Input Layer
+
+* Takes input features
+* No computation happens here
+
+---
+
+2️⃣ Hidden Layers
+
+* Perform computations
+* Apply weights + activation functions
+* Extract patterns
+
+---
+
+3️⃣ Output Layer
+
+* Produces final prediction
+
+Depends on problem:
+
+| Problem               | Activation |
+| --------------------- | ---------- |
+| Regression            | Linear     |
+| Binary Classification | Sigmoid    |
+| Multi-class           | Softmax    |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 How MLP Works
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Step 1️⃣ Forward Propagation
+
+Input passes through layers:
+
+```text id="mlp3"
+Input → Weighted Sum → Activation → Output
+```
+
+---
+
+Step 2️⃣ Loss Calculation
+
+Compare prediction with actual value.
+
+Example:
+
+```text id="mlp4"
+Loss = Actual - Predicted
+```
+
+---
+
+Step 3️⃣ Backpropagation
+
+* Calculate gradients
+* Update weights
+
+---
+
+Step 4️⃣ Optimization
+
+Use optimizers like:
+
+* SGD
+* Adam
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Mathematical Representation
+
+For one neuron:
+
+[
+z = w \cdot x + b
+]
+
+[
+a = f(z)
+]
+
+Where:
+
+* (w) = weights
+* (x) = inputs
+* (b) = bias
+* (f(z)) = activation function
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ MLP Implementation (TensorFlow)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="mlptf"
+import tensorflow as tf
+from tensorflow import keras
+
+model = keras.Sequential([
+    keras.layers.Dense(64, activation='relu', input_shape=(10,)),
+    keras.layers.Dense(32, activation='relu'),
+    keras.layers.Dense(1, activation='sigmoid')
+])
+
+model.compile(
+    optimizer='adam',
+    loss='binary_crossentropy',
+    metrics=['accuracy']
+)
+
+model.fit(X_train, y_train, epochs=10)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 MLP Implementation (PyTorch)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="mlppt"
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+class MLP(nn.Module):
+    def __init__(self):
+        super(MLP, self).__init__()
+        
+        self.fc1 = nn.Linear(10, 64)
+        self.fc2 = nn.Linear(64, 32)
+        self.fc3 = nn.Linear(32, 1)
+        
+        self.relu = nn.ReLU()
+        self.sigmoid = nn.Sigmoid()
+    
+    def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.relu(self.fc2(x))
+        x = self.sigmoid(self.fc3(x))
+        return x
+
+model = MLP()
+
+criterion = nn.BCELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Training Loop (PyTorch)
+
+```python id="mlptrain"
+for epoch in range(10):
+    outputs = model(X_train)
+    loss = criterion(outputs, y_train)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+```
+
+---
+
+📈 Advantages of MLP
+
+✔ Can learn complex patterns
+✔ Works for both classification & regression
+✔ Flexible architecture
+✔ Foundation of deep learning
+
+---
+
+❌ Limitations of MLP
+
+❌ Requires large data
+❌ Prone to overfitting
+❌ Not suitable for spatial data (images)
+❌ Not good for sequential data
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 MLP vs Other Neural Networks
+
+| Model    | Best For                |
+| -------- | ----------------------- |
+| MLP      | Structured/tabular data |
+| CNN      | Images                  |
+| RNN/LSTM | Sequential data         |
+| GAN      | Data generation         |
+
+---
+
+🧠 When to Use MLP?
+
+Use MLP when:
+
+✔ Data is structured (tabular)
+✔ Features are independent
+✔ Problem is classification/regression
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Mistakes
+
+❌ Too many layers → overfitting
+❌ Not normalizing data
+❌ Wrong activation function
+❌ Wrong loss function
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+✔ Normalize input data
+✔ Use ReLU in hidden layers
+✔ Use dropout for regularization
+✔ Tune number of layers
+✔ Use early stopping
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Real-World Applications
+
+* Credit scoring
+* Fraud detection
+* Medical prediction
+* Recommendation systems
+* Sales forecasting
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Typical Workflow
+
+```text id="mlpflow"
+Data
+  ↓
+Preprocessing
+  ↓
+MLP Model
+  ↓
+Training
+  ↓
+Evaluation
+  ↓
+Deployment
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-8 DAY-7 Summary
+
+* MLP is a fully connected neural network
+* Consists of input, hidden, and output layers
+* Uses activation functions and backpropagation
+* Works best for structured data
+* Foundation of deep learning models
