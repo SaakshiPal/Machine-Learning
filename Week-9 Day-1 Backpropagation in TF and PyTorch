@@ -1,0 +1,340 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 WEEK-9 | DAY-1: Backpropagation (TensorFlow & PyTorch)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Backpropagation?
+
+**Backpropagation** is the algorithm used to:
+
+👉 Train neural networks
+👉 Update weights by minimizing loss
+
+It works by:
+
+* Calculating gradients
+* Propagating errors backward
+* Updating weights
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Backpropagation?
+
+Without backpropagation:
+
+❌ Neural networks cannot learn
+
+With backpropagation:
+
+✔ Model improves accuracy
+✔ Learns patterns from data
+✔ Minimizes error
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Key Idea
+
+Backpropagation uses:
+
+👉 **Chain Rule (calculus)**
+👉 To compute gradients layer by layer
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Forward vs Backward Pass
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔵 Forward Pass
+
+```text id="bp1"
+Input → Hidden Layers → Output → Loss
+```
+
+* Compute prediction
+* Calculate loss
+
+---
+
+🔴 Backward Pass
+
+```text id="bp2"
+Loss → Gradients → Update Weights
+```
+
+* Calculate gradients
+* Update weights using optimizer
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📐 Mathematical Idea
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Step 1: Output
+
+[
+z = w \cdot x + b
+]
+
+[
+a = f(z)
+]
+
+---
+
+Step 2: Loss Function
+
+Example (MSE):
+
+[
+L = (y - \hat{y})^2
+]
+
+---
+
+Step 3: Gradient
+
+[
+\frac{\partial L}{\partial w}
+]
+
+Using chain rule:
+
+[
+\frac{dL}{dw} = \frac{dL}{da} \cdot \frac{da}{dz} \cdot \frac{dz}{dw}
+]
+
+---
+
+Step 4: Weight Update
+
+[
+w = w - \eta \cdot \frac{dL}{dw}
+]
+
+---
+
+# 🔄 Backpropagation Steps
+
+---
+
+1️⃣ Forward pass
+2️⃣ Compute loss
+3️⃣ Calculate gradients
+4️⃣ Backward pass
+5️⃣ Update weights
+6️⃣ Repeat for epochs
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Backpropagation in TensorFlow
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Using GradientTape
+
+TensorFlow provides automatic differentiation.
+
+
+
+Example Code
+
+```python id="t1"
+import tensorflow as tf
+
+sample variables
+x = tf.constant([[1.0]])
+y_true = tf.constant([[2.0]])
+
+model parameters
+w = tf.Variable([[0.5]])
+b = tf.Variable([[0.0]])
+
+forward + backward
+with tf.GradientTape() as tape:
+    y_pred = tf.matmul(x, w) + b
+    loss = tf.reduce_mean((y_true - y_pred)**2)
+
+compute gradients
+grads = tape.gradient(loss, [w, b])
+
+# update weights
+w.assign_sub(0.01 * grads[0])
+b.assign_sub(0.01 * grads[1])
+```
+
+---
+
+🧠 Key Points
+
+✔ `GradientTape` records operations
+✔ Automatically computes gradients
+✔ Manual weight updates possible
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 Backpropagation in PyTorch
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Autograd System
+
+PyTorch automatically computes gradients using **autograd**.
+
+---
+
+Example Code
+
+```python id="p1"
+import torch
+
+sample data
+x = torch.tensor([[1.0]], requires_grad=True)
+y_true = torch.tensor([[2.0]])
+
+parameters
+w = torch.tensor([[0.5]], requires_grad=True)
+b = torch.tensor([[0.0]], requires_grad=True)
+
+forward pass
+y_pred = x @ w + b
+loss = (y_true - y_pred)**2
+
+backward pass
+loss.backward()
+
+gradients
+print(w.grad, b.grad)
+
+update weights
+with torch.no_grad():
+    w -= 0.01 * w.grad
+    b -= 0.01 * b.grad
+
+    w.grad.zero_()
+    b.grad.zero_()
+```
+
+---
+
+🧠 Key Points
+
+✔ `.backward()` computes gradients
+✔ `.grad` stores gradients
+✔ Use `torch.no_grad()` for updates
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 TensorFlow vs PyTorch (Backprop)
+
+| Feature         | TensorFlow   | PyTorch   |
+| --------------- | ------------ | --------- |
+| Gradient system | GradientTape | Autograd  |
+| Ease of use     | Easy         | Very easy |
+| Control         | High         | Very high |
+| Debugging       | Moderate     | Easy      |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📉 Common Problems in Backpropagation
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Vanishing Gradient
+
+Gradients become very small → slow learning
+
+Occurs in:
+
+* Sigmoid
+* Tanh
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2️⃣ Exploding Gradient
+
+Gradients become very large → unstable training
+
+---
+
+🧠 Solutions
+
+✔ Use ReLU activation
+✔ Use normalization
+✔ Use proper weight initialization
+✔ Use gradient clipping
+
+---
+
+⚡ Optimizers with Backpropagation
+
+Backpropagation + Optimizer = Learning
+
+Common optimizers:
+
+* SGD
+* Adam
+* RMSProp
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Complete Training Loop
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+TensorFlow (Keras)
+
+```python id="t2"
+model.fit(X_train, y_train, epochs=10)
+```
+
+(Keras handles backprop internally)
+
+---
+
+PyTorch
+
+```python id="p2"
+for epoch in range(10):
+    outputs = model(X_train)
+    loss = criterion(outputs, y_train)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Intuition Summary
+
+* Forward pass → predict
+* Loss → measure error
+* Backward pass → compute gradients
+* Optimizer → update weights
+
+Repeat until model improves.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📈 Real-World Applications
+
+Backpropagation is used in:
+
+* Image recognition
+* NLP models (ChatGPT)
+* Speech recognition
+* Recommendation systems
+* Autonomous vehicles
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-9 DAY-1 Summary
+
+* Backpropagation trains neural networks
+* Uses chain rule to compute gradients
+* TensorFlow uses GradientTape
+* PyTorch uses autograd
+* Essential for deep learning
