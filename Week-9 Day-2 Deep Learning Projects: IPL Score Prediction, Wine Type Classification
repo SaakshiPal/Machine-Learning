@@ -1,0 +1,309 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 WEEK-9 | DAY-2: Deep Learning Projects
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Projects Covered
+
+1️⃣ IPL Score Prediction (Regression)
+2️⃣ Wine Type Classification (Classification)
+
+These projects help you understand:
+
+✔ Real-world dataset handling
+✔ ANN model building
+✔ Evaluation metrics
+✔ End-to-end ML workflow
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏏 1️⃣ IPL Score Prediction
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Problem Statement
+
+Predict **final IPL score** based on:
+
+* Current score
+* Overs completed
+* Wickets lost
+* Batting team
+* Bowling team
+
+---
+
+🎯 Goal
+
+👉 Regression Problem
+👉 Predict continuous value (final score)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Input Features
+
+```text
+Batting Team
+Bowling Team
+Current Runs
+Overs
+Wickets
+Runs in Last 5 Overs
+Wickets in Last 5 Overs
+```
+
+---
+
+🧠 ML Approach
+
+* Data preprocessing
+* One-hot encoding (teams)
+* ANN model (MLP)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Workflow
+
+```text
+Dataset
+   ↓
+Data Cleaning
+   ↓
+Feature Engineering
+   ↓
+Train-Test Split
+   ↓
+ANN Model
+   ↓
+Evaluation (MAE, RMSE)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ TensorFlow Implementation
+
+```python
+import pandas as pd
+from tensorflow import keras
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# split data
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+# scaling
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# model
+model = keras.Sequential([
+    keras.layers.Dense(128, activation='relu'),
+    keras.layers.Dense(64, activation='relu'),
+    keras.layers.Dense(1)
+])
+
+model.compile(
+    optimizer='adam',
+    loss='mean_squared_error'
+)
+
+model.fit(X_train, y_train, epochs=20)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Evaluation Metrics
+
+* MAE (Mean Absolute Error)
+* RMSE (Root Mean Squared Error)
+
+---
+
+⚠️ Challenges
+
+❌ Match conditions vary
+❌ Data noise
+❌ Feature importance
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🍷 2️⃣ Wine Type Classification
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Problem Statement
+
+Classify wine into:
+
+* Type 0
+* Type 1
+* Type 2
+
+Based on chemical properties.
+
+---
+
+🎯 Goal
+
+👉 Classification Problem
+👉 Multi-class classification
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Input Features
+
+```text
+Alcohol
+Malic Acid
+Ash
+Magnesium
+Flavanoids
+Color Intensity
+Proline
+...
+```
+
+---
+
+🧠 ML Approach
+
+* Data normalization
+* ANN classifier
+* Softmax output
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Workflow
+
+```text
+Dataset
+   ↓
+Preprocessing
+   ↓
+Train-Test Split
+   ↓
+ANN Model
+   ↓
+Evaluation (Accuracy, Confusion Matrix)
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ TensorFlow Implementation
+
+```python
+from tensorflow import keras
+
+model = keras.Sequential([
+    keras.layers.Dense(64, activation='relu', input_shape=(13,)),
+    keras.layers.Dense(32, activation='relu'),
+    keras.layers.Dense(3, activation='softmax')
+])
+
+model.compile(
+    optimizer='adam',
+    loss='sparse_categorical_crossentropy',
+    metrics=['accuracy']
+)
+
+model.fit(X_train, y_train, epochs=20)
+```
+
+---
+
+📊 Evaluation Metrics
+
+* Accuracy
+* Precision
+* Recall
+* F1-score
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 PyTorch Implementation (Basic)
+
+```python
+import torch
+import torch.nn as nn
+
+class WineModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc1 = nn.Linear(13, 64)
+        self.fc2 = nn.Linear(64, 32)
+        self.fc3 = nn.Linear(32, 3)
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Project Comparison
+
+| Project             | Type           | Output           |
+| ------------------- | -------------- | ---------------- |
+| IPL Score           | Regression     | Continuous value |
+| Wine Classification | Classification | Class label      |
+
+---
+
+🧠 Key Learnings
+
+✔ Difference between regression & classification
+✔ ANN architecture design
+✔ Feature preprocessing importance
+✔ Evaluation metrics selection
+✔ Real-world dataset handling
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Improvements You Can Add
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+IPL Project
+
+* Add match venue
+* Use LSTM for sequence data
+* Add weather conditions
+
+---
+
+Wine Project
+
+* Use feature selection
+* Try Random Forest / XGBoost
+* Perform hyperparameter tuning
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 Deployment Idea
+
+You can deploy both projects using:
+
+* Streamlit app
+* Flask API
+
+Example:
+
+```text
+Input match data → Predict score
+Input wine features → Predict type
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-9 DAY-2 Summary
+
+* IPL Score Prediction → Regression problem
+* Wine Classification → Multi-class classification
+* ANN used for both problems
+* Proper preprocessing is critical
+* Evaluation metrics depend on problem type
