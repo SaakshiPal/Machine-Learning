@@ -1,0 +1,302 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🤖 WEEK-9 | DAY-4: Transfer Learning & Fine-Tuning in NLP
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Transfer Learning?
+
+**Transfer Learning** means:
+
+👉 Using a **pre-trained model**
+👉 And applying it to a **new task**
+
+Instead of training from scratch, we reuse knowledge.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why Transfer Learning?
+
+Training deep learning models from scratch:
+
+❌ Requires huge data
+❌ Takes long time
+❌ High computational cost
+
+Transfer learning:
+
+✔ Saves time
+✔ Requires less data
+✔ Gives better performance
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Example
+
+A model trained on:
+
+👉 Large text dataset
+
+Can be reused for:
+
+* Sentiment analysis
+* Spam detection
+* Chatbots
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 What is Fine-Tuning?
+
+Fine-tuning means:
+
+👉 Slightly adjusting a pre-trained model
+👉 To fit a specific task
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Process
+
+```text
+Pre-trained Model
+       ↓
+Add Task-Specific Layer
+       ↓
+Train on New Dataset
+       ↓
+Fine-Tuned Model
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 Pre-trained NLP Models
+
+Popular models:
+
+* BERT
+* GPT
+* RoBERTa
+* DistilBERT
+
+These models are trained on massive text data.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is BERT?
+
+**BERT (Bidirectional Encoder Representations from Transformers)**:
+
+* Reads text **both directions**
+* Understands context better
+
+Example:
+
+```text
+"bank"
+```
+
+BERT understands:
+
+* River bank
+* Financial bank
+
+Based on context.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 NLP Tasks Using Transfer Learning
+
+* Sentiment Analysis
+* Text Classification
+* Named Entity Recognition (NER)
+* Question Answering
+* Text Summarization
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Transfer Learning Workflow (NLP)
+
+```text
+Pre-trained Model (BERT/GPT)
+        ↓
+Tokenization
+        ↓
+Add Classification Layer
+        ↓
+Fine-Tune Model
+        ↓
+Evaluate
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Implementation using Hugging Face Transformers
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Step 1: Install Library
+
+```bash
+pip install transformers
+```
+
+---
+
+Step 2: Load Pre-trained Model
+
+```python id="nlp1"
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased")
+```
+
+---
+
+Step 3: Tokenize Text
+
+```python id="nlp2"
+inputs = tokenizer("I love this movie!", return_tensors="pt")
+```
+
+---
+
+## Step 4: Get Prediction
+
+```python id="nlp3"
+outputs = model(**inputs)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Fine-Tuning Example
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="nlp4"
+from transformers import Trainer, TrainingArguments
+
+training_args = TrainingArguments(
+    output_dir="./results",
+    num_train_epochs=3,
+    per_device_train_batch_size=8
+)
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset
+)
+
+trainer.train()
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Transfer Learning Strategies
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Feature Extraction
+
+* Freeze pre-trained model
+* Only train final layer
+
+👉 Fast but less flexible
+
+---
+
+2️⃣ Fine-Tuning
+
+* Train entire model
+* Adjust weights
+
+👉 Better performance
+
+---
+
+📊 Comparison
+
+| Method             | Training | Performance |
+| ------------------ | -------- | ----------- |
+| Feature Extraction | Faster   | Moderate    |
+| Fine-Tuning        | Slower   | High        |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Advantages
+
+✔ High accuracy
+✔ Less data required
+✔ Faster development
+✔ State-of-the-art performance
+
+---
+
+❌ Challenges
+
+❌ Large model size
+❌ High memory usage
+❌ Requires GPU
+❌ Overfitting if not tuned properly
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Best Practices
+
+✔ Use pre-trained models (BERT, GPT)
+✔ Start with small learning rate
+✔ Use early stopping
+✔ Use proper tokenization
+✔ Monitor validation loss
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Real-World Applications
+
+* Chatbots (ChatGPT)
+* Google Search
+* Voice assistants
+* Email spam detection
+* Customer support automation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Example Use Case
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Sentiment Analysis
+
+Input:
+
+```text
+"I love this product!"
+```
+
+Output:
+
+```text
+Positive
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Transfer Learning vs Training from Scratch
+
+| Feature       | Transfer Learning | From Scratch |
+| ------------- | ----------------- | ------------ |
+| Data required | Less              | Huge         |
+| Time          | Fast              | Slow         |
+| Accuracy      | High              | Depends      |
+| Complexity    | Lower             | Higher       |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-9 DAY-4 Summary
+
+* Transfer learning uses pre-trained models
+* Fine-tuning adapts model to specific task
+* BERT, GPT are powerful NLP models
+* Hugging Face makes implementation easy
+* Widely used in real-world NLP applications
+
