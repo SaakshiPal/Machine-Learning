@@ -1,0 +1,294 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 WEEK-9 | DAY-6: LSTM & Bidirectional LSTM
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is LSTM?
+
+**LSTM (Long Short-Term Memory)** is an advanced type of **RNN** designed to:
+
+👉 Remember long-term dependencies
+👉 Solve vanishing gradient problem
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Why LSTM?
+
+Basic RNN:
+
+❌ Cannot remember long sequences
+❌ Suffers from vanishing gradient
+
+LSTM:
+
+✔ Maintains long-term memory
+✔ Handles long sequences effectively
+
+---
+
+🧠 Key Idea
+
+LSTM uses **gates** to control information flow.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔑 LSTM Components (Gates)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Forget Gate
+
+Decides:
+
+👉 What information to remove
+
+[
+f_t = \sigma(W_f [h_{t-1}, x_t])
+]
+
+---
+
+2️⃣ Input Gate
+
+Decides:
+
+👉 What new information to store
+
+[
+i_t = \sigma(W_i [h_{t-1}, x_t])
+]
+
+---
+
+3️⃣ Candidate Cell State
+
+Creates new candidate values:
+
+[
+\tilde{C}*t = tanh(W_c [h*{t-1}, x_t])
+]
+
+---
+
+4️⃣ Cell State Update
+
+[
+C_t = f_t \cdot C_{t-1} + i_t \cdot \tilde{C}_t
+]
+
+---
+
+5️⃣ Output Gate
+
+Controls output:
+
+[
+o_t = \sigma(W_o [h_{t-1}, x_t])
+]
+
+[
+h_t = o_t \cdot tanh(C_t)
+]
+
+---
+
+📊 LSTM Architecture
+
+```text id="lstm1"
+Input → Forget Gate → Input Gate → Cell State → Output Gate → Output
+```
+
+---
+
+🔥 Why LSTM Works Better
+
+✔ Selectively remembers information
+✔ Avoids vanishing gradient
+✔ Handles long sequences
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔵 What is Bidirectional LSTM?
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Definition
+
+**Bidirectional LSTM (BiLSTM)** processes data in:
+
+👉 Forward direction
+👉 Backward direction
+
+---
+
+📊 Architecture
+
+```text id="lstm2"
+Forward LSTM →
+Backward LSTM ←
+Combine Outputs
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Why BiLSTM?
+
+Better understanding of context:
+
+Example:
+
+```text id="lstm3"
+"The movie was not good"
+```
+
+Understanding depends on **both past and future words**.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 LSTM vs BiLSTM
+
+| Feature   | LSTM      | BiLSTM        |
+| --------- | --------- | ------------- |
+| Direction | One       | Two           |
+| Context   | Past only | Past + Future |
+| Accuracy  | Good      | Better        |
+| Speed     | Faster    | Slower        |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ LSTM Implementation (TensorFlow)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="lstm_tf"
+from tensorflow import keras
+from tensorflow.keras import layers
+
+model = keras.Sequential([
+    layers.LSTM(64, input_shape=(timesteps, features)),
+    layers.Dense(1)
+])
+
+model.compile(
+    optimizer='adam',
+    loss='mse'
+)
+
+model.fit(X_train, y_train, epochs=10)
+```
+
+---
+
+🔥 Bidirectional LSTM (TensorFlow)
+
+---
+
+```python id="bilstm_tf"
+model = keras.Sequential([
+    layers.Bidirectional(layers.LSTM(64), input_shape=(timesteps, features)),
+    layers.Dense(1)
+])
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 PyTorch LSTM Implementation
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="lstm_pt"
+import torch
+import torch.nn as nn
+
+class LSTMModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.lstm = nn.LSTM(input_size=1, hidden_size=64, batch_first=True)
+        self.fc = nn.Linear(64, 1)
+
+    def forward(self, x):
+        out, _ = self.lstm(x)
+        out = self.fc(out[:, -1, :])
+        return out
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Bidirectional LSTM (PyTorch)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="bilstm_pt"
+self.lstm = nn.LSTM(
+    input_size=1,
+    hidden_size=64,
+    batch_first=True,
+    bidirectional=True
+)
+
+self.fc = nn.Linear(64*2, 1)
+```
+
+---
+
+📊 Applications of LSTM
+
+* Time series forecasting
+* Speech recognition
+* Language translation
+* Chatbots
+* Stock prediction
+
+---
+
+📊 Applications of BiLSTM
+
+* NLP tasks
+* Sentiment analysis
+* Named Entity Recognition
+* Text classification
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Challenges
+
+❌ High computational cost
+❌ Requires more memory
+❌ Slower training
+
+---
+
+🧠 Best Practices
+
+✔ Normalize input data
+✔ Use dropout
+✔ Use proper sequence length
+✔ Use early stopping
+✔ Prefer BiLSTM for NLP
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Workflow
+
+```text id="lstmflow"
+Sequential Data
+      ↓
+Preprocessing
+      ↓
+LSTM / BiLSTM Model
+      ↓
+Training
+      ↓
+Prediction
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-9 DAY-6 Summary
+
+* LSTM solves RNN limitations
+* Uses gates to control memory
+* BiLSTM improves context understanding
+* Widely used in NLP and time series
+* More powerful but computationally expensive
