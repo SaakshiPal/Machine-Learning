@@ -1,0 +1,276 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🤖 WEEK-10 | DAY-4: Language Model Fine-Tuning (ULMFiT) & Machine Translation
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Language Model Fine-Tuning?
+
+Language model fine-tuning means:
+
+👉 Taking a **pre-trained language model**
+👉 Adapting it to a **specific task**
+
+Example tasks:
+
+* Sentiment analysis
+* Spam detection
+* Text classification
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 What is a Language Model?
+
+A **language model** learns:
+
+👉 Probability of word sequences
+
+Example:
+
+```text
+"I am going to ____"
+```
+
+Model predicts:
+
+👉 school, market, office
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 What is ULMFiT?
+
+**ULMFiT (Universal Language Model Fine-Tuning)** is a method to:
+
+👉 Fine-tune language models efficiently
+
+---
+
+🎯 Key Idea of ULMFiT
+
+Train in **3 stages**:
+
+---
+
+🔄 1️⃣ General Language Model Training
+
+* Train on large dataset (e.g., Wikipedia)
+
+---
+
+🔄 2️⃣ Target Task Language Model
+
+* Fine-tune on your dataset
+* Adjust to domain
+
+Example:
+
+```text
+General → Movie reviews dataset
+```
+
+---
+
+🔄 3️⃣ Classifier Fine-Tuning
+
+* Add classification layer
+* Train for specific task
+
+---
+
+📊 ULMFiT Workflow
+
+```text
+General LM
+    ↓
+Fine-tune LM
+    ↓
+Add Classifier
+    ↓
+Final Model
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔑 Techniques in ULMFiT
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Discriminative Fine-Tuning
+
+* Different layers use different learning rates
+
+---
+
+2️⃣ Slanted Triangular Learning Rates
+
+* Learning rate increases then decreases
+
+---
+
+3️⃣ Gradual Unfreezing
+
+* Train layers one by one
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Advantages of ULMFiT
+
+✔ Works well with small datasets
+✔ Reduces overfitting
+✔ High accuracy
+✔ Efficient training
+
+---
+
+❌ Limitations
+
+❌ Slower than transformers
+❌ Less used today (replaced by BERT, GPT)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌍 Machine Translation Project
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Machine Translation?
+
+Machine Translation converts:
+
+👉 Text from one language → another language
+
+---
+
+🎯 Example
+
+```text
+Input:  "Hello"
+Output: "Bonjour"
+```
+
+---
+
+🧠 Approach
+
+Use:
+
+👉 Seq2Seq Models
+👉 Attention
+👉 Transformers
+
+---
+
+🔄 Workflow
+
+```text
+Parallel Text Dataset
+   ↓
+Tokenization
+   ↓
+Encoder (Input Language)
+   ↓
+Decoder (Output Language)
+   ↓
+Translated Text
+```
+
+---
+
+📊 Dataset Example
+
+| English      | French         |
+| ------------ | -------------- |
+| Hello        | Bonjour        |
+| How are you? | Comment ça va? |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Basic TensorFlow Seq2Seq Example
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python
+from tensorflow import keras
+from tensorflow.keras import layers
+
+encoder = layers.LSTM(256, return_state=True)
+decoder = layers.LSTM(256, return_sequences=True)
+
+# Simplified example
+encoder_outputs, state_h, state_c = encoder(encoder_input)
+decoder_outputs = decoder(decoder_input, initial_state=[state_h, state_c])
+```
+
+---
+
+🔥 Transformer-Based Translation (Modern)
+
+---
+
+```python
+from transformers import pipeline
+
+translator = pipeline("translation_en_to_fr")
+
+print(translator("Hello, how are you?"))
+```
+
+---
+
+📊 Evaluation Metrics
+
+---
+
+BLEU Score
+
+Measures translation quality.
+
+* Higher = better translation
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Challenges
+
+❌ Ambiguous words
+❌ Grammar differences
+❌ Long sentences
+❌ Context understanding
+
+---
+
+🚀 Real-World Applications
+
+* Google Translate
+* Chatbots
+* Multilingual assistants
+* Subtitle generation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 ULMFiT vs Transformers
+
+| Feature  | ULMFiT   | Transformers |
+| -------- | -------- | ------------ |
+| Speed    | Moderate | Fast         |
+| Accuracy | Good     | Best         |
+| Usage    | Older    | Modern       |
+
+---
+
+🧠 Best Practices
+
+✔ Use pre-trained models (BERT, GPT)
+✔ Clean and tokenize data
+✔ Use attention/transformers
+✔ Evaluate with BLEU score
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-10 DAY-4 Summary
+
+* ULMFiT is a fine-tuning technique for language models
+* Uses 3-step training process
+* Machine translation converts text between languages
+* Seq2Seq + Attention → Traditional approach
+* Transformers → Modern approach
+
