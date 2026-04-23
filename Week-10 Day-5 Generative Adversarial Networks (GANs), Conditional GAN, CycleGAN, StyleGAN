@@ -1,0 +1,313 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎨 WEEK-10 | DAY-5: GANs, Conditional GAN, CycleGAN, StyleGAN
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What are GANs?
+
+**GAN (Generative Adversarial Network)** is a deep learning model used to:
+
+👉 Generate new data similar to real data
+
+---
+
+🎯 Key Idea
+
+GAN consists of **two networks**:
+
+1️⃣ **Generator (G)**
+2️⃣ **Discriminator (D)**
+
+---
+
+🧠 How GAN Works
+
+---
+
+```text id="gan1"
+Random Noise → Generator → Fake Data
+                    ↓
+Real Data → Discriminator → Real/Fake
+```
+
+---
+
+⚔️ Adversarial Training
+
+* Generator tries to **fool discriminator**
+* Discriminator tries to **detect fake data**
+
+👉 Both compete and improve
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 GAN Objective
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[
+\min_G \max_D V(D,G)
+]
+
+---
+
+🧠 Intuition
+
+```text id="gan2"
+Generator = Artist 🎨  
+Discriminator = Critic 🧑‍⚖️  
+```
+
+Artist improves by fooling critic.
+
+---
+
+⚙️ Basic GAN Workflow
+
+```text id="gan3"
+Noise Input
+   ↓
+Generator
+   ↓
+Fake Data
+   ↓
+Discriminator
+   ↓
+Real / Fake Prediction
+```
+
+---
+
+📊 Applications of GAN
+
+* Image generation
+* Deepfake videos
+* Image super-resolution
+* Data augmentation
+* Art generation
+
+---
+
+⚠️ Challenges in GAN
+
+❌ Training instability
+❌ Mode collapse
+❌ Hard to tune
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔵 1️⃣ Conditional GAN (cGAN)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is cGAN?
+
+Conditional GAN generates data based on:
+
+👉 Specific condition (label/input)
+
+---
+
+📊 Example
+
+```text id="gan4"
+Input: Digit = 5 → Output: Image of "5"
+```
+
+---
+
+🧠 Idea
+
+Instead of random generation:
+
+👉 Controlled generation
+
+---
+
+📊 Architecture
+
+```text id="gan5"
+Noise + Label → Generator → Output
+Label → Discriminator
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🟢 2️⃣ CycleGAN
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is CycleGAN?
+
+Used for **image-to-image translation without paired data**.
+
+---
+
+📊 Example
+
+```text id="gan6"
+Horse ↔ Zebra
+Summer ↔ Winter
+```
+
+---
+
+🧠 Key Idea
+
+Uses **cycle consistency**:
+
+```text id="gan7"
+A → B → A (should match original)
+```
+
+---
+
+⚙️ Components
+
+* Two generators
+* Two discriminators
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔴 3️⃣ StyleGAN
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is StyleGAN?
+
+Advanced GAN used for:
+
+👉 High-quality image generation
+
+---
+
+📊 Features
+
+✔ Generates realistic faces
+✔ Controls image style
+✔ High resolution
+
+---
+
+🧠 Key Idea
+
+Separates:
+
+👉 Content (structure)
+👉 Style (appearance)
+
+---
+
+📊 Example
+
+```text id="gan8"
+Same face + Different hairstyles
+```
+
+---
+
+🔥 GAN Variants Comparison
+
+| Model    | Purpose               |
+| -------- | --------------------- |
+| GAN      | Basic generation      |
+| cGAN     | Controlled generation |
+| CycleGAN | Image translation     |
+| StyleGAN | High-quality images   |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Basic GAN Code (TensorFlow)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="gan_tf"
+from tensorflow import keras
+from tensorflow.keras import layers
+
+# Generator
+generator = keras.Sequential([
+    layers.Dense(128, activation='relu'),
+    layers.Dense(784, activation='sigmoid')
+])
+
+# Discriminator
+discriminator = keras.Sequential([
+    layers.Dense(128, activation='relu'),
+    layers.Dense(1, activation='sigmoid')
+])
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 PyTorch GAN Example
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="gan_pt"
+import torch
+import torch.nn as nn
+
+class Generator(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.model = nn.Sequential(
+            nn.Linear(100, 128),
+            nn.ReLU(),
+            nn.Linear(128, 784),
+            nn.Tanh()
+        )
+
+    def forward(self, x):
+        return self.model(x)
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 GAN Training Loop (Concept)
+
+```text id="gan9"
+Train Discriminator (real vs fake)
+       ↓
+Train Generator (fool discriminator)
+       ↓
+Repeat
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+✔ Normalize input data
+✔ Use batch normalization
+✔ Tune learning rate
+✔ Monitor losses carefully
+
+---
+
+⚠️ Common Problems
+
+❌ Mode collapse (same output repeatedly)
+❌ Training imbalance
+❌ Gradient issues
+
+---
+
+🚀 Real-World Applications
+
+* Face generation (AI avatars)
+* Image editing tools
+* Medical imaging
+* Game design
+* Fashion design
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-10 DAY-5 Summary
+
+* GAN consists of generator & discriminator
+* Generates realistic data
+* cGAN adds control
+* CycleGAN translates images
+* StyleGAN creates high-quality images
