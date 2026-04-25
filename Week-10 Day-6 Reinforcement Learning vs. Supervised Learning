@@ -1,0 +1,290 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎮 WEEK-10 | DAY-6: Reinforcement Learning vs Supervised Learning
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Supervised Learning?
+
+**Supervised Learning** is a type of machine learning where:
+
+👉 Model learns from **labeled data**
+
+---
+
+🎯 Goal
+
+```text id="sl1"
+Input → Output (correct label)
+```
+
+---
+
+📊 Example
+
+| Input      | Output          |
+| ---------- | --------------- |
+| Email text | Spam / Not Spam |
+| Image      | Cat / Dog       |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Key Idea
+
+Model learns:
+
+👉 Mapping between input and correct output
+
+---
+
+📌 What is Reinforcement Learning (RL)?
+
+**Reinforcement Learning** is a learning method where:
+
+👉 Agent learns by interacting with environment
+
+---
+
+🎯 Goal
+
+Maximize **reward over time**
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Basic Concept
+
+```text id="rl1"
+Agent → Action → Environment → Reward → Learning
+```
+
+---
+
+🧠 RL Components
+
+---
+
+1️⃣ Agent
+
+* Learner/decision maker
+
+---
+
+2️⃣ Environment
+
+* Where agent acts
+
+---
+
+3️⃣ State (S)
+
+* Current situation
+
+---
+
+4️⃣ Action (A)
+
+* What agent can do
+
+---
+
+5️⃣ Reward (R)
+
+* Feedback signal
+
+---
+
+📊 Example (Game)
+
+```text id="rl2"
+Move → Win → +10 reward  
+Move → Lose → -10 reward
+```
+
+---
+
+🔄 RL Workflow
+
+```text id="rl3"
+State → Action → Reward → Update Policy → Repeat
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚖️ Supervised vs Reinforcement Learning
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Key Differences
+
+| Feature  | Supervised Learning | Reinforcement Learning |
+| -------- | ------------------- | ---------------------- |
+| Data     | Labeled             | No labels              |
+| Learning | From examples       | From experience        |
+| Feedback | Immediate           | Delayed                |
+| Goal     | Predict output      | Maximize reward        |
+| Training | Fixed dataset       | Continuous interaction |
+
+---
+
+📊 Example Comparison
+
+---
+
+Supervised Learning
+
+```text id="sl2"
+Image → Label (Cat)
+```
+
+---
+
+Reinforcement Learning
+
+```text id="rl4"
+Robot → Move → Reward → Learn
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Algorithms
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Supervised Learning
+
+* Linear Regression
+* Logistic Regression
+* Decision Trees
+* Neural Networks
+
+---
+
+Reinforcement Learning
+
+* Q-Learning
+* Deep Q Network (DQN)
+* Policy Gradient
+* Actor-Critic
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Applications
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Supervised Learning
+
+* Image classification
+* Spam detection
+* Medical diagnosis
+* Prediction systems
+
+---
+
+Reinforcement Learning
+
+* Game AI (Chess, Atari)
+* Self-driving cars
+* Robotics
+* Recommendation systems
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Challenges
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Supervised Learning
+
+❌ Requires labeled data
+❌ Expensive data labeling
+
+---
+
+## Reinforcement Learning
+
+❌ Slow learning
+❌ Requires exploration
+❌ Complex training
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 When to Use What?
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Use Supervised Learning When:
+
+✔ You have labeled data
+✔ Problem is classification/regression
+
+---
+
+Use Reinforcement Learning When:
+
+✔ Decision-making over time
+✔ No labeled data available
+✔ Environment interaction required
+
+---
+
+📊 Real-World Example
+
+---
+
+Supervised Learning
+
+```text id="sl3"
+Predict house price
+```
+
+---
+
+Reinforcement Learning
+
+```text id="rl5"
+Train robot to walk
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Combined Use
+
+Modern systems combine both:
+
+👉 Supervised + Reinforcement Learning
+
+Example:
+
+* Self-driving cars
+* Chatbots
+
+---
+
+📌 Workflow Comparison
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Supervised
+
+```text id="sl_flow"
+Dataset → Train → Predict
+```
+
+---
+
+Reinforcement
+
+```text id="rl_flow"
+Environment → Action → Reward → Learn
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-10 DAY-6 Summary
+
+* Supervised learning uses labeled data
+* Reinforcement learning learns from rewards
+* RL is used for decision-making problems
+* Both have different use cases
+* RL is more complex but powerful
