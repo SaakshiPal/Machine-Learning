@@ -1,0 +1,306 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎮 WEEK-10 | DAY-7: Markov Decision Process & Bellman Equation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is a Markov Decision Process (MDP)?
+
+**MDP** is a mathematical framework used in:
+
+👉 Reinforcement Learning
+
+It helps model **decision-making problems** where outcomes depend on:
+
+* Current state
+* Actions
+* Probabilities
+
+---
+
+🎯 Key Idea
+
+```text id="mdp1"
+State → Action → Reward → Next State
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Markov Property
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Definition
+
+Future depends **only on current state**, not past history.
+
+```text id="mdp2"
+P(Sₜ₊₁ | Sₜ)
+```
+
+👉 No need to remember full past
+
+---
+
+📊 Components of MDP
+
+---
+
+1️⃣ State (S)
+
+* Current situation
+
+Example:
+
+```text id="mdp3"
+Position of robot
+```
+
+---
+
+2️⃣ Action (A)
+
+* Choices available
+
+```text id="mdp4"
+Move left / right / forward
+```
+
+---
+
+3️⃣ Reward (R)
+
+* Feedback from environment
+
+```text id="mdp5"
++10 for success, -5 for failure
+```
+
+---
+
+4️⃣ Transition Probability (P)
+
+* Probability of moving to next state
+
+[
+P(s' | s, a)
+]
+
+---
+
+5️⃣ Policy (π)
+
+* Strategy of agent
+
+```text id="mdp6"
+π(s) → action
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 MDP Workflow
+
+```text id="mdp7"
+State → Action → Reward → Next State → Repeat
+```
+
+---
+
+🧠 Goal of MDP
+
+👉 Find optimal policy that:
+
+✔ Maximizes total reward
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Return (Total Reward)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Definition
+
+Total reward over time:
+
+[
+G = R₁ + γR₂ + γ²R₃ + ...
+]
+
+Where:
+
+* (γ) = discount factor
+
+---
+
+🎯 Discount Factor (γ)
+
+| Value | Meaning                  |
+| ----- | ------------------------ |
+| γ = 0 | Only immediate reward    |
+| γ → 1 | Future rewards important |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Value Function
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ State Value Function
+
+Expected reward from state:
+
+[
+V(s)
+]
+
+---
+
+2️⃣ Action Value Function (Q-value)
+
+Expected reward for action:
+
+[
+Q(s, a)
+]
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 Bellman Equation
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Bellman Equation?
+
+It breaks complex problems into **smaller subproblems**.
+
+---
+
+📊 Bellman Equation (State Value)
+
+[
+V(s) = R(s) + γ \sum P(s'|s,a) V(s')
+]
+
+---
+
+🧠 Meaning
+
+```text id="bell1"
+Value = Immediate Reward + Future Value
+```
+
+---
+
+📊 Bellman Equation (Q-Value)
+
+[
+Q(s,a) = R(s,a) + γ \sum P(s'|s,a) \max Q(s',a')
+]
+
+---
+
+🧠 Intuition
+
+👉 Best action = one that maximizes future reward
+
+---
+
+🔄 Bellman Update
+
+Used in:
+
+* Value Iteration
+* Q-Learning
+
+---
+
+```text id="bell2"
+Old Value → Update → New Value
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Example
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Simple Grid World
+
+```text id="grid"
+Start → Move Right → Goal (+10)
+```
+
+Value of state:
+
+```text id="grid2"
+V(start) = Reward + γ × V(next)
+```
+
+---
+
+⚙️ Applications of MDP
+
+* Game AI
+* Robotics
+* Self-driving cars
+* Recommendation systems
+
+---
+
+📊 MDP vs Supervised Learning
+
+| Feature  | MDP              | Supervised  |
+| -------- | ---------------- | ----------- |
+| Learning | From interaction | From data   |
+| Feedback | Reward           | Label       |
+| Decision | Sequential       | Independent |
+
+---
+
+🧠 Advantages
+
+✔ Handles sequential decisions
+✔ Works in uncertain environments
+✔ Foundation of RL
+
+---
+
+❌ Challenges
+
+❌ Large state space
+❌ Complex computation
+❌ Requires exploration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Best Practices
+
+✔ Use discount factor wisely
+✔ Balance exploration & exploitation
+✔ Use value iteration or policy iteration
+
+---
+
+📊 Workflow Summary
+
+```text id="mdp_flow"
+State
+  ↓
+Action
+  ↓
+Reward
+  ↓
+Next State
+  ↓
+Update Value (Bellman)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-10 DAY-7 Summary
+
+* MDP models decision-making problems
+* Uses states, actions, rewards, and transitions
+* Bellman equation updates value functions
+* Goal is to maximize long-term reward
+* Foundation of reinforcement learning
