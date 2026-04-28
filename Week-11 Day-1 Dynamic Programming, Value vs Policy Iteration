@@ -1,0 +1,306 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎮 WEEK-11 | DAY-1: Dynamic Programming, Value Iteration & Policy Iteration
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Dynamic Programming (DP)?
+
+**Dynamic Programming (DP)** is a method used to:
+
+👉 Solve complex problems by breaking them into smaller subproblems
+
+---
+
+🎯 Key Idea
+
+```text id="dp1"
+Solve → Store → Reuse
+```
+
+---
+
+🧠 Why DP in Reinforcement Learning?
+
+DP helps in:
+
+✔ Finding optimal policy
+✔ Solving MDPs efficiently
+✔ Computing value functions
+
+---
+
+📊 Requirements for DP
+
+To apply DP, we need:
+
+✔ Full knowledge of environment
+✔ Transition probabilities
+✔ Reward function
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔑 Key Concepts
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Value Function
+
+[
+V(s)
+]
+
+Expected reward from state.
+
+---
+
+2️⃣ Policy (π)
+
+Strategy mapping:
+
+```text id="dp2"
+State → Action
+```
+
+---
+
+3️⃣ Bellman Equation
+
+```text id="dp3"
+Value = Reward + Future Value
+```
+
+---
+
+🔥 Types of DP Methods
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔵 1️⃣ Value Iteration
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Value Iteration?
+
+It directly computes:
+
+👉 Optimal value function
+
+Then derives policy.
+
+---
+
+🔄 Steps
+
+```text id="vi1"
+Initialize V(s)
+      ↓
+Update using Bellman Equation
+      ↓
+Repeat until convergence
+```
+
+---
+
+📊 Formula
+
+[
+V(s) = \max_a [R(s,a) + γ \sum P(s'|s,a)V(s')]
+]
+
+---
+
+🧠 Key Idea
+
+👉 Always choose best action
+
+---
+
+✅ Advantages
+
+✔ Simple to implement
+✔ Faster convergence
+
+---
+
+❌ Disadvantages
+
+❌ No explicit policy until end
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🟢 2️⃣ Policy Iteration
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Policy Iteration?
+
+It improves policy step-by-step.
+
+---
+
+🔄 Steps
+
+```text id="pi1"
+Initialize Policy
+      ↓
+Policy Evaluation
+      ↓
+Policy Improvement
+      ↓
+Repeat until optimal
+```
+
+---
+
+📊 Policy Evaluation
+
+[
+V(s) = R(s,a) + γ \sum P(s'|s,a)V(s')
+]
+
+---
+
+📊 Policy Improvement
+
+```text id="pi2"
+Choose action that maximizes value
+```
+
+---
+
+🧠 Key Idea
+
+👉 Improve policy gradually
+
+---
+
+✅ Advantages
+
+✔ More stable
+✔ Clear policy updates
+
+---
+
+❌ Disadvantages
+
+❌ Slower than value iteration
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚖️ Value Iteration vs Policy Iteration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Comparison Table
+
+| Feature    | Value Iteration | Policy Iteration     |
+| ---------- | --------------- | -------------------- |
+| Approach   | Value-based     | Policy-based         |
+| Steps      | Single loop     | Two-step loop        |
+| Speed      | Faster          | Slower               |
+| Complexity | Lower           | Higher               |
+| Policy     | Derived later   | Updated continuously |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Example (Grid World)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Value Iteration
+
+```text id="grid1"
+Update all state values → Find best actions
+```
+
+---
+
+Policy Iteration
+
+```text id="grid2"
+Start with random policy → Improve step-by-step
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Workflow
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Value Iteration
+
+```text id="flow1"
+Initialize Values
+      ↓
+Update Values
+      ↓
+Extract Policy
+```
+
+---
+
+Policy Iteration
+
+```text id="flow2"
+Initialize Policy
+      ↓
+Evaluate Policy
+      ↓
+Improve Policy
+      ↓
+Repeat
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 When to Use What?
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Use Value Iteration When:
+
+✔ Faster solution needed
+✔ Smaller state space
+
+---
+
+Use Policy Iteration When:
+
+✔ Need stable policy
+✔ Clear improvement steps
+
+---
+
+📊 Applications
+
+* Game AI
+* Robotics
+* Navigation systems
+* Resource optimization
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Challenges
+
+❌ Requires full model knowledge
+❌ Not scalable for large state spaces
+
+---
+
+🧠 Best Practices
+
+✔ Use approximation methods for large problems
+✔ Combine with reinforcement learning
+✔ Tune discount factor
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-11 DAY-1 Summary
+
+* Dynamic Programming solves MDPs
+* Value Iteration → Directly finds optimal values
+* Policy Iteration → Improves policy step-by-step
+* Both rely on Bellman equation
+* Used in reinforcement learning
+
