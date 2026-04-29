@@ -1,0 +1,287 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎮 WEEK-11 | DAY-2: Q-Learning, SARSA & Deep Q-Learning
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Reinforcement Learning Recap?
+
+In RL:
+
+```text id="rl_rec"
+State → Action → Reward → Learn
+```
+
+Goal:
+
+👉 Maximize long-term reward
+
+---
+
+📌 What is Q-Learning?
+
+**Q-Learning** is a **model-free RL algorithm** that learns:
+
+👉 Best action for each state
+
+---
+
+🎯 Key Idea
+
+Learn a function:
+
+[
+Q(s, a)
+]
+
+👉 Expected reward for taking action **a** in state **s**
+
+---
+
+📊 Q-Learning Update Rule
+
+[
+Q(s,a) = Q(s,a) + \alpha [R + γ \max Q(s',a') - Q(s,a)]
+]
+
+---
+
+🧠 Meaning
+
+```text id="q1"
+New Q = Old Q + Learning Rate × (Target - Old Q)
+```
+
+---
+
+🔄 Q-Learning Steps
+
+```text id="q2"
+Initialize Q-table
+      ↓
+Choose action (ε-greedy)
+      ↓
+Take action
+      ↓
+Observe reward & next state
+      ↓
+Update Q-value
+      ↓
+Repeat
+```
+
+---
+
+🎲 Exploration vs Exploitation
+
+---
+
+📌 ε-Greedy Strategy
+
+* Explore (random action)
+* Exploit (best known action)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🟢 What is SARSA?
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Definition
+
+**SARSA** is an RL algorithm that updates Q-values using:
+
+👉 Current policy
+
+---
+
+📊 Full Form
+
+```text id="sarsa1"
+State → Action → Reward → State → Action
+```
+
+---
+
+📊 SARSA Update Rule
+
+[
+Q(s,a) = Q(s,a) + \alpha [R + γ Q(s',a') - Q(s,a)]
+]
+
+---
+
+🧠 Key Difference
+
+* Q-Learning → Uses **best possible action**
+* SARSA → Uses **actual action taken**
+
+---
+
+⚖️ Q-Learning vs SARSA
+
+---
+
+# 📊 Comparison Table
+
+| Feature  | Q-Learning | SARSA     |
+| -------- | ---------- | --------- |
+| Type     | Off-policy | On-policy |
+| Update   | Max Q      | Actual Q  |
+| Behavior | Greedy     | Safe      |
+| Risk     | Higher     | Lower     |
+
+---
+
+🧠 Intuition
+
+```text id="q3"
+Q-Learning → "What is best possible?"
+SARSA → "What did I actually do?"
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 What is Deep Q-Learning (DQN)?
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Definition
+
+DQN uses:
+
+👉 Neural network instead of Q-table
+
+---
+
+🎯 Why DQN?
+
+Q-table:
+
+❌ Not scalable for large state space
+
+DQN:
+
+✔ Uses deep learning
+✔ Handles complex environments
+
+---
+
+📊 DQN Architecture
+
+```text id="dqn1"
+State → Neural Network → Q-values for all actions
+```
+
+---
+
+🔄 DQN Workflow
+
+```text id="dqn2"
+State → Predict Q-values
+      ↓
+Select action
+      ↓
+Take action
+      ↓
+Store experience
+      ↓
+Train network
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Key Concepts in DQN
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Experience Replay
+
+* Store past experiences
+* Train randomly
+
+👉 Improves stability
+
+---
+
+2️⃣ Target Network
+
+* Separate network for stable updates
+
+---
+
+# 📊 DQN Loss Function
+
+[
+Loss = (R + γ \max Q_{target}(s',a') - Q(s,a))^2
+]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Simple PyTorch DQN Example
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+```python id="dqn_code"
+import torch
+import torch.nn as nn
+
+class DQN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc = nn.Sequential(
+            nn.Linear(4, 64),
+            nn.ReLU(),
+            nn.Linear(64, 2)
+        )
+
+    def forward(self, x):
+        return self.fc(x)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Applications
+
+* Game AI (Atari, Chess)
+* Robotics
+* Self-driving cars
+* Resource allocation
+
+---
+
+⚠️ Challenges
+
+❌ Requires lots of training
+❌ Hyperparameter tuning
+❌ Training instability
+
+---
+
+🧠 Best Practices
+
+✔ Use experience replay
+✔ Use target networks
+✔ Tune learning rate
+✔ Balance exploration
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Summary Comparison
+
+| Algorithm  | Type           | Use Case             |
+| ---------- | -------------- | -------------------- |
+| Q-Learning | Table-based    | Small problems       |
+| SARSA      | Safer learning | Risk-sensitive tasks |
+| DQN        | Deep learning  | Complex environments |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-11 DAY-2 Summary
+
+* Q-Learning learns optimal policy using max Q
+* SARSA learns from actual actions
+* DQN uses neural networks for large problems
+* Key RL concepts: exploration, reward, policy
+* Foundation for advanced RL algorithms
+
