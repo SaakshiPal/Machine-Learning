@@ -1,0 +1,308 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎮 WEEK-11 | DAY-3: Policy Gradient Methods (REINFORCE, PPO, Actor-Critic)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What are Policy Gradient Methods?
+
+Policy Gradient methods directly learn:
+
+👉 **Policy π(a|s)** = probability of taking action *a* in state *s*
+
+Instead of learning value (Q-values), they learn **how to act**.
+
+---
+
+🎯 Key Idea
+
+```text id="pg1"
+State → Policy → Action → Reward → Update Policy
+```
+
+Goal:
+
+👉 Maximize expected reward
+
+---
+
+📊 Policy Function
+
+[
+\pi(a|s; \theta)
+]
+
+Where:
+
+* ( \theta ) = model parameters
+
+---
+
+📐 Objective Function
+
+Maximize expected reward:
+
+[
+J(\theta) = \mathbb{E}[R]
+]
+
+---
+
+📊 Policy Gradient Update
+
+[
+\theta = \theta + \alpha \nabla_\theta J(\theta)
+]
+
+---
+
+🧠 Intuition
+
+👉 Increase probability of good actions
+👉 Decrease probability of bad actions
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔵 1️⃣ REINFORCE Algorithm
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is REINFORCE?
+
+REINFORCE is a **basic policy gradient method**.
+
+---
+
+🔄 Steps
+
+```text id="rein1"
+Run episode
+      ↓
+Collect rewards
+      ↓
+Compute return
+      ↓
+Update policy
+```
+
+---
+
+📊 Update Rule
+
+[
+\theta = \theta + \alpha \cdot \log \pi(a|s) \cdot G
+]
+
+Where:
+
+* (G) = total reward
+
+---
+
+✅ Advantages
+
+✔ Simple
+✔ Easy to implement
+
+---
+
+❌ Disadvantages
+
+❌ High variance
+❌ Slow learning
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🟢 2️⃣ Actor-Critic Method
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is Actor-Critic?
+
+Combines:
+
+👉 Policy-based + Value-based methods
+
+---
+
+🧠 Components
+
+---
+
+🎭 Actor
+
+* Decides action
+* Updates policy
+
+---
+
+🧮 Critic
+
+* Evaluates action
+* Estimates value function
+
+---
+
+📊 Workflow
+
+```text id="ac1"
+State → Actor → Action
+       ↓
+     Critic → Value
+       ↓
+Update Actor & Critic
+```
+
+---
+
+✅ Advantages
+
+✔ Lower variance
+✔ Faster learning
+
+---
+
+❌ Disadvantages
+
+❌ More complex
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔴 3️⃣ PPO (Proximal Policy Optimization)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 What is PPO?
+
+PPO is an advanced policy gradient method that:
+
+👉 Improves stability
+👉 Prevents large updates
+
+---
+
+🎯 Key Idea
+
+Limit policy updates:
+
+```text id="ppo1"
+Small updates → Stable learning
+```
+
+---
+
+📊 PPO Objective
+
+[
+L = \min(r(\theta)A, clip(r(\theta), 1-\epsilon, 1+\epsilon)A)
+]
+
+Where:
+
+* (r(\theta)) = probability ratio
+* (A) = advantage
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Intuition
+
+👉 Avoid drastic changes in policy
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✅ Advantages
+
+✔ Stable training
+✔ High performance
+✔ Widely used in industry
+
+---
+
+❌ Disadvantages
+
+❌ Complex implementation
+
+---
+
+📊 Comparison Table
+
+| Method       | Type         | Stability | Complexity |
+| ------------ | ------------ | --------- | ---------- |
+| REINFORCE    | Policy-based | Low       | Easy       |
+| Actor-Critic | Hybrid       | Medium    | Moderate   |
+| PPO          | Advanced     | High      | Complex    |
+
+---
+
+🔄 Workflow Summary
+
+```text id="pg_flow"
+State
+  ↓
+Policy (Actor)
+  ↓
+Action
+  ↓
+Reward
+  ↓
+Critic Evaluation
+  ↓
+Policy Update
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Key Concepts
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1️⃣ Advantage Function
+
+[
+A(s,a) = Q(s,a) - V(s)
+]
+
+Measures how good an action is.
+
+---
+
+2️⃣ Exploration
+
+* Try new actions
+* Avoid local optimum
+
+---
+
+📊 Applications
+
+* Robotics
+* Game AI
+* Autonomous driving
+* Recommendation systems
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Challenges
+
+❌ High variance
+❌ Requires tuning
+❌ Complex algorithms
+
+---
+
+🧠 Best Practices
+
+✔ Normalize rewards
+✔ Use baseline (reduce variance)
+✔ Use PPO for stable training
+✔ Tune learning rate
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 WEEK-11 DAY-3 Summary
+
+* Policy gradients directly learn policy
+* REINFORCE is basic method
+* Actor-Critic combines value + policy
+* PPO improves stability
+* Used in advanced RL systems
